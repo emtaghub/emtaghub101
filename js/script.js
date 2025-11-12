@@ -15,7 +15,7 @@ const articles = [
     url: "article/osh/general.awareness/other.safety.rule/index.html",
     published: "2025-11-11",
     trending: true
-  }
+  },
   {
     id: 'osh-001',
     title: "Understanding the OSHS General Provisions",
@@ -154,5 +154,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
 
 
