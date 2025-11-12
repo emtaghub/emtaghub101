@@ -581,3 +581,20 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
   }
 }
 
+/* === CLICK FIX: ensure slide-in nav sits on top of header/logo === */
+@media (max-width: 500px) {
+  .main-nav {
+    z-index: 10050 !important;  /* above everything */
+    pointer-events: auto !important;
+  }
+
+  .nav-overlay {
+    z-index: 10040 !important;  /* just under the menu, still clickable */
+    pointer-events: auto !important;
+  }
+
+  .hamburger {
+    z-index: 10060 !important;  /* always topmost for toggling */
+  }
+}
+
