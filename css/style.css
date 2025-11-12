@@ -653,6 +653,29 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
   }
 }
 
+/* --- Hidden Menu (not active) --- */
+.main-nav {
+  pointer-events: none; /* 🚫 prevent blocking clicks */
+}
+
+/* --- Visible Menu --- */
+.main-nav.active {
+  left: 0;
+  pointer-events: auto; /* ✅ enable clicking menu links */
+}
+
+/* --- Overlay Hidden --- */
+.nav-overlay {
+  display: none;
+  pointer-events: none; /* 🚫 make sure it doesn't block */
+}
+
+/* --- Overlay Visible --- */
+.nav-overlay.show {
+  display: block;
+  pointer-events: auto; /* ✅ allow tapping overlay to close menu */
+}
+
 
 
 
