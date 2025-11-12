@@ -621,3 +621,34 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
   }
 }
 
+/* === FINAL CLICK FIX FOR MOBILE NAVIGATION === */
+@media (max-width: 500px) {
+  /* Make sure the header and banner don't block clicks */
+  .site-header,
+  .banner-wrapper,
+  .header-banner,
+  .floating-logo {
+    pointer-events: none !important;
+  }
+
+  /* Allow nav, overlay, and hamburger to receive clicks */
+  .main-nav,
+  .nav-overlay,
+  .hamburger {
+    pointer-events: auto !important;
+  }
+
+  /* Correct stacking order (menu on top of everything) */
+  .main-nav {
+    z-index: 99999 !important;
+  }
+
+  .nav-overlay {
+    z-index: 99998 !important;
+  }
+
+  .hamburger {
+    z-index: 100000 !important;
+  }
+}
+
