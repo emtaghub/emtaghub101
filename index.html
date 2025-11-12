@@ -26,6 +26,8 @@
 =========================================================== -->
 
 <nav class="main-nav" aria-label="Primary navigation">
+<button class="hamburger" aria-label="Toggle navigation menu">☰</button> 
+
   <ul class="nav-list">
     <li><button class="nav-btn active">HOME</button></li>
 
@@ -276,6 +278,15 @@ document.querySelectorAll('.nav-btn, .sub-btn').forEach(button => {
     parent.classList.toggle('open');
   });
 });
+</script>
+	  
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const navList = document.querySelector('.nav-list');
+
+  hamburger.addEventListener('click', () => {
+    navList.classList.toggle('active');
+  });
 </script>
 
 </body>
