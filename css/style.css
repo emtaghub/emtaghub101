@@ -581,28 +581,37 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
   }
 }
 
-/* === FIX CLICK ISSUE FOR MOBILE NAVIGATION === */
+/* ======== FINAL FIX FOR UNCLICKABLE MOBILE NAV ======== */
 
-/* Make sure header doesn't block clicks */
+/* 1️⃣ Make sure header never covers the menu */
 header, .header-banner {
-  z-index: 1000 !important; /* just above page but below menu */
   position: relative;
-}
-
-/* Navigation menu must sit above header & overlay */
-.main-nav {
-  z-index: 5000 !important;
+  z-index: 1 !important;
   pointer-events: auto !important;
 }
 
-/* Overlay behind menu */
+/* 2️⃣ Bring nav to the absolute top of all layers */
+.main-nav {
+  position: fixed !important;
+  z-index: 99999 !important; /* very top */
+  pointer-events: auto !important; /* ensure menu items receive clicks */
+}
+
+/* 3️⃣ Overlay sits below nav, still clickable to close */
 .nav-overlay {
-  z-index: 4000 !important;
-  pointer-events: auto;
+  position: fixed !important;
+  z-index: 99998 !important;
+  pointer-events: auto !important;
 }
 
-/* Hamburger button above everything */
+/* 4️⃣ Hamburger button always on top */
 .hamburger {
-  z-index: 6000 !important;
+  position: relative;
+  z-index: 100000 !important;
+  pointer-events: auto !important;
 }
 
+/* 5️⃣ Optional: prevent header or banner from overlapping unintentionally */
+body, .header-banner, header {
+  overflow: visible !important;
+}
