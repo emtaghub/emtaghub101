@@ -4,18 +4,17 @@
 // --- Article Data ---
 const articles = [
 
-{
-  id: 'osh-001',
-  title: "Understanding the OSHS General Provisions",
-  excerpt: "Learn the key rules that form the foundation of workplace safety and health standards.",
-  image: "images/article/osh/emtaghub101-occupational-safety-health.jpg",
-  category: "OSH General Awareness",
-  url: "article/osh/general.awareness/general.provision/index.html",
-  published: "2025-11-11",
-  trending: true
-}
-
-  
+const articles = [
+  {
+    id: 'osh-001',
+    title: "Understanding the OSHS General Provisions",
+    excerpt: "Learn the key rules that form the foundation of workplace safety and health standards.",
+    image: "images/article/osh/emtaghub101-occupational-safety-health.jpg",
+    category: "OSH General Awareness",
+    url: "article/osh/general.awareness/general.provision/index.html",
+    published: "2025-11-11",
+    trending: true
+  }
 ];
 
 // --- Helpers ---
@@ -102,14 +101,15 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ======================================================
-// 🔍 SEARCH FEATURE — Displays results below input
+// 🔍 SEARCH FEATURE — Works on all pages (GitHub Pages safe)
 // ======================================================
 document.addEventListener("DOMContentLoaded", function () {
   const searchInput = document.getElementById("searchInput");
   const resultBox = document.getElementById("searchResults");
 
-  // Set your GitHub Pages root folder name
-  const basePath = '/emtaghub101/';
+  // Automatically detect GitHub Pages base path (e.g., /emtaghub101/)
+  const pathParts = window.location.pathname.split("/");
+  const basePath = pathParts.length > 1 ? `/${pathParts[1]}/` : "/";
 
   if (searchInput && resultBox) {
     searchInput.addEventListener("input", function () {
@@ -143,5 +143,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-
-
