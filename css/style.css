@@ -545,5 +545,24 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
 }
 
 
+/* === FINAL FIX — Make Mobile Nav Clickable === */
+@media (max-width: 500px) {
+  /* Ensure menu and overlay are above everything */
+  .main-nav,
+  .hamburger,
+  .nav-overlay {
+    z-index: 99999 !important;
+    pointer-events: auto !important;
+  }
+
+  /* Ensure logo/banner do NOT block clicks */
+  .header-banner,
+  .banner-wrapper,
+  .floating-logo {
+    pointer-events: none !important;
+    z-index: auto !important;
+  }
+}
+
 
 
