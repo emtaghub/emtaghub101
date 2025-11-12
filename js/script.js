@@ -44,52 +44,52 @@ function formatDate(iso) {
 
 // --- Populate Home Page ---
 function populateContent() {
+  // Sort by newest first
   const sorted = articles.slice().sort((a, b) => new Date(b.published) - new Date(a.published));
 
-  // 🔹 Frames 1–4 = Most Recent Articles
-  for (let i = 0; i < 4; i++) {
+  // 🔹 Display up to 4 recent articles in top frames (no blanks)
+  for (let i = 0; i < Math.min(4, sorted.length); i++) {
     const a = sorted[i];
     const img = q(`#frame${i + 1}Img`);
     const label = q(`#frame${i + 1}Label`);
     const link = q(`#frame${i + 1}Link`);
-    if (a && img && label && link) {
-      img.src = `${basePath}${a.image || "images/default.jpg"}`;
+
+    if (img && label && link) {
+      img.src = a.image || "images/default.jpg";
       img.alt = a.title;
       label.innerHTML = `${a.title} <br><small style="font-weight:600; font-size:12px; opacity:0.9;">${formatDate(a.published)}</small>`;
-      link.href = `${basePath}${a.url}`;
+      link.href = a.url || "#";
     }
   }
 
-  // 🔹 Featured Articles (rest)
+  // 🔹 Show *all* articles (not only those after frame 4)
   const featured = q("#featuredArticles");
   if (featured) {
     featured.innerHTML = "";
-    sorted.slice(4).forEach(a => {
+    sorted.forEach(a => {
       const card = document.createElement("article");
       card.className = "card";
       card.innerHTML = `
         <div class="card-body">
-          <h4><a href="${basePath}${a.url}">${a.title}</a></h4>
+          <h4><a href="${a.url}">${a.title}</a></h4>
           <p>${a.excerpt}</p>
         </div>`;
       featured.appendChild(card);
     });
   }
 
-  // 🔹 Trending Announcement
+  // 🔹 Trending Announcement (Ticker)
   const ticker = q("#announcementTicker");
   if (ticker) {
     ticker.innerHTML = "";
     const trending = articles.find(a => a.trending) || sorted[0];
     if (trending) {
       const anchor = document.createElement("a");
-      anchor.href = `${basePath}${trending.url}`;
+      anchor.href = trending.url || "#";
       anchor.className = "ticker-glow";
       anchor.textContent = `🔥 FEATURED: ${trending.title} — ${formatDate(trending.published)}`;
       ticker.appendChild(anchor);
     }
   }
 }
-
-
 
