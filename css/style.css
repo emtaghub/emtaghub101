@@ -549,7 +549,7 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
   .main-nav {
     position: absolute; /* inside header */
     top: 20px; /* adjust based on your header height */
-    right: 30px; /* align to right side */
+    right: 20px; /* align to right side */
     background: none;
     color: inherit;
     box-shadow: none;
@@ -560,8 +560,8 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
   .nav-list {
     display: flex;
     flex-direction: row;
-    gap: 20px;
-    align-items: center;
+    gap: 10px;
+    align-items: left;
   }
 
   .nav-btn, .sub-btn {
@@ -578,3 +578,4 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
     color: #00b4ff;
   }
 }
+
