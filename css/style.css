@@ -440,12 +440,12 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
   display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 500px) {
   /* --- Hamburger Button --- */
   .hamburger {
     display: block;
     position: absolute;
-    top: 90px; /* adjust for logo position */
+    top: 70px; /* adjust for logo position */
     left: 10px;
     z-index: 3001;
     background: #004080;
@@ -553,6 +553,7 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
     gap: 15px;
   }
 }
+
 
 
 
