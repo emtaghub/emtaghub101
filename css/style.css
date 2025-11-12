@@ -433,19 +433,22 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
 }
 
 /* =====================================================
-   📱 MOBILE SLIDE-IN NAVIGATION (Gmail Style)
+   📱 MOBILE SLIDE-IN NAVIGATION (Below Header Banner)
    ===================================================== */
 
 .hamburger {
   display: none;
 }
 
+/* =======================================
+   MOBILE STYLES (≤ 500px)
+   ======================================= */
 @media (max-width: 500px) {
   /* --- Hamburger Button --- */
   .hamburger {
     display: block;
     position: absolute;
-    top: 60px; /* adjust for logo position */
+    top: 60px; /* Adjust: should sit inside or below header */
     left: 10px;
     z-index: 3001;
     background: #004080;
@@ -465,27 +468,28 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
   /* --- Navigation Drawer --- */
   .main-nav {
     position: fixed;
-    top: 0;
-    left: -260px; /* hidden by default */
+    /* Instead of sliding from very top, it now starts BELOW your header banner */
+    top: var(--header-height, 120px); /* 👈 Adjust this to match your header height */
+    left: -260px; /* Hidden off-screen */
     width: 250px;
-    height: 100%;
+    height: calc(100% - var(--header-height, 120px)); /* Fills space below header */
     background: #0f1724;
     color: #fff;
-    padding-top: 120px; /* space for logo/header */
     transition: left 0.3s ease;
     z-index: 3000;
     overflow-y: auto;
     box-shadow: 4px 0 10px rgba(0,0,0,0.4);
+    padding-top: 20px;
   }
 
   .main-nav.active {
-    left: 0; /* slide in */
+    left: 0; /* Slides in from left */
   }
 
   /* --- Overlay Behind Drawer --- */
   .nav-overlay {
     position: fixed;
-    top: 0;
+    top: var(--header-height, 120px); /* 👈 Starts below header */
     left: 0;
     right: 0;
     bottom: 0;
@@ -533,29 +537,44 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
   }
 }
 
+/* =======================================
+   DESKTOP STYLES (≥ 769px)
+   ======================================= */
 @media (min-width: 769px) {
   .hamburger, .nav-overlay {
-    display: none;
+    display: none; /* Hidden on desktop */
   }
 
+  /* Main nav sits INSIDE header banner, top-right corner */
   .main-nav {
-    position: static;
-    width: auto;
-    height: auto;
+    position: absolute; /* inside header */
+    top: 20px; /* adjust based on your header height */
+    right: 30px; /* align to right side */
     background: none;
     color: inherit;
     box-shadow: none;
+    width: auto;
+    height: auto;
   }
 
   .nav-list {
     display: flex;
     flex-direction: row;
-    gap: 15px;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .nav-btn, .sub-btn {
+    color: #fff; /* or your header text color */
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 8px 12px;
+    transition: color 0.3s;
+  }
+
+  .nav-btn:hover, .sub-btn:hover {
+    color: #00b4ff;
   }
 }
-
-
-
-
-
-
