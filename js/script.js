@@ -8,7 +8,7 @@ const articles = [
     excerpt: "Discover how Rule 1010 — Other Safety Rules — strengthens workplace safety through real-world applications and examples.",
     image: "images/article/osh/emtaghub101-osh-inspection-kitchen.jpg",
     category: "OSH General Awareness",
-    url: "article/osh/general.awareness/other.safety.rule/index.html",
+    url: "article/osh/general.awareness/general.provision/index.html",
     published: "2025-11-11",
     trending: true
   },
@@ -90,5 +90,6 @@ function populateContent() {
     }
   }
 }
+
 
 
