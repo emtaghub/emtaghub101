@@ -25,9 +25,10 @@
      NAVIGATION MENU (Fixed multi-level dropdown)
 =========================================================== -->
 
-<nav class="main-nav" aria-label="Primary navigation">
-<button class="hamburger" aria-label="Toggle navigation menu">☰</button> 
+<!-- ✅ Hamburger button (should be OUTSIDE nav) -->
+<button class="hamburger" aria-label="Toggle navigation menu">☰</button>
 
+<nav class="main-nav" aria-label="Primary navigation">
   <ul class="nav-list">
     <li><button class="nav-btn active">HOME</button></li>
 
@@ -67,7 +68,7 @@
               <ul class="sub-menu">
                 <li><a href="article/osh/general.awareness/general.provision/index.html">OSH General Provision</a></li>
                 <li><a href="article/osh/general.awareness/other.safety.rule/index.html">OSH Other Safety Rules</a></li>
-				<li><a href="article/osh/general.awareness/employer.role/index.html">Employer's Role on OSH</a></li>
+                <li><a href="article/osh/general.awareness/employer.role/index.html">Employer's Role on OSH</a></li>
               </ul>
             </li>
             <li class="has-sub">
@@ -101,10 +102,8 @@
       </ul>
     </li>
 
-    <li>
-  <button class="nav-btn" onclick="window.location.href='about/index.html'">ABOUT US</button></li>
-    <li>
-  <button class="nav-btn" onclick="window.location.href='contact/index.html'">CONTACT US</button></li>
+    <li><button class="nav-btn" onclick="window.location.href='about/index.html'">ABOUT US</button></li>
+    <li><button class="nav-btn" onclick="window.location.href='contact/index.html'">CONTACT US</button></li>
   </ul>
 </nav>
 
