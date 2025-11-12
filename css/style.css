@@ -34,25 +34,29 @@ img { display: block; max-width: 100%; height: auto; } /* images don't overflow 
   display: block;      /* render as block-level element */
   object-fit: cover;   /* crop image nicely if it needs resizing */
 }
+/* === Floating Logo — Base === */
 .floating-logo {
-  position: absolute;                /* taken out of flow and positioned inside banner wrapper */
-  top: 1rem;                         /* distance from top of banner */
-  left: 1rem;                        /* distance from left of banner */
-  width: 10vw;                       /* responsive width based on viewport width */
-  max-width: 150px;                  /* ensures logo doesn't get enormous on large screens */
-  height: auto;                      /* preserve aspect ratio */
-  z-index: 30;                       /* keep logo above banner */
-  background: rgba(255,255,255,0.6); /* slight white background to make logo readable */
-  padding: 0.25rem;                  /* small internal padding around logo */
-  border-radius: 0.5rem;             /* rounded corners for the logo container */
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 10vw;          /* responsive scaling */
+  max-width: 150px;     /* limit size on large screens */
+  height: auto;
+  z-index: 30;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 0.25rem;
+  border-radius: 0.5rem;
 }
 
-/* MOBILE ADJUSTMENTS */
+/* === Floating Logo — Mobile Adjustment === */
 @media (max-width: 768px) {
   .floating-logo {
-    width: 10vw;   /* larger relative width on small screens for visibility */
-    top: 0.5rem;   /* slightly smaller top offset on mobile */
-    left: 0.5rem;  /* slightly smaller left offset on mobile */
+    width: 80px;         /* fixed smaller size on mobile */
+    max-width: 80px;     /* ensure it doesn’t exceed this width */
+    top: 6px;            /* closer to top */
+    left: 6px;           /* closer to left edge */
+    padding: 2px;        /* reduce padding */
+    background: rgba(255, 255, 255, 0.5);
   }
 }
 
@@ -428,4 +432,5 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
 }
 
 /* end of stylesheet */
+
 
