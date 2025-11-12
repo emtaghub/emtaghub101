@@ -433,122 +433,7 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
 }
 
 /* =====================================================
-   📱 MOBILE HAMBURGER MENU BELOW LOGO
-   ===================================================== */
-@media (max-width: 768px) {
-  /* Hide nav list by default on mobile */
-  .nav-list {
-    display: none;
-    flex-direction: column;
-    background: rgba(0, 0, 0, 0.9);
-    position: absolute;
-    top: 70px; /* appear just below the logo */
-    left: 10px;
-    right: 10px;
-    padding: 15px;
-    border-radius: 10px;
-    z-index: 999;
-  }
-
-  /* When active (after click) */
-  .nav-list.active {
-    display: flex;
-  }
-
-  /* Hamburger button styling */
-  .hamburger {
-    display: block;
-    position: absolute;
-    top: 60px; /* right below your floating logo */
-    left: 10px;
-    background: rgba(0, 0, 0, 0.7);
-    border: none;
-    color: #fff;
-    padding: 10px 14px;
-    font-size: 22px;
-    border-radius: 6px;
-    cursor: pointer;
-    z-index: 1000;
-  }
-
-  /* Keep desktop nav hidden */
-  .main-nav {
-    position: relative;
-  }
-}
-
-/* Desktop mode */
-@media (min-width: 769px) {
-  .hamburger { display: none; }
-  .nav-list { display: flex !important; position: static; background: none; }
-}
-
-
-/* =====================================================
-   📱 MOBILE NAV BELOW FLOATING LOGO
-   ===================================================== */
-
-/* Default: hide hamburger on desktop */
-.hamburger {
-  display: none;
-}
-
-/* --- Mobile view --- */
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-    position: absolute;
-    top: 70px; /* adjust if needed */
-    left: 10px;
-    z-index: 2000; /* keep above banner/logo */
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 24px;
-    padding: 8px 12px;
-    cursor: pointer;
-  }
-
-  .nav-list {
-    display: none;
-    flex-direction: column;
-    background: rgba(0, 0, 0, 0.9);
-    position: absolute;
-    top: 110px; /* just below logo and hamburger */
-    left: 10px;
-    right: 10px;
-    padding: 15px;
-    border-radius: 10px;
-    z-index: 1500;
-  }
-
-  .nav-list.active {
-    display: flex;
-  }
-
-  .nav-list li {
-    margin: 10px 0;
-  }
-
-  .main-nav {
-    position: relative;
-  }
-}
-
-/* Desktop mode: show normal nav */
-@media (min-width: 769px) {
-  .hamburger {
-    display: none;
-  }
-  .nav-list {
-    display: flex !important;
-    position: static;
-    background: none;
-  }
-}
-/* =====================================================
-   📱 MOBILE HAMBURGER MENU FIX (below floating logo)
+   📱 CLEAN MOBILE HAMBURGER MENU FIX
    ===================================================== */
 
 /* Hide hamburger on desktop */
@@ -562,80 +447,62 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
   .hamburger {
     display: block;
     position: absolute;
-    top: 85px; /* adjust if logo is taller */
+    top: 70px; /* adjust vertically depending on logo size */
     left: 10px;
-    z-index: 3000; /* make sure it's above banner/logo */
+    z-index: 3000;
     background: rgba(0, 0, 0, 0.75);
-    color: white;
+    color: #fff;
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     font-size: 26px;
-    padding: 8px 14px;
+    padding: 8px 12px;
     cursor: pointer;
-    transition: background 0.3s ease;
   }
 
-  .hamburger:hover {
-    background: rgba(0, 0, 0, 0.9);
-  }
-
-  /* Hide nav list by default */
+  /* Hide nav by default */
   .nav-list {
     display: none;
     flex-direction: column;
+    background: rgba(0, 0, 0, 0.9);
     position: absolute;
-    top: 130px; /* below banner/logo */
+    top: 110px; /* appears below hamburger */
     left: 10px;
     right: 10px;
-    background: rgba(0, 0, 0, 0.9);
     padding: 15px;
-    border-radius: 12px;
+    border-radius: 10px;
     z-index: 2500;
   }
 
-  /* Show menu when active */
+  /* When active (toggled via JS) */
   .nav-list.active {
     display: flex;
   }
 
-  /* Style items in mobile view */
+  /* Nav buttons stacked vertically */
   .nav-list li {
     margin: 10px 0;
   }
 
-  .nav-btn, .sub-btn {
-    background: none;
-    color: white;
-    font-size: 16px;
-    text-align: left;
-    border: none;
-    width: 100%;
-    padding: 8px 0;
-  }
-
-  .nav-btn:hover, .sub-btn:hover {
-    color: #ffd700;
-  }
-
+  /* Ensure main nav doesn't conflict */
   .main-nav {
     position: relative;
   }
 }
 
-/* Desktop mode: restore original layout */
+/* --- Desktop mode --- */
 @media (min-width: 769px) {
   .hamburger {
     display: none;
   }
+
   .nav-list {
     display: flex !important;
     position: static;
     background: none;
-    padding: 0;
   }
 }
-
 /* end of stylesheet */
+
 
 
 
