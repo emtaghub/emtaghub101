@@ -281,13 +281,16 @@ document.querySelectorAll('.nav-btn, .sub-btn').forEach(button => {
 </script>
 	  
 <script>
-  const hamburger = document.querySelector('.hamburger');
-  const navList = document.querySelector('.nav-list');
+  document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.querySelector(".hamburger");
+    const navList = document.querySelector(".nav-list");
 
-  hamburger.addEventListener('click', () => {
-    navList.classList.toggle('active');
+    hamburger.addEventListener("click", () => {
+      navList.classList.toggle("active");
+    });
   });
 </script>
+
 
 </body>
 </html>
