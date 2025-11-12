@@ -366,7 +366,26 @@
   ===================================================== -->
   <script src="../../../../js/script.js"></script>
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+  
+	  
+	  const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('.main-nav');
+const overlay = document.querySelector('.nav-overlay');
+
+hamburger.addEventListener('click', () => {
+  nav.classList.toggle('active');
+  overlay.classList.toggle('show');
+});
+
+// Close when overlay is clicked
+overlay.addEventListener('click', () => {
+  nav.classList.remove('active');
+  overlay.classList.remove('show');
+});
+
+	  
+	  
+	  document.getElementById("year").textContent = new Date().getFullYear();
 
     // collapsible submenu
     document.querySelectorAll('.nav-btn, .sub-btn').forEach(button => {
@@ -383,3 +402,4 @@
   </script>
 </body>
 </html>
+
