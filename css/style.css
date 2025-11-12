@@ -580,3 +580,29 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
     color: #00b4ff;
   }
 }
+
+/* === FIX CLICK ISSUE FOR MOBILE NAVIGATION === */
+
+/* Make sure header doesn't block clicks */
+header, .header-banner {
+  z-index: 1000 !important; /* just above page but below menu */
+  position: relative;
+}
+
+/* Navigation menu must sit above header & overlay */
+.main-nav {
+  z-index: 5000 !important;
+  pointer-events: auto !important;
+}
+
+/* Overlay behind menu */
+.nav-overlay {
+  z-index: 4000 !important;
+  pointer-events: auto;
+}
+
+/* Hamburger button above everything */
+.hamburger {
+  z-index: 6000 !important;
+}
+
