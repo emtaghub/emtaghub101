@@ -107,6 +107,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const searchInput = document.getElementById("searchInput");
   const resultBox = document.getElementById("searchResults");
 
+  // Set your GitHub Pages root folder name
+  const basePath = '/emtaghub101/';
+
   if (searchInput && resultBox) {
     searchInput.addEventListener("input", function () {
       const term = this.value.toLowerCase().trim();
@@ -128,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const item = document.createElement("div");
         item.className = "search-item";
         item.innerHTML = `
-          <a href="/emtaghub101/${a.url}">
+          <a href="${basePath}${a.url}">
             <h4>${a.title}</h4>
             <p>${a.excerpt}</p>
           </a>`;
