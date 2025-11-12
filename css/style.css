@@ -441,7 +441,7 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
 }
 
 /* =======================================
-   MOBILE STYLES (≤ 500px)
+   MOBILE STYLES (≤ 800px)
    ======================================= */
 @media (max-width: 500px) {
   /* --- Hamburger Button --- */
@@ -651,5 +651,6 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
     z-index: 100000 !important;
   }
 }
+
 
 
