@@ -581,37 +581,3 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
   }
 }
 
-/* ======== FINAL FIX FOR UNCLICKABLE MOBILE NAV ======== */
-
-/* 1️⃣ Make sure header never covers the menu */
-header, .header-banner {
-  position: relative;
-  z-index: 1 !important;
-  pointer-events: auto !important;
-}
-
-/* 2️⃣ Bring nav to the absolute top of all layers */
-.main-nav {
-  position: fixed !important;
-  z-index: 99999 !important; /* very top */
-  pointer-events: auto !important; /* ensure menu items receive clicks */
-}
-
-/* 3️⃣ Overlay sits below nav, still clickable to close */
-.nav-overlay {
-  position: fixed !important;
-  z-index: 99998 !important;
-  pointer-events: auto !important;
-}
-
-/* 4️⃣ Hamburger button always on top */
-.hamburger {
-  position: relative;
-  z-index: 100000 !important;
-  pointer-events: auto !important;
-}
-
-/* 5️⃣ Optional: prevent header or banner from overlapping unintentionally */
-body, .header-banner, header {
-  overflow: visible !important;
-}
