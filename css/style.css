@@ -433,20 +433,21 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
 }
 
 /* =====================================================
-   📱 MOBILE HAMBURGER MENU — FIXED ALIGNMENT
+   📱 MOBILE SLIDE-IN NAVIGATION (Gmail Style)
    ===================================================== */
 
 .hamburger {
   display: none;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 768px) {
+  /* --- Hamburger Button --- */
   .hamburger {
     display: block;
     position: absolute;
-    top: 50px; /* slightly below your floating logo */
+    top: 80px; /* adjust for logo position */
     left: 15px;
-    z-index: 3000;
+    z-index: 3001;
     background: #004080;
     color: #fff;
     border: none;
@@ -461,72 +462,94 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
     background: #0066cc;
   }
 
+  /* --- Navigation Drawer --- */
   .main-nav {
-    position: absolute;
-    top: 130px; /* 👈 aligns dropdown just below hamburger */
+    position: fixed;
+    top: 0;
+    left: -260px; /* hidden by default */
+    width: 250px;
+    height: 100%;
+    background: #0f1724;
+    color: #fff;
+    padding-top: 120px; /* space for logo/header */
+    transition: left 0.3s ease;
+    z-index: 3000;
+    overflow-y: auto;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.4);
+  }
+
+  .main-nav.active {
+    left: 0; /* slide in */
+  }
+
+  /* --- Overlay Behind Drawer --- */
+  .nav-overlay {
+    position: fixed;
+    top: 0;
     left: 0;
-    width: 100%;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
     z-index: 2500;
   }
 
+  .nav-overlay.show {
+    display: block;
+  }
+
+  /* --- Menu List --- */
   .nav-list {
-    display: none;
-    flex-direction: column;
-    background: rgba(0, 0, 0, 0.95);
-    margin: 0;
-    padding: 15px;
-    border-radius: 10px;
-    width: calc(100% - 30px);
-    margin-left: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    animation: slideDown 0.3s ease;
-  }
-
-  .nav-list.active {
     display: flex;
-  }
-
-  .nav-list li {
-    margin: 10px 0;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 15px;
   }
 
   .nav-btn, .sub-btn {
-    color: #fff;
     background: none;
     border: none;
+    color: #fff;
     font-size: 16px;
     text-align: left;
+    padding: 10px 0;
+    cursor: pointer;
     width: 100%;
   }
 
-  /* ✅ Smooth dropdown animation */
-  @keyframes slideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .nav-btn:hover, .sub-btn:hover {
+    color: #00b4ff;
+  }
+
+  .sub-menu {
+    display: none;
+    padding-left: 15px;
+    border-left: 2px solid #004080;
+    margin-top: 5px;
+  }
+
+  .has-sub.open > .sub-menu {
+    display: block;
   }
 }
 
 @media (min-width: 769px) {
-  .hamburger {
+  .hamburger, .nav-overlay {
     display: none;
   }
 
   .main-nav {
     position: static;
+    width: auto;
+    height: auto;
+    background: none;
+    color: inherit;
+    box-shadow: none;
   }
 
   .nav-list {
-    display: flex !important;
-    position: static;
-    background: none;
-    box-shadow: none;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
   }
 }
-
-
