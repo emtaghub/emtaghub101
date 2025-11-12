@@ -450,7 +450,7 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
     position: absolute;
     top: 60px; /* Adjust: should sit inside or below header */
     left: 10px;
-    z-index: 3001;
+    z-index: 5001; /* 🔼 make sure it's above everything */
     background: #004080;
     color: #fff;
     border: none;
@@ -468,18 +468,18 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
   /* --- Navigation Drawer --- */
   .main-nav {
     position: fixed;
-    /* Instead of sliding from very top, it now starts BELOW your header banner */
-    top: var(--header-height, 120px); /* 👈 Adjust this to match your header height */
-    left: -260px; /* Hidden off-screen */
+    top: var(--header-height, 120px); /* 👈 below header */
+    left: -260px; /* hidden off-screen */
     width: 250px;
-    height: calc(100% - var(--header-height, 120px)); /* Fills space below header */
+    height: calc(100% - var(--header-height, 120px));
     background: #0f1724;
     color: #fff;
     transition: left 0.3s ease;
-    z-index: 3000;
+    z-index: 5000; /* 🔼 raised above overlay & header */
     overflow-y: auto;
     box-shadow: 4px 0 10px rgba(0,0,0,0.4);
     padding-top: 20px;
+    pointer-events: auto; /* ✅ ensures clickable elements inside */
   }
 
   .main-nav.active {
@@ -489,13 +489,14 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
   /* --- Overlay Behind Drawer --- */
   .nav-overlay {
     position: fixed;
-    top: var(--header-height, 120px); /* 👈 Starts below header */
+    top: var(--header-height, 120px); /* 👈 below header */
     left: 0;
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
     display: none;
-    z-index: 2500;
+    z-index: 4000; /* 🔽 sits behind the menu */
+    pointer-events: auto; /* ✅ clickable for closing */
   }
 
   .nav-overlay.show {
@@ -555,13 +556,14 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
     box-shadow: none;
     width: auto;
     height: auto;
+    z-index: 1000; /* keep on top but below header logo if needed */
   }
 
   .nav-list {
     display: flex;
     flex-direction: row;
     gap: 10px;
-    align-items: left;
+    align-items: center; /* fixed alignment */
   }
 
   .nav-btn, .sub-btn {
@@ -578,4 +580,3 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
     color: #00b4ff;
   }
 }
-
