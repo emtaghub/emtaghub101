@@ -432,89 +432,224 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
   .main-nav { right:12px; top:12px; } /* ensure nav doesn't overlap */
 }
 
-/* === Mobile Styles for Navigation === */
-@media (max-width: 768px) {
-  /* Site Header should not interfere with clicks */
-  .site-header, .banner-wrapper, .header-banner, .floating-logo {
-    position: relative !important;
-    z-index: 1 !important; /* Ensure these elements are below the navigation */
-    pointer-events: none; /* Disable interaction for these elements */
-  }
+/* =====================================================
+   📱 MOBILE SLIDE-IN NAVIGATION (Below Header Banner)
+   ===================================================== */
 
-  /* Hamburger button should be at the top-right corner */
+.hamburger {
+  display: none;
+}
+
+/* =======================================
+   MOBILE STYLES (≤ 500px)
+   ======================================= */
+@media (max-width: 500px) {
+  /* --- Hamburger Button --- */
   .hamburger {
-    z-index: 999999 !important;
-    position: fixed;
-    top: 20px; /* Adjust as needed */
-    right: 20px; /* Adjust as needed */
-    font-size: 30px;
+    display: block;
+    position: absolute;
+    top: 60px; /* Adjust: should sit inside or below header */
+    left: 10px;
+    z-index: 5001; /* 🔼 make sure it's above everything */
+    background: #004080;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 28px;
+    padding: 8px 10px;
     cursor: pointer;
+    transition: background 0.3s;
   }
 
-  /* Main Navigation Styles */
+  .hamburger:hover {
+    background: #0066cc;
+  }
+
+  /* --- Navigation Drawer --- */
   .main-nav {
-    position: fixed !important;
-    top: 0;
-    left: -260px; /* Initially off-screen */
+    position: fixed;
+    top: var(--header-height, 120px); /* 👈 below header */
+    left: -260px; /* hidden off-screen */
     width: 250px;
-    height: 100vh;
+    height: calc(100% - var(--header-height, 120px));
     background: #0f1724;
-    transition: left 0.3s ease-in-out;
-    z-index: 999998; /* Ensure it's above the banner but below the hamburger */
+    color: #fff;
+    transition: left 0.3s ease;
+    z-index: 5000; /* 🔼 raised above overlay & header */
+    overflow-y: auto;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.4);
+    padding-top: 20px;
+    pointer-events: auto; /* ✅ ensures clickable elements inside */
   }
 
-  /* When active, it will slide in */
   .main-nav.active {
-    left: 0 !important;
+    left: 0; /* Slides in from left */
   }
 
-  /* Overlay Styles (darkens the background) */
+  /* --- Overlay Behind Drawer --- */
   .nav-overlay {
     position: fixed;
-    top: 0;
+    top: var(--header-height, 120px); /* 👈 below header */
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    right: 0;
+    bottom: 0;
     background: rgba(0, 0, 0, 0.5);
     display: none;
-    z-index: 999997; /* Ensure it's below the navigation */
+    z-index: 4000; /* 🔽 sits behind the menu */
+    pointer-events: auto; /* ✅ clickable for closing */
   }
 
-  /* Show the overlay when active */
   .nav-overlay.show {
     display: block;
   }
 
-  /* Navigation items should be properly visible and clickable */
+  /* --- Menu List --- */
   .nav-list {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 15px;
   }
 
-  .nav-btn {
-    padding: 10px;
-    text-align: left;
+  .nav-btn, .sub-btn {
     background: none;
     border: none;
-    width: 100%;
-    color: white;
-    font-size: 18px;
+    color: #fff;
+    font-size: 16px;
+    text-align: left;
+    padding: 10px 0;
     cursor: pointer;
+    width: 100%;
   }
 
-  .nav-btn:hover {
-    background-color: #1e293b;
+  .nav-btn:hover, .sub-btn:hover {
+    color: #00b4ff;
   }
 
-  /* Handle submenu items properly */
   .sub-menu {
     display: none;
-    padding-left: 20px;
+    padding-left: 15px;
+    border-left: 2px solid #004080;
+    margin-top: 5px;
   }
 
-  .has-sub.open .sub-menu {
+  .has-sub.open > .sub-menu {
     display: block;
   }
 }
+
+/* =======================================
+   DESKTOP STYLES (≥ 769px)
+   ======================================= */
+@media (min-width: 769px) {
+  .hamburger, .nav-overlay {
+    display: none; /* Hidden on desktop */
+  }
+
+  /* Main nav sits INSIDE header banner, top-right corner */
+  .main-nav {
+    position: absolute; /* inside header */
+    top: 20px; /* adjust based on your header height */
+    right: 20px; /* align to right side */
+    background: none;
+    color: inherit;
+    box-shadow: none;
+    width: auto;
+    height: auto;
+    z-index: 1000; /* keep on top but below header logo if needed */
+  }
+
+  .nav-list {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center; /* fixed alignment */
+  }
+
+  .nav-btn, .sub-btn {
+    color: #fff; /* or your header text color */
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 8px 12px;
+    transition: color 0.3s;
+  }
+
+  .nav-btn:hover, .sub-btn:hover {
+    color: #00b4ff;
+  }
+}
+
+/* === CLICK FIX: ensure slide-in nav sits on top of header/logo === */
+@media (max-width: 500px) {
+  .main-nav {
+    z-index: 10050 !important;  /* above everything */
+    pointer-events: auto !important;
+  }
+
+  .nav-overlay {
+    z-index: 10040 !important;  /* just under the menu, still clickable */
+    pointer-events: auto !important;
+  }
+
+  .hamburger {
+    z-index: 10060 !important;  /* always topmost for toggling */
+  }
+}
+
+/* === FINAL FIX: make mobile slide-in nav clickable === */
+@media (max-width: 500px) {
+  .banner-wrapper,
+  .header-banner {
+    pointer-events: none !important; /* 🧱 disable click blocking from banner */
+  }
+
+  .main-nav,
+  .nav-overlay,
+  .hamburger {
+    pointer-events: auto !important; /* 🖱 allow menu + overlay clicks */
+    z-index: 10050 !important;       /* ensure on top */
+  }
+
+  .nav-overlay {
+    z-index: 10040 !important; /* just below the menu */
+  }
+
+  .hamburger {
+    z-index: 10060 !important; /* above all */
+  }
+}
+
+/* === FINAL CLICK FIX FOR MOBILE NAVIGATION === */
+@media (max-width: 500px) {
+  /* Make sure the header and banner don't block clicks */
+  .site-header,
+  .banner-wrapper,
+  .header-banner,
+  .floating-logo {
+    pointer-events: none !important;
+  }
+
+  /* Allow nav, overlay, and hamburger to receive clicks */
+  .main-nav,
+  .nav-overlay,
+  .hamburger {
+    pointer-events: auto !important;
+  }
+
+  /* Correct stacking order (menu on top of everything) */
+  .main-nav {
+    z-index: 99999 !important;
+  }
+
+  .nav-overlay {
+    z-index: 99998 !important;
+  }
+
+  .hamburger {
+    z-index: 100000 !important;
+  }
+}
+
+
