@@ -445,8 +445,8 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
   .hamburger {
     display: block;
     position: absolute;
-    top: 150px; /* adjust for logo position */
-    left: 15px;
+    top: 90px; /* adjust for logo position */
+    left: 10px;
     z-index: 3001;
     background: #004080;
     color: #fff;
@@ -553,5 +553,6 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
     gap: 15px;
   }
 }
+
 
 
