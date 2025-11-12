@@ -10,7 +10,7 @@ const articles = [
     id: 'osh-002',
     title: "👉 Explore Rule 1010: Other Safety Rules | Explanation and Practical Examples (OSHS Philippines)",
     excerpt: "Learn the key rules that form the foundation of workplace safety and health standards.",
-    image: "images/article/osh/emtaghub101-occupational-safety-health.jpg",
+    image: "images/article/osh/emtaghub101-osh-inspection-kitchen.jpg",
     category: "OSH General Awareness",
     url: "article/osh/general.awareness/other.safety.rule/index.html",
     published: "2025-11-11",
@@ -154,4 +154,5 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
 
