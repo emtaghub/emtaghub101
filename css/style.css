@@ -432,7 +432,60 @@ article.card blockquote { font-style: italic; border-left: 4px solid #666; paddi
   .main-nav { right:12px; top:12px; } /* ensure nav doesn't overlap */
 }
 
+/* =====================================================
+   📱 MOBILE HAMBURGER MENU BELOW LOGO
+   ===================================================== */
+@media (max-width: 768px) {
+  /* Hide nav list by default on mobile */
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 70px; /* appear just below the logo */
+    left: 10px;
+    right: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    z-index: 999;
+  }
+
+  /* When active (after click) */
+  .nav-list.active {
+    display: flex;
+  }
+
+  /* Hamburger button styling */
+  .hamburger {
+    display: block;
+    position: absolute;
+    top: 60px; /* right below your floating logo */
+    left: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    color: #fff;
+    padding: 10px 14px;
+    font-size: 22px;
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  /* Keep desktop nav hidden */
+  .main-nav {
+    position: relative;
+  }
+}
+
+/* Desktop mode */
+@media (min-width: 769px) {
+  .hamburger { display: none; }
+  .nav-list { display: flex !important; position: static; background: none; }
+}
+
+
 /* end of stylesheet */
+
 
 
 
