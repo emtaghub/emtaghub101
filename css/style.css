@@ -33,7 +33,7 @@ body {
   position: sticky; 
   top: 0; 
   z-index: 100; 
-  height: 53px; /* Ensure consistent header height */
+  height: 53px; 
 }
 
 .logo {
@@ -45,18 +45,12 @@ body {
   position: relative; 
 }
 
-/* Default Desktop Navigation */
+/* --- DEFAULT STATE: HIDDEN --- */
+/* Mobile drawer must be hidden by default on ALL screen sizes unless explicitly shown. */
 .nav-links {
-  display: flex; 
   list-style: none; 
+  display: none; /* Crucial: Start hidden to prevent layout issues */
   gap: 20px; 
-  /* Reset mobile specific properties for desktop */
-  position: static; 
-  height: auto;
-  width: auto;
-  transform: none;
-  box-shadow: none;
-  padding: 0;
 }
 
 .nav-links a {
@@ -67,6 +61,20 @@ body {
 
 .nav-links a:hover {
   color: #ffcc00; 
+}
+
+/* === Desktop Navigation Visibility (Only for screens > 768px) === */
+@media (min-width: 769px) {
+    .nav-links {
+        display: flex; /* Show desktop links only on large screens */
+        /* Reset mobile properties */
+        position: static; 
+        height: auto;
+        width: auto;
+        transform: none;
+        box-shadow: none;
+        padding: 0;
+    }
 }
 
 /* === Desktop Dropdown Navigation === */
@@ -309,7 +317,7 @@ body {
 
   /* --- DRAWER MENU STYLES --- */
   .nav-links {
-    display: flex; 
+    display: flex; /* Override global display: none to enable flex for column layout */
     flex-direction: column; 
     
     /* Fixed position for full-screen overlay */
@@ -332,7 +340,7 @@ body {
     overflow-y: auto; 
   }
 
-  /* NEW: State when 'active' class is added (menu opened) */
+  /* State when 'active' class is added (menu opened) */
   .nav-links.active {
     transform: translateX(0); /* Slides into view */
   }
