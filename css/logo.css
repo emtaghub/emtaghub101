@@ -28,15 +28,16 @@
 @media (max-width: 768px) {
     .logo-area {
         /* On small screens, center the logo at the very top */
-        left: 10%;
+        left: 5%;
         top: 10px; 
         transform: translateX(-50%); /* Center horizontally */
     }
     .header-logo {
         /* REDUCED SIZE FOR MOBILE LOGO */
-        max-width: 30px; 
+        max-width: 40px; 
     }
 
 }
+
 
 
