@@ -3,13 +3,11 @@
     background-color: #1A2338; /* Deep Navy Blue from Logo */
     color: white;
     
-    /* MODIFIED: Combined all padding into one line. 
-       Increased LEFT padding to 100px to push content right. 
-       Used 20px top padding for logo clearance.
-       Format: [Top] [Right] [Bottom] [Left] */
+    /* Desktop padding: Pushes content away from the left (100px) and top (20px) */
+    /* Format: [Top] [Right] [Bottom] [Left] */
     padding: 20px 20px 15px 100px; 
     
-    /* Align all banner text content to the left */
+    /* Align all banner text content to the left on desktop */
     text-align: left; 
     
     margin-bottom: 20px;
@@ -18,25 +16,24 @@
 }
 
 .banner-area h1 {
-    /* Desktop font size remains 1.5em */
     font-size: 1.5em; 
     margin-bottom: 3px;
     margin-top: 5px; 
     
-    /* MODIFIED: Removed max-width. The content is now constrained by the 
-       right padding of the .banner-area (20px) and the navigation area. 
-       This allows the text to flow better to the right without forcing a break. */
-    max-width: none;
+    /* ⭐ DESKTOP FIX: Add a generous right margin to push text away from navigation */
+    margin-right: 250px; 
+    /* Set max-width to ensure text wrapping is clean */
+    max-width: 60%; 
 }
 
 .banner-area p {
-    /* Desktop font size remains 1em */
     font-size: 1em; 
     opacity: 0.9;
     margin-top: 0;
     
-    /* MODIFIED: Removed max-width */
-    max-width: none;
+    /* ⭐ DESKTOP FIX: Add a generous right margin to push text away from navigation */
+    margin-right: 250px;
+    max-width: 60%;
 }
 
 /* ------------------------------------- */
@@ -51,11 +48,15 @@
     .banner-area h1 {
         /* ORIGINAL MOBILE SETTINGS KEPT */
         font-size: .8em; 
-        max-width: 100%; /* Removed desktop constraint */
+        max-width: 100%; /* Revert width constraint */
+        /* ⭐ MOBILE FIX: Override desktop margin to ensure centering works */
+        margin-right: 0; 
     }
     .banner-area p {
         /* ORIGINAL MOBILE SETTINGS KEPT */
         font-size: 0.6em;
-        max-width: 100%; /* Removed desktop constraint */
+        max-width: 100%; /* Revert width constraint */
+        /* ⭐ MOBILE FIX: Override desktop margin to ensure centering works */
+        margin-right: 0;
     }
 }
