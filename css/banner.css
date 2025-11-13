@@ -2,8 +2,7 @@
 .banner-area {
     background-color: #1A2338; /* Deep Navy Blue from Logo */
     color: white;
-    /* REVISED PADDING: Increased top padding to 20px (from 5px) 
-       to ensure banner text clears the logo and navigation on desktop. */
+    /* Desktop padding */
     padding: 20px 20px 15px 20px; 
     text-align: center;
     margin-bottom: 20px;
@@ -12,14 +11,15 @@
 }
 
 .banner-area h1 {
-    /* Significantly reduced font size to help shrink the banner */
+    /* Desktop font size remains the same */
     font-size: 1.5em; 
     margin-bottom: 3px;
-    margin-top: 5px; /* Added small top margin for spacing */
+    margin-top: 5px; 
 }
 
 .banner-area p {
-    font-size: 1em; /* Reduced size */
+    /* Desktop font size remains the same */
+    font-size: 1em; 
     opacity: 0.9;
     margin-top: 0;
 }
@@ -29,14 +29,15 @@
 /* ------------------------------------- */
 @media (max-width: 768px) {
     .banner-area {
-        /* CRITICAL MOBILE ADJUSTMENT: Maintained sufficient top padding (60px) 
-           to ensure banner text clears the absolutely positioned logo and hamburger icon. */
+        /* CRITICAL MOBILE ADJUSTMENT: Sufficient top padding */
         padding: 60px 15px 20px 15px; 
     }
     .banner-area h1 {
-        font-size: 1.4em; 
+        /* FURTHER REDUCED MOBILE H1: from 1.4em to 1.2em */
+        font-size: 1.2em; 
     }
     .banner-area p {
-        font-size: 0.9em;
+        /* FURTHER REDUCED MOBILE P: from 0.9em to 0.8em */
+        font-size: 0.8em;
     }
 }
