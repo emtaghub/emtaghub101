@@ -36,7 +36,7 @@
         <li><a href="#">Contact Us</a></li>
       </ul>
 
-      <div class="hamburger">
+      <div class="hamburger" onclick="toggleNav()">
         <span></span><span></span><span></span>
       </div>
     </nav>
@@ -75,9 +75,29 @@
     </section>
   </main>
 
+  <!-- Navigation Overlay (hidden by default) -->
+  <div class="nav-overlay" id="navOverlay">
+    <div class="close-btn" onclick="closeNav()">×</div>
+    <nav class="main-nav" aria-label="Primary navigation">
+      <ul class="nav-list">
+        <li><button class="nav-btn active" data-target="home">HOME</button></li>
+        <li><button class="nav-btn" data-target="safety">SAFETY & SECURITY</button></li>
+        <li><button class="nav-btn" data-target="it">INFORMATION TECHNOLOGY</button></li>
+        <li><button class="nav-btn" data-target="diy">DIY & Practical Living</button></li>
+        <li><button class="nav-btn" data-target="about">ABOUT</button></li>
+        <li><button class="nav-btn" data-target="contact">CONTACT US</button></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- ========================= FOOTER ========================= -->
+  <footer class="footer">
+    <p>&copy; 2025 EMTAGHub101. All rights reserved.</p>
+    <p>Your one-stop hub for knowledge, safety, security, technology innovation, inspirations, and self-development inspirations. Crafting learning through articles, insights, and narratives that educate, empower, and inspire.</p>
+    <p>Contact: <a href="mailto:emtaghub101@gmail.com">emtaghub101@gmail.com</a></p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="#">Disclaimer</a></p>
+  </footer>
+
   <script src="js/script.js"></script>
-  
 </body>
 </html>
-
-
