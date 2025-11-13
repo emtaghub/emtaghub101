@@ -1,6 +1,6 @@
 /* Styling for the large header area below the logo/nav */
 .banner-area {
-    background-color: #0B3C5D; /* Primary Blue */
+    background-color: #1A2338; /* Primary Blue */
     color: white;
     /* REDUCED PADDING: Use minimal vertical padding to shrink the banner height */
     padding: 5px 20px 15px 20px; 
@@ -40,6 +40,7 @@
     }
 
 }
+
 
 
 
