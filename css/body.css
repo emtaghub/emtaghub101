@@ -1,4 +1,15 @@
 /* Global styling for the body and main layout */
+
+/* CRITICAL FIX: Ensures padding and border are included inside the element's width, 
+   preventing horizontal scrollbars when using width: 100% and padding together. */
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0; /* CRITICAL: Remove default browser margin */
