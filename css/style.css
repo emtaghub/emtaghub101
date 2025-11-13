@@ -17,7 +17,7 @@ body {
   background-color: var(--light);
   color: var(--dark);
   line-height: 1.5;
-  padding: 0 20px; /* Added padding to both left and right */
+  padding: 0 20px;
 }
 
 /* ========================= HEADER ========================= */
@@ -58,7 +58,7 @@ body {
   color: #ffcc00;
 }
 
-/* === Stable Dropdown Navigation === */
+/* === Stable Dropdown Navigation (Desktop) === */
 .dropdown {
   position: relative;
 }
@@ -83,6 +83,7 @@ body {
   min-width: 180px;
   transition: all 0.25s ease;
   pointer-events: none;
+  z-index: 99; /* Ensure submenu is above main content */
 }
 
 .dropdown:hover .dropdown-menu {
@@ -297,6 +298,7 @@ body {
     width: 200px;
     border-radius: 0 0 10px 10px;
     transition: transform 0.3s ease-in-out;
+    z-index: 90;
   }
 
   .nav-links.active {
@@ -328,25 +330,44 @@ body {
     position: relative;
   }
 
-  /* Mobile Dropdown Menu */
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: var(--light);
-    border-radius: 6px;
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: all 0.25s ease;
-    pointer-events: none;
-  }
+  /* === FIX: Mobile Dropdown Menu Styling === */
 
-  .dropdown.active .dropdown-menu {
+  .dropdown {
+    width: 100%; /* Ensure the parent LI takes full width */
+  }
+    
+  /* CRITICAL FIXES FOR CLICKABILITY: Overrides desktop visibility/positioning */
+  .dropdown-menu {
+    position: static; /* Forces submenu to stack vertically in the list */
+    width: 100%;
+    background: transparent; /* Seamlessly blend with the main menu background */
+    box-shadow: none; 
+    border-radius: 0; 
+        
+    /* Hiding based on JS toggle */
+    display: none; /* Start hidden */
+
+    /* Ensure links are fully accessible when shown */
     visibility: visible;
     opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+    transform: none;
+    pointer-events: auto; /* IMPORTANT: Ensures links are clickable */
+    padding: 0 0 5px 15px; /* Slight indentation */
+  }
+    
+  /* CRITICAL: Show the submenu when the parent <li> has the 'active' class from JS */
+  .dropdown.active .dropdown-menu {
+    display: block;
+  }
+
+  /* Submenu links style adjustment for stacking */
+  .dropdown-menu li a {
+    color: white; /* Ensure text is visible on the primary background */
+    padding: 5px 15px 5px 15px; /* Adjust padding for better look */
+  }
+    
+  .dropdown-menu li a:hover {
+    background: #ffcc00;
+    color: var(--primary);
   }
 }
-
