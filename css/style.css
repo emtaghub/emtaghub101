@@ -314,11 +314,17 @@ body {
   }
 
   .content {
-    flex-direction: column;
+    flex-direction: column; /* Stacks content vertically on mobile */
+    gap: 20px;
+  }
+
+  .articles {
+    width: 100%; /* Ensures articles take up full width */
   }
 
   .youtube-section {
-    width: 100%;
+    width: 100%; /* YouTube section takes full width on mobile */
+    margin-top: 20px; /* Adds space between articles and YouTube section */
   }
 
   #searchInput {
