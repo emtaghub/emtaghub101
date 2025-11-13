@@ -1,296 +1,294 @@
 /* ========================= RESET ========================= */
 * {
-  margin: 0; /* Removes default outer spacing (margin) from all elements */
-  padding: 0; /* Removes default inner spacing (padding) from all elements */
-  box-sizing: border-box; /* Sets box model to include padding and border within the element's width/height */
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
 }
 
 /* Define CSS variables for easy color management */
 :root {
-  --primary: #004080; /* Primary brand color (dark blue) */
-  --dark: #0f1724; /* Dark text/element color */
-  --muted: #6b7280; /* Muted/grayed text color */
-  --light: #f8f9fa; /* Light background color (off-white) */
+  --primary: #004080; 
+  --dark: #0f1724; 
+  --muted: #6b7280; 
+  --light: #f8f9fa; 
 }
 
 /* Base styles for the document body */
 body {
-  font-family: "Segoe UI", Arial, sans-serif; /* Sets a clear, sans-serif font stack */
-  background-color: var(--light); /* Applies the light background variable */
-  color: var(--dark); /* Applies the dark text color variable */
-  line-height: 1.5; /* Sets standard line height for readability */
-  padding: 0 20px; /* Adds 20px padding to the left and right of the body content */
+  font-family: "Segoe UI", Arial, sans-serif; 
+  background-color: var(--light); 
+  color: var(--dark); 
+  line-height: 1.5; 
+  padding: 0 20px; 
 }
 
 /* ========================= HEADER ========================= */
 /* Styling for the main header element */
 .header {
-  display: flex; /* Enables flexbox layout for aligning logo and navbar */
-  justify-content: space-between; /* Puts maximum space between the logo and navbar */
-  align-items: center; /* Vertically centers items in the header */
-  background-color: var(--primary); /* Sets the header background to primary dark blue */
-  padding: 15px 20px; /* Adds top/bottom and left/right padding */
-  color: white; /* Sets text color inside the header to white */
-  position: sticky; /* Makes the header stick to the top when scrolling */
-  top: 0; /* Pins the header to the very top edge */
-  z-index: 100; /* Sets a high stacking order to keep the header above content */
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  background-color: var(--primary); 
+  padding: 15px 20px; 
+  color: white; 
+  position: sticky; 
+  top: 0; 
+  z-index: 100; 
 }
 
 .logo {
-  font-size: 1.4rem; /* Larger font size for the logo */
-  font-weight: bold; /* Makes the logo text bold */
+  font-size: 1.4rem; 
+  font-weight: bold; 
 }
 
 .navbar {
-  position: relative; /* Sets up a reference point for absolute-positioned elements (like the mobile menu) */
+  position: relative; 
 }
 
 .nav-links {
-  display: flex; /* Displays links horizontally using flexbox */
-  list-style: none; /* Removes default bullet points from the list */
-  gap: 20px; /* Adds consistent spacing between each link item */
+  display: flex; 
+  list-style: none; 
+  gap: 20px; 
 }
 
 .nav-links a {
-  color: white; /* Sets link text color to white */
-  text-decoration: none; /* Removes the default underline */
-  font-weight: 500; /* Sets medium font weight */
+  color: white; 
+  text-decoration: none; 
+  font-weight: 500; 
 }
 
 .nav-links a:hover {
-  color: #ffcc00; /* Changes link color to yellow/gold on hover */
+  color: #ffcc00; 
 }
 
 /* === Stable Dropdown Navigation (Desktop) === */
 .dropdown {
-  position: relative; /* Essential for positioning the dropdown menu absolutely relative to this item */
+  position: relative; 
 }
 
 .dropdown > a {
-  position: relative; /* Needed to establish a stacking context */
-  z-index: 10; /* Ensures the main link is above the hidden submenu when transitioning */
+  position: relative; 
+  z-index: 10; 
 }
 
 .dropdown-menu {
-  visibility: hidden; /* Hides the submenu visually */
-  opacity: 0; /* Makes the submenu transparent for a fade-in effect */
-  transform: translateY(10px); /* Moves the submenu down slightly for a slide-in effect */
-  position: absolute; /* Takes the submenu out of the normal document flow */
-  top: 100%; /* Positions the submenu directly below the parent link */
-  left: 0; /* Aligns the submenu with the left edge of the parent item */
-  background: white; /* Sets a white background for the menu panel */
-  color: var(--dark); /* Sets the text color inside the submenu */
-  border-radius: 6px; /* Rounds the corners of the menu panel */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Adds a subtle shadow */
-  list-style: none; /* Removes bullet points */
-  min-width: 180px; /* Ensures the menu has a minimum width */
-  transition: all 0.25s ease; /* Smooth transition for visibility, opacity, and transform */
-  pointer-events: none; /* Prevents clicks on the hidden element (crucial for desktop) */
-  z-index: 99; /* Stacking order for the submenu */
+  visibility: hidden; 
+  opacity: 0; 
+  transform: translateY(10px); 
+  position: absolute; 
+  top: 100%; 
+  left: 0; 
+  background: white; 
+  color: var(--dark); 
+  border-radius: 6px; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
+  list-style: none; 
+  min-width: 180px; 
+  transition: all 0.25s ease; 
+  pointer-events: none; 
+  z-index: 99; 
 }
 
 .dropdown:hover .dropdown-menu {
-  visibility: visible; /* Makes the submenu visually appear */
-  opacity: 1; /* Makes the submenu fully opaque (fades in) */
-  transform: translateY(0); /* Slides the submenu up to its final position */
-  pointer-events: auto; /* Allows links inside the submenu to be clicked */
+  visibility: visible; 
+  opacity: 1; 
+  transform: translateY(0); 
+  pointer-events: auto; 
 }
 
 .dropdown-menu li a {
-  display: block; /* Makes the entire block of the list item clickable */
-  padding: 10px 15px; /* Adds padding around the link text */
-  color: var(--dark); /* Sets link text color to dark */
-  text-decoration: none; /* Removes underline */
-  transition: background 0.2s; /* Smooth transition for the hover background */
+  display: block; 
+  padding: 10px 15px; 
+  color: var(--dark); 
+  text-decoration: none; 
+  transition: background 0.2s; 
 }
 
 .dropdown-menu li a:hover {
-  background: var(--primary); /* Changes background to primary dark blue */
-  color: #fff; /* Changes text color to white */
+  background: var(--primary); 
+  color: #fff; 
 }
 
 /* Hamburger Icon */
 .hamburger {
-  display: none; /* Hides the hamburger icon by default (desktop view) */
-  flex-direction: column; /* Stacks the spans (lines) vertically */
-  gap: 5px; /* Spacing between the three lines */
-  cursor: pointer; /* Changes cursor to a pointer on hover */
-  z-index: 103; /* FIX: Highest z-index for clickability */
+  display: none; 
+  flex-direction: column; 
+  gap: 5px; 
+  cursor: pointer; 
+  z-index: 103; 
 }
 
 /* Styling for the individual lines (spans) of the hamburger icon */
 .hamburger span {
-  width: 25px; /* Width of each line */
-  height: 3px; /* Height (thickness) of each line */
-  background: white; /* Color of the lines */
-  border-radius: 3px; /* Slightly rounded ends */
+  width: 25px; 
+  height: 3px; 
+  background: white; 
+  border-radius: 3px; 
 }
 
 /* ========================= ANNOUNCEMENT ========================= */
-/* Styling for the announcement banner section */
 .announcement {
-  display: flex; /* Enables flexbox layout */
-  justify-content: space-between; /* Spaces the text and the search box */
-  align-items: center; /* Vertically aligns the content */
-  background: #e9f3ff; /* Light blue background */
-  border-left: 5px solid var(--primary); /* Thick blue border on the left */
-  border-radius: 8px; /* Rounds the corners */
-  padding: 10px 15px; /* Inner padding */
-  margin: 20px 0; /* Outer top/bottom margin */
-  flex-wrap: wrap; /* Allows content to wrap to the next line on small screens */
-  gap: 10px; /* Spacing between wrapped items */
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  background: #e9f3ff; 
+  border-left: 5px solid var(--primary); 
+  border-radius: 8px; 
+  padding: 10px 15px; 
+  margin: 20px 0; 
+  flex-wrap: wrap; 
+  gap: 10px; 
 }
 
 .announcement-text {
-  flex: 1; /* Allows the text to grow and take up available space */
-  min-width: 200px; /* Minimum width before wrapping */
+  flex: 1; 
+  min-width: 200px; 
 }
 
 .announcement-text h2 {
-  font-size: 1rem; /* Standard font size */
-  font-weight: 600; /* Semi-bold font */
-  color: var(--dark); /* Dark text color */
-  display: flex; /* Enables flex for aligning icon and text */
-  align-items: center; /* Vertically centers the text components */
-  gap: 6px; /* Spacing between icon/emoji and text */
-  margin: 0; /* Removes default margin */
+  font-size: 1rem; 
+  font-weight: 600; 
+  color: var(--dark); 
+  display: flex; 
+  align-items: center; 
+  gap: 6px; 
+  margin: 0; 
 }
 
 .latest-blink {
-  color: var(--primary); /* Primary blue color */
-  cursor: pointer; /* Pointer cursor on hover */
-  font-weight: bold; /* Makes text bold */
-  animation: blinkText 1.2s infinite; /* Applies the blinking animation */
+  color: var(--primary); 
+  cursor: pointer; 
+  font-weight: bold; 
+  animation: blinkText 1.2s infinite; 
 }
 
 @keyframes blinkText {
-  0%, 50%, 100% { opacity: 1; } /* Fully opaque at start, middle, and end */
-  25%, 75% { opacity: 0.3; } /* Partially transparent in between */
+  0%, 50%, 100% { opacity: 1; } 
+  25%, 75% { opacity: 0.3; } 
 }
 
 .latest-blink:hover {
-  color: #ff6600; /* Changes color to orange on hover */
-  text-decoration: underline; /* Adds an underline */
+  color: #ff6600; 
+  text-decoration: underline; 
 }
 
 /* ========================= SEARCH ========================= */
 .search-box {
-  position: relative; /* Reference point for the absolute-positioned results dropdown */
-  width: 100%; /* Default width */
-  max-width: 300px; /* Maximum width limit */
+  position: relative; 
+  width: 100%; 
+  max-width: 300px; 
 }
 
 #searchInput {
-  width: 100%; /* Takes full width of the container */
-  padding: 8px 12px; /* Inner padding */
-  border: 1px solid #ccc; /* Light gray border */
-  border-radius: 6px; /* Rounded corners */
-  outline: none; /* Removes default focus outline */
-  transition: all 0.3s ease; /* Smooth transition for focus effect */
+  width: 100%; 
+  padding: 8px 12px; 
+  border: 1px solid #ccc; 
+  border-radius: 6px; 
+  outline: none; 
+  transition: all 0.3s ease; 
 }
 
 #searchInput:focus {
-  border-color: var(--primary); /* Changes border color to primary blue on focus */
-  box-shadow: 0 0 3px rgba(0, 64, 128, 0.3); /* Adds a subtle blue shadow */
+  border-color: var(--primary); 
+  box-shadow: 0 0 3px rgba(0, 64, 128, 0.3); 
 }
 
 /* Search Results Dropdown container */
 #searchResults {
-  display: none; /* Hides the results dropdown by default */
-  position: absolute; /* Positions the results outside the normal flow */
-  top: 105%; /* Positions slightly below the input field */
-  left: 0; /* Aligns with the left edge of the search box */
-  width: 100%; /* Takes full width of the search box */
-  background: white; /* White background */
-  border: 1px solid #ddd; /* Light gray border */
-  border-radius: 6px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
-  max-height: 200px; /* Limits the height of the dropdown */
-  overflow-y: auto; /* Allows vertical scrolling if results exceed max-height */
-  z-index: 20; /* Stacking order */
+  display: none; 
+  position: absolute; 
+  top: 105%; 
+  left: 0; 
+  width: 100%; 
+  background: white; 
+  border: 1px solid #ddd; 
+  border-radius: 6px; 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+  max-height: 200px; 
+  overflow-y: auto; 
+  z-index: 20; 
 }
 
 .search-item {
-  padding: 8px 12px; /* Inner padding */
-  cursor: pointer; /* Changes cursor to pointer */
+  padding: 8px 12px; 
+  cursor: pointer; 
 }
 
 .search-item:hover {
-  background: #e9f3ff; /* Light blue background on hover */
+  background: #e9f3ff; 
 }
 
 .no-result {
-  padding: 8px 12px; /* Inner padding */
-  color: var(--muted); /* Muted gray text color */
+  padding: 8px 12px; 
+  color: var(--muted); 
 }
 
 /* ========================= CONTENT ========================= */
-/* Styling for the main content wrapper (articles + YouTube sidebar) */
 .content {
-  display: flex; /* Enables flexbox layout for side-by-side columns */
-  gap: 20px; /* Spacing between the articles column and the YouTube sidebar */
-  align-items: flex-start; /* Aligns content to the top */
-  flex-wrap: wrap; /* Allows columns to stack on mobile */
+  display: flex; 
+  gap: 20px; 
+  align-items: flex-start; 
+  flex-wrap: wrap; 
 }
 
 .articles {
-  flex: 3; /* Allows the articles container to take 3 times the space of the sidebar */
-  display: grid; /* Enables CSS Grid layout */
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Creates a responsive grid of cards */
-  gap: 20px; /* Spacing between grid items (article cards) */
+  flex: 3; 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  gap: 20px; 
 }
 
 .article-card {
-  background: white; /* White background for the card */
-  border-radius: 10px; /* Rounded corners */
-  overflow: hidden; /* Clips content that overflows the border radius */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  cursor: pointer; /* Pointer cursor */
-  text-decoration: none; /* Removes underline */
-  color: inherit; /* Inherits text color from parent */
-  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover transition */
+  background: white; 
+  border-radius: 10px; 
+  overflow: hidden; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+  cursor: pointer; 
+  text-decoration: none; 
+  color: inherit; 
+  transition: transform 0.2s ease, box-shadow 0.2s ease; 
 }
 
 .article-card:hover {
-  transform: translateY(-5px); /* Lifts the card slightly */
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Enhances the shadow */
+  transform: translateY(-5px); 
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15); 
 }
 
 .article-card img {
-  width: 100%; /* Image takes full width of the card */
-  height: 160px; /* Fixed height */
-  object-fit: cover; /* Ensures the image covers the area without distortion */
+  width: 100%; 
+  height: 160px; 
+  object-fit: cover; 
 }
 
 .article-card-content {
-  padding: 15px; /* Padding for the text content area of the card */
+  padding: 15px; 
 }
 
 .article-card-content h3 {
-  color: var(--primary); /* Primary blue title color */
-  font-size: 1.1rem; /* Slightly larger title font */
+  color: var(--primary); 
+  font-size: 1.1rem; 
 }
 
 .article-card-content p {
-  color: var(--muted); /* Muted gray text color */
-  margin-top: 8px; /* Top margin for spacing */
-  font-size: 0.95rem; /* Slightly smaller text */
+  color: var(--muted); 
+  margin-top: 8px; 
+  font-size: 0.95rem; 
 }
 
 .article-card-content small {
-  display: block; /* Ensures the date takes its own line */
-  margin-top: 8px; /* Top margin for spacing */
-  color: #777; /* Dark gray color */
+  display: block; 
+  margin-top: 8px; 
+  color: #777; 
 }
 
 /* ========================= YOUTUBE SECTION ========================= */
 .youtube-section {
-  flex: 1; /* Allows the sidebar to take 1 unit of space */
-  background: white; /* White background */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  padding: 15px; /* Inner padding */
-  min-width: 280px; /* Ensures the sidebar doesn't shrink too much */
+  flex: 1; 
+  background: white; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+  padding: 15px; 
+  min-width: 280px; 
 }
 
 /* ========================= RESPONSIVE ========================= */
@@ -303,42 +301,49 @@ body {
 
   /* Hides the desktop navigation links by default on mobile */
   .nav-links {
-    display: none; /* Hides the menu */
-    flex-direction: column; /* Stacks links vertically */
-    background: var(--primary); /* Uses primary color for the menu background */
-    position: absolute; /* Positions the menu relative to the header */
-    top: 54px; /* ADJUSTED: Ensures the menu aligns perfectly to the bottom of the header */
-    right: 0; /* Aligns the menu to the right edge */
-    width: 200px; /* Sets a fixed width for the mobile menu */
-    border-radius: 0 0 10px 10px; /* Rounds the bottom corners */
-    transition: transform 0.3s ease-in-out; /* Smooth transition for opening/closing */
-    z-index: 90; /* Stacking order for the open menu */
+    display: none; 
+    flex-direction: column; 
+    background: var(--primary); 
+    position: absolute; 
+    
+    /* FIX: Adjusted for zero gap */
+    top: 53px; 
+    
+    /* FIX: Force alignment to the right edge */
+    right: 0 !important; 
+    
+    /* Optional: Ensure menu spans full width to the edge, minus body padding */
+    width: calc(100vw - 0px); 
+    
+    border-radius: 0 0 10px 10px; 
+    transition: transform 0.3s ease-in-out; 
+    z-index: 90; 
   }
 
   /* State: When the 'active' class is added by JavaScript (menu opened) */
   .nav-links.active {
-    display: flex; /* Displays the menu */
+    display: flex; 
   }
 
   /* Makes the hamburger icon visible on mobile */
   .hamburger {
-    display: flex; /* Shows the hamburger icon */
+    display: flex; 
   }
 
   /* Adjusts announcement section layout for mobile */
   .announcement {
-    flex-direction: column; /* Stacks text and search box vertically */
-    align-items: flex-start; /* Aligns content to the left */
-    padding-left: 15px; /* Adds back padding lost from body reset */
-    padding-right: 15px; /* Adds back padding lost from body reset */
-    margin-left: 10px; /* Adds spacing from the left edge */
-    margin-right: 10px; /* Adds spacing from the right edge */
+    flex-direction: column; 
+    align-items: flex-start; 
+    padding-left: 15px; 
+    padding-right: 15px; 
+    margin-left: 10px; 
+    margin-right: 10px; 
   }
   
   /* Adjusts content padding */
   .content {
-    flex-direction: column; /* Stacks articles and YouTube sidebar vertically */
-    padding: 0 10px; /* Add slight padding for content inside the body */
+    flex-direction: column; 
+    padding: 0 10px; 
   }
   
   /* Ensures YouTube section takes full mobile width */
@@ -354,7 +359,7 @@ body {
   /* Sets the navbar context */
   .navbar {
     position: relative;
-    z-index: 102; /* FIX: Added z-index to navigation container */
+    z-index: 102; 
   }
 
   /* === Mobile Dropdown Menu Styling (Submenu Clickability) === */
