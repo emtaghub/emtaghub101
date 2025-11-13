@@ -318,12 +318,13 @@ body {
     /* VERTICAL POSITION: Keeps it right below the header. */
     top: 53px; 
     
-    /* FIX: Anchor 10px from the left edge (to match content padding). */
-    left: 10px;   
+    /* CRITICAL FIX: Offset by -10px to push the menu box out of the header's 20px padding 
+       and align its edges with the content's 10px margin. */
+    left: -10px;   
     right: auto; 
     
-    /* FIX: Set width to leave a 10px gap on the right (100% - 20px total spacing). */
-    width: calc(100% - 20px); 
+    /* WIDTH FIX: Stretches the box by 20px (10px on each side) to match the content area width. */
+    width: calc(100% + 20px); 
     
     /* Add padding back for internal spacing and centered look */
     padding: 10px 0; 
@@ -355,14 +356,14 @@ body {
     align-items: flex-start; 
     padding-left: 15px; 
     padding-right: 15px; 
-    margin-left: 10px; /* This sets the left alignment for the announcement box */
-    margin-right: 10px; /* This sets the right alignment for the announcement box */
+    margin-left: 10px; 
+    margin-right: 10px; 
   }
   
   /* Adjusts content padding. */
   .content {
     flex-direction: column; 
-    padding: 0 10px; /* This sets the 10px padding for the main content wrapper */
+    padding: 0 10px; 
   }
 
   /* REORDERING FIXES: Set the order of the main content blocks on mobile. */
