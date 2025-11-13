@@ -45,10 +45,11 @@ body {
   position: relative; 
 }
 
-/* 🔑 FIX: Global/Default state is the Desktop state. */
+/* --- DEFAULT STATE: HIDDEN --- */
+/* Mobile drawer must be hidden by default on ALL screen sizes unless explicitly shown. */
 .nav-links {
   list-style: none; 
-  display: flex; /* Default Desktop Display */
+  display: none; /* Crucial: Start hidden to prevent layout issues */
   gap: 20px; 
 }
 
@@ -62,19 +63,18 @@ body {
   color: #ffcc00; 
 }
 
-/* 🔑 FIX: The mobile-only element must be hidden on desktop */
-.close-btn-container, 
+/* 🔑 FIX: Hide the mobile close button elements on desktop */
+.close-btn-container,
 #navCloseButton {
     display: none;
 }
 
 /* === Desktop Navigation Visibility (Only for screens > 768px) === */
-/* NOTE: This block is now redundant, but kept for clarity/safety. */
 @media (min-width: 769px) {
     .nav-links {
-        /* Ensure full desktop layout */
+        display: flex; /* Show desktop links only on large screens */
+        /* Reset mobile properties */
         position: static; 
-        display: flex;
         height: auto;
         width: auto;
         transform: none;
@@ -147,7 +147,7 @@ body {
   border-radius: 3px; 
 }
 
-/* ========================= ANNOUNCEMENT/CONTENT/SEARCH ========================= */
+/* ========================= ANNOUNCEMENT/CONTENT/SEARCH (No changes) ========================= */
 .announcement {
   display: flex; 
   justify-content: space-between; 
@@ -321,17 +321,17 @@ body {
         display: flex; 
     }
 
-    /* --- CLOSE BUTTON STYLES --- */
-    /* 🔑 FIX: Make close button visible on mobile */
+    /* 🔑 FIX: Make close button visible and styled on mobile */
     .close-btn-container {
-        display: block; /* Show the container */
+        display: block; /* Overrides the desktop 'display: none' */
+        /* Restore specific list item overrides */
         border-bottom: none !important;
         padding: 0;
         margin-bottom: 20px;
         text-align: right;
     }
     #navCloseButton {
-        display: block; /* Show the button */
+        display: block; /* Overrides the desktop 'display: none' */
         background: transparent;
         border: none;
         color: white;
@@ -346,7 +346,7 @@ body {
 
     /* --- DRAWER MENU STYLES --- */
     .nav-links {
-        /* 🔑 FIX: Override desktop properties for mobile drawer */
+        display: flex; /* Override global display: none to enable flex for column layout */
         flex-direction: column; 
         
         /* Fixed position for full-screen overlay */
@@ -361,20 +361,17 @@ body {
         box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2); 
         padding: 60px 20px 20px; 
         
-        /* HIDE: Slide 100% of its width to the right */
+        /* START HIDDEN: Slide 100% of its width to the right */
         transform: translateX(100%); 
         transition: transform 0.3s ease-in-out; 
         z-index: 105; 
         list-style: none;
-        overflow-y: auto;
-        
-        /* 🔑 FIX: HIDE the entire menu on mobile by default */
-        display: none; 
+        overflow-y: auto; 
     }
-    /* 🔑 FIX: Only show the menu when 'active' is present */
+
+    /* State when 'active' class is added (menu opened) */
     .nav-links.active {
-        display: flex; /* Show and slide into view */
-        transform: translateX(0); 
+        transform: translateX(0); /* Slides into view */
     }
 
     .nav-links li {
