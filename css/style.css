@@ -318,14 +318,12 @@ body {
     /* VERTICAL POSITION: Keeps it right below the header. */
     top: 53px; 
     
-    /* ANCHOR FIX: Starts the menu at the left edge. */
-    right: auto; 
-    left: 0; 
+    /* CRITICAL FIX: Anchor to both left and right edges, stretching the box fully. */
+    left: 0;   /* <-- FIX: Anchor to the left edge */
+    right: 0;  /* <-- FIX: Anchor to the right edge */
+    width: auto; /* <-- FIX: Allows it to stretch fully between left and right */
     
-    /* WIDTH: Stretches the menu to the full width. */
-    width: 100vw; 
-    
-    /* FIX: Add padding to the container for vertical spacing and overall alignment. */
+    /* Add padding back for internal spacing and centered look */
     padding: 10px 0; 
     
     border-radius: 0 0 10px 10px; 
@@ -407,7 +405,6 @@ body {
     opacity: 1;
     transform: none;
     pointer-events: auto;
-    /* Removed old padding/indentation since we are centering now */
     padding: 0; 
   }
     
