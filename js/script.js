@@ -188,3 +188,27 @@ if (hamburger && navLinks) {
     navLinks.classList.toggle("active");
   });
 }
+
+// ===============================
+// 🍔 Dropdown Submenu Toggle on Mobile
+// ===============================
+const dropdowns = document.querySelectorAll(".dropdown");
+
+dropdowns.forEach((dropdown) => {
+  const dropdownToggle = dropdown.querySelector("a");
+
+  dropdownToggle.addEventListener("click", (event) => {
+    // Prevent link navigation (default behavior)
+    event.preventDefault();
+    
+    // Toggle active class for this dropdown
+    dropdown.classList.toggle("active");
+
+    // Close other dropdowns (optional behavior)
+    dropdowns.forEach((otherDropdown) => {
+      if (otherDropdown !== dropdown) {
+        otherDropdown.classList.remove("active");
+      }
+    });
+  });
+});
