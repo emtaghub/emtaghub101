@@ -45,11 +45,10 @@ body {
   position: relative; 
 }
 
-/* --- DEFAULT STATE: HIDDEN --- */
-/* Mobile drawer must be hidden by default on ALL screen sizes unless explicitly shown. */
+/* 🔑 FIX: Global/Default state is the Desktop state. */
 .nav-links {
   list-style: none; 
-  display: none; /* Crucial: Start hidden to prevent layout issues */
+  display: flex; /* Default Desktop Display */
   gap: 20px; 
 }
 
@@ -63,12 +62,19 @@ body {
   color: #ffcc00; 
 }
 
+/* 🔑 FIX: The mobile-only element must be hidden on desktop */
+.close-btn-container, 
+#navCloseButton {
+    display: none;
+}
+
 /* === Desktop Navigation Visibility (Only for screens > 768px) === */
+/* NOTE: This block is now redundant, but kept for clarity/safety. */
 @media (min-width: 769px) {
     .nav-links {
-        display: flex; /* Show desktop links only on large screens */
-        /* Reset mobile properties */
+        /* Ensure full desktop layout */
         position: static; 
+        display: flex;
         height: auto;
         width: auto;
         transform: none;
@@ -141,7 +147,7 @@ body {
   border-radius: 3px; 
 }
 
-/* ========================= ANNOUNCEMENT/CONTENT/SEARCH (No changes) ========================= */
+/* ========================= ANNOUNCEMENT/CONTENT/SEARCH ========================= */
 .announcement {
   display: flex; 
   justify-content: space-between; 
@@ -315,16 +321,17 @@ body {
         display: flex; 
     }
 
-    /* --- CLOSE BUTTON STYLES (New) --- */
+    /* --- CLOSE BUTTON STYLES --- */
+    /* 🔑 FIX: Make close button visible on mobile */
     .close-btn-container {
-        /* Remove the border added to all other list items */
+        display: block; /* Show the container */
         border-bottom: none !important;
         padding: 0;
         margin-bottom: 20px;
-        text-align: right; /* Pushes the button to the right side of the drawer */
+        text-align: right;
     }
-
     #navCloseButton {
+        display: block; /* Show the button */
         background: transparent;
         border: none;
         color: white;
@@ -333,14 +340,13 @@ body {
         cursor: pointer;
         padding: 5px 10px;
     }
-
     #navCloseButton:hover {
         color: #ffcc00;
     }
 
     /* --- DRAWER MENU STYLES --- */
     .nav-links {
-        display: flex; /* Override global display: none to enable flex for column layout */
+        /* 🔑 FIX: Override desktop properties for mobile drawer */
         flex-direction: column; 
         
         /* Fixed position for full-screen overlay */
@@ -353,21 +359,22 @@ body {
         
         background-color: var(--primary); 
         box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2); 
-        /* Adjusted padding to make room for the close button if it was absolutely positioned,
-           but 60px 20px 20px is fine for flow layout now. */
         padding: 60px 20px 20px; 
         
-        /* START HIDDEN: Slide 100% of its width to the right */
+        /* HIDE: Slide 100% of its width to the right */
         transform: translateX(100%); 
         transition: transform 0.3s ease-in-out; 
         z-index: 105; 
         list-style: none;
-        overflow-y: auto; 
+        overflow-y: auto;
+        
+        /* 🔑 FIX: HIDE the entire menu on mobile by default */
+        display: none; 
     }
-
-    /* State when 'active' class is added (menu opened) */
+    /* 🔑 FIX: Only show the menu when 'active' is present */
     .nav-links.active {
-        transform: translateX(0); /* Slides into view */
+        display: flex; /* Show and slide into view */
+        transform: translateX(0); 
     }
 
     .nav-links li {
