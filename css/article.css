@@ -7,32 +7,28 @@
 
 /* Define CSS variables for easy color management throughout the stylesheet. */
 :root {
-  --primary: #004080; /* Blue */
+  --primary: #004080;
   --dark: #0f1724;
   --muted: #6b7280;
   --light: #f8f9fa;
-  --article-bg: #f4f4f4; /* Article-specific background */
 }
 
-/* ========================= BASE & LAYOUT WRAPPER ========================= */
+/* ===================== BODY STYLES (FROM BLOCK 2) ===================== */
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  line-height: 1.5;
-  padding: 0 20px;
-  background-color: var(--light);
-  color: var(--dark);
-  transition: padding 0.3s ease;
-  /* Ensure footer sticks to bottom */
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  font-family: 'Georgia', serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0; /* Changed from 0 20px to 0 for better mobile control */
+  background-color: #f4f4f4; /* Used color from block 2 */
+  color: #333; /* Used color from block 2 */
 }
 
+/* Class added by JS to prevent background scrolling on mobile when menu is open */
 body.menu-open {
   overflow: hidden;
 }
 
-/* ========================= HEADER & NAV (Standard styles) ========================= */
+/* ========================= HEADER (Desktop & Mobile) ========================= */
 .header {
   display: flex;
   justify-content: space-between;
@@ -45,195 +41,201 @@ body.menu-open {
   z-index: 100;
   height: 53px;
 }
-.logo { font-size: 1.4rem; font-weight: bold; }
-.nav-links { list-style: none; display: none; gap: 20px; }
-.nav-links a { color: white; text-decoration: none; font-weight: 500; }
-.nav-links a:hover { color: #ffcc00; }
-@media (min-width: 769px) {
-    .nav-links { display: flex; position: static; height: auto; width: auto; transform: none; box-shadow: none; padding: 0; }
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
 }
-/* ... (Rest of dropdown and hamburger styles omitted for brevity but should be included) ... */
 
+.navbar {
+  position: relative;
+}
 
-/* ========================= MAIN CONTAINER (Desktop Layout) ========================= */
-.container {
-  display: flex;
-  justify-content: space-between;
+/* --- DEFAULT STATE: HIDDEN --- */
+.nav-links {
+  list-style: none;
+  display: none; /* Crucial: Start hidden to prevent layout issues */
   gap: 20px;
-  padding: 0;
-  width: 100%;
-  max-width: 1310px;
-  margin: 20px auto;
-  box-sizing: border-box;
-  /* FIX: Puts the sidebar (second element in HTML) on the RIGHT of .article-main */
-  flex-direction: row-reverse; 
 }
 
-/* ===================== ARTICLE MAIN SECTION (Left Column) ===================== */
-.article-main {
-  flex: 0 0 70%; /* Desktop width */
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #ffcc00;
+}
+
+/* === Desktop Navigation Visibility (Only for screens > 768px) === */
+@media (min-width: 769px) {
+    .nav-links {
+        display: flex; /* Show desktop links only on large screens */
+        /* Reset mobile properties */
+        position: static;
+        height: auto;
+        width: auto;
+        transform: none;
+        box-shadow: none;
+        padding: 0;
+    }
+}
+
+/* === Desktop Dropdown Navigation === */
+.dropdown {
+  position: relative;
+}
+
+.dropdown > a {
+  position: relative;
+  z-index: 10;
+}
+
+.dropdown-menu {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(10px);
+  position: absolute;
+  top: 100%;
+  left: 0;
   background: white;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  margin-bottom: 20px;
-  min-height: 500px;
-  
-  /* NEW: Setup for internal content layout */
-  display: flex;
-  flex-direction: column;
-  order: 2; 
+  color: var(--dark);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  list-style: none;
+  min-width: 180px;
+  transition: all 0.25s ease;
+  pointer-events: none;
+  z-index: 99;
 }
 
-.article-title { order: 1; font-size: 2.2rem; margin-bottom: 5px; color: var(--dark); }
-.article-meta { order: 2; margin-bottom: 15px; color: var(--muted); font-size: 0.9rem; }
-
-/* ===================== DESKTOP: TABLOID IMAGE (FLEX LAYOUT) ===================== */
-.article-tabloid-image {
-    /* Desktop: Make it small and left-aligned */
-    width: 150px;
-    margin: 0 15px 10px 0; 
-    border-radius: 4px;
-    overflow: hidden;
-    order: 3; /* Mobile ordering */
+.dropdown:hover .dropdown-menu {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
-.article-tabloid-image img {
-    width: 100%;
-    height: auto;
-    display: block;
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 15px;
+  color: var(--dark);
+  text-decoration: none;
+  transition: background 0.2s;
 }
 
-/* NEW: Use Flexbox for Title/Meta/Image/Body block */
-.article-main {
-    /* Set up main content section as a flex container */
-    display: flex;
-    flex-direction: column;
+.dropdown-menu li a:hover {
+  background: var(--primary);
+  color: #fff;
 }
 
-/* NEW: Apply a secondary flex container to put the image next to the text on desktop */
-.article-main > .article-body-content {
-    /* Set to flex to arrange image and text horizontally if needed, but 
-       we'll use the .article-main itself for the image placement */
-    order: 4; /* Mobile ordering */
-    display: block; /* Default to block flow */
-}
-
-/* Target the first few elements for desktop layout */
-.article-main > .article-tabloid-image {
-    /* Use float for simple wrapping *around* the image on desktop */
-    float: left;
-}
-
-/* ===================== SIDEBAR SECTION (Right Column) ===================== */
-.sidebar {
-  flex: 0 0 30%; 
-  background: white;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  margin-bottom: 20px;
-  display: flex;
+/* Hamburger Icon (Hidden on desktop) */
+.hamburger {
+  display: none;
   flex-direction: column;
-  gap: 20px; 
-  order: 1; /* Desktop order: Right side */
+  gap: 5px;
+  cursor: pointer;
+  z-index: 103;
+  transition: all 0.3s ease-in-out;
 }
 
-/* Sidebar internal order: YouTube (1), Quick Links (2) */
-.youtube-section { order: 1; }
-.quick-links { order: 2; }
-/* ... (Rest of sidebar styling remains standard) ... */
-
-/* ========================= FOOTER ========================= */
-.footer {
-  margin-top: auto; 
-  background-color: #f1f1f1;
-  padding: 20px;
-  text-align: center;
-  font-size: 14px;
-  color: #333;
-  width: 100%;
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
 }
 
-
-/* ========================= MOBILE MODE FIXES (<= 768px) ========================= */
+/* ========================= RESPONSIVE DRAWER NAVIGATION (<= 768px) ========================= */
 @media (max-width: 768px) {
-  
-  body { padding: 0; overflow-x: hidden; } 
-  
-  /* --- ARTICLE/SIDEBAR CONTAINER RESET (Stack vertically) --- */
-  .container {
-    flex-direction: column; 
-    padding: 15px; 
-    margin: 0 auto; 
-    gap: 15px;
+  /* Hides body padding on mobile */
+  body {
+    padding: 0;
+    overflow-x: hidden;
   }
   
-  .article-main, .sidebar {
-    width: 100%; 
-    margin-bottom: 0; 
-    padding: 0; 
-    background: none; 
+  /* Makes the hamburger icon visible and position fixed for alignment with the drawer */
+  .hamburger {
+    display: flex;
+    position: fixed; /* Pin to the viewport */
+    top: 15px;
+    right: 20px;
+    z-index: 110; 
+  }
+
+  /* --- HAMBURGER TO CLOSE (X) TRANSFORMATION --- */
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+  /* --- DRAWER MENU STYLES --- */
+  .nav-links {
+    display: flex; /* Override global display: none */
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 280px;
+    max-width: 80%;
+    background-color: var(--primary);
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+    padding: 70px 20px 20px; 
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 105;
+    list-style: none;
+    overflow-y: auto;
+  }
+
+  /* State when 'active' class is added (menu opened) */
+  .nav-links.active {
+    transform: translateX(0); /* Slides into view */
+  }
+
+  .nav-links li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: block;
+    padding: 8px 0;
+    transition: color 0.2s;
+    text-align: left;
+  }
+
+  /* Mobile Dropdown Styling for the Drawer */
+  .dropdown { width: 100%; padding: 0; }
+  
+  .dropdown-menu {
+    position: static;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.1);
     box-shadow: none;
+    border-radius: 0;
+    display: none;
+    padding: 5px 0 5px 15px;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
   }
+    
+  .dropdown.active .dropdown-menu { display: block; }
 
-  /* --- ARTICLE MAIN INTERNAL ORDERING --- */
-  
-  /* 1. Title/Meta (Order 1/2) - Done in the default class above. */
-  
-  /* 2. Quick Links (Order 3) - MUST be achieved by placing the Quick Link wrapper BEFORE the article body */
-  .sidebar {
-      order: 3; /* The whole sidebar container moves up */
-      gap: 15px;
-  }
-  
-  /* 2a. Quick Links must be order 1 inside sidebar */
-  .sidebar > .quick-links {
-      order: 1; /* Quick Links (Order 3 overall) */
-      padding: 15px; background: white; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* 3. Tabloid Image (Order 4) */
-  .article-tabloid-image {
-      float: none; /* Disable desktop float */
-      width: 100%;
-      margin: 0; 
-      order: 4; /* Tabloid Image */
-      padding: 15px; background: white; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* 4. Article Context (Order 5) */
-  .article-main > .article-body-content {
-      order: 5; /* Article Context Body */
-      padding: 15px; /* Apply padding to content elements */
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      margin-top: 15px;
-  }
+  .dropdown-menu li a { color: white; text-align: left; padding: 5px 0; }
+    
+  .dropdown-menu li a:hover { background: transparent; color: #ffcc00; }
 
-  /* Reset padding/background on h2/p inside the new wrapper */
-  .article-main > .article-body-content h2,
-  .article-main > .article-body-content p,
-  .article-main > .article-body-content ul,
-  .article-main > .article-body-content figure {
-      padding: 0;
-      background: none;
-      box-shadow: none;
-  }
-  
-  /* 5. YouTube (Order 6) */
-  .sidebar > .youtube-section {
-      order: 2; /* YouTube (Order 6 overall) */
-      padding: 15px; background: white; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-
-  /* Cleanup on utility elements */
-  .article-main > .back-to-top { order: 7; margin-top: 15px; }
-  
-  /* Cleanup for category images inside content */
-  .article-main figure:not(.article-tabloid-image) { 
-      width: 100%;
-      margin: 15px 0;
-  }
+  .navbar { position: relative; z-index: 102; }
 }
