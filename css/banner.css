@@ -6,7 +6,7 @@
     /* Desktop padding: Pushes content away from the left (120px) and top (20px) */
     /* Format: [Top] [Right] [Bottom] [Left] */
     /* 🛠️ ADJUSTMENT: Increased LEFT padding from 100px to 120px */
-    padding: 20px 20px 15px 120px; 
+    padding: 20px 20px 15px 150px; 
     
     /* Align all banner text content to the left on desktop */
     text-align: left; 
@@ -61,3 +61,4 @@
         margin-right: 0;
     }
 }
+
