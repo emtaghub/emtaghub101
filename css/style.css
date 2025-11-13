@@ -66,7 +66,7 @@ body {
 /* 🔑 ADDED: Ensure the mobile close button elements are HIDDEN on desktop screens. */
 .close-btn-container,
 #navCloseButton {
-    display: none !important; 
+    display: none; 
 }
 
 /* === Desktop Navigation Visibility (Only for screens > 768px) === */
@@ -321,17 +321,16 @@ body {
     display: flex; 
   }
 
-    /* 🔑 FIX: Make close button visible and styled on mobile */
+    /* 🔑 ADDED: Make close button visible and styled on mobile ONLY */
     .close-btn-container {
-        display: block !important; /* Overrides the desktop 'display: none' */
-        /* Restore specific list item overrides */
-        border-bottom: none !important;
+        display: block; /* Overrides the global 'display: none' */
+        border-bottom: none; /* Remove the separator line */
         padding: 0;
         margin-bottom: 20px;
         text-align: right; /* Position the button to the right */
     }
     #navCloseButton {
-        display: block !important; /* Overrides the desktop 'display: none' */
+        display: block; /* Overrides the global 'display: none' */
         background: transparent;
         border: none;
         color: white; /* Match header text color */
