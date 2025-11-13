@@ -89,7 +89,7 @@ body {
   opacity: 0; /* Makes the submenu transparent for a fade-in effect */
   transform: translateY(10px); /* Moves the submenu down slightly for a slide-in effect */
   position: absolute; /* Takes the submenu out of the normal document flow */
-  top: 100%; /* Positions the submenu directly below the parent link */
+  top: 80%; /* Positions the submenu directly below the parent link */
   left: 0; /* Aligns the submenu with the left edge of the parent item */
   background: white; /* Sets a white background for the menu panel */
   color: var(--dark); /* Sets the text color inside the submenu */
@@ -431,3 +431,4 @@ body {
     color: var(--primary); /* Primary blue text on hover */
   }
 }
+
