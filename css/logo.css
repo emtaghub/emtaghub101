@@ -34,7 +34,8 @@
     }
     .header-logo {
         /* REDUCED SIZE FOR MOBILE LOGO */
-        max-width: 80px; 
+        max-width: 50px; 
     }
 
 }
+
