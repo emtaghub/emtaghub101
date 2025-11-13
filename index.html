@@ -14,6 +14,7 @@
     <nav class="navbar">
       <ul class="nav-links">
         <li><a href="#">Home</a></li>
+
         <li class="dropdown">
           <a href="#">Safety & Security</a>
           <ul class="dropdown-menu">
@@ -21,6 +22,7 @@
             <li><a href="#">OSH Programs</a></li>
           </ul>
         </li>
+
         <li class="dropdown">
           <a href="#">Information Technology</a>
           <ul class="dropdown-menu">
@@ -28,6 +30,7 @@
             <li><a href="#">Networking</a></li>
           </ul>
         </li>
+
         <li><a href="#">DIY & Practical Living</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Contact Us</a></li>
@@ -73,28 +76,16 @@
   </main>
 
   <script src="js/script.js"></script>
- <script>
-        // Toggle the 'active' class for dropdowns on mobile when the user clicks
-        const dropdowns = document.querySelectorAll('.dropdown');
+  
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
 
-        dropdowns.forEach(dropdown => {
-            dropdown.addEventListener('click', (e) => {
-                // Prevents the dropdown from closing immediately if it's clicked
-                e.stopPropagation();
-
-                // Toggle active class to show or hide the menu
-                dropdown.classList.toggle('active');
-
-                // Close other dropdowns when one is opened (optional)
-                dropdowns.forEach(otherDropdown => {
-                    if (otherDropdown !== dropdown) {
-                        otherDropdown.classList.remove('active');
-                    }
-                });
-            });
-        });
-
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+});
+</script>
 </body>
 </html>
-
-
