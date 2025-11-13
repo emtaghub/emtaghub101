@@ -190,7 +190,7 @@ if (hamburger && navLinks) {
 }
 
 // ===============================
-// 🍔 Dropdown Submenu Toggle (Mobile) 
+// 🍔 Mobile Dropdown Toggle
 // ===============================
 const dropdowns = document.querySelectorAll(".dropdown");
 
