@@ -13,7 +13,7 @@
     /* Absolute Positioning relative to the banner */
     position: absolute;
     top: 15px; 
-    right: 50px; /* Adjusted to 20px for better desktop spacing */
+    right: 100px; /* Adjusted to 20px for better desktop spacing */
     z-index: 10;
     padding: 0;
     background: none; 
@@ -123,4 +123,5 @@
         display: block;
         padding: 10px 0;
     }
+
 }
