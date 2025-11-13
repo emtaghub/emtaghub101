@@ -7,7 +7,7 @@
     
     /* MODIFIED: Align all banner text content to the left */
     text-align: left; 
-    padding: 10px 50px 17px 16px; 
+    padding: 10px 100px 17px 16px; 
     margin-bottom: 20px;
     position: relative; 
     width: 100%; /* Ensures full width */
@@ -53,5 +53,6 @@
         max-width: 100%; /* Remove desktop constraint */
     }
 }
+
 
 
