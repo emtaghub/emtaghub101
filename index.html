@@ -94,61 +94,7 @@
             });
         });
 
-        // Optional: Close dropdown if clicked outside
-        document.addEventListener('click', () => {
-            dropdowns.forEach(dropdown => {
-                dropdown.classList.remove('active');
-            });
-        });
-    </script>
 </body>
 </html>
-2. External JS File (if you're using an external JavaScript file):
-Create a JavaScript file, for example, app.js, if you don't already have one.
 
-Paste the script inside that file.
-
-Link the external JS file in your HTML file before the </body> tag:
-
-Example:
-
-html
-Copy code
-<script src="app.js"></script>
-</body>
-Why place it at the end of the body?
-Ensures elements are available: By placing the script at the end of the body, the DOM elements (like the .dropdown menu) are fully loaded before the JavaScript runs. This avoids issues where the script tries to access elements that haven't been rendered yet.
-
-Important Notes:
-Ensure the script is placed after the elements you're interacting with (i.e., after the .dropdown elements are rendered on the page).
-
-You can also wrap this script in a DOMContentLoaded event listener if you prefer to load it earlier in the <head>, but placing it before </body> is the most straightforward method.
-
-Example of wrapping it in DOMContentLoaded:
-
-javascript
-Copy code
-document.addEventListener('DOMContentLoaded', () => {
-    const dropdowns = document.querySelectorAll('.dropdown');
-
-    dropdowns.forEach(dropdown => {
-        dropdown.addEventListener('click', (e) => {
-            e.stopPropagation();
-            dropdown.classList.toggle('active');
-            dropdowns.forEach(otherDropdown => {
-                if (otherDropdown !== dropdown) {
-                    otherDropdown.classList.remove('active');
-                }
-            });
-        });
-    });
-
-    document.addEventListener('click', () => {
-        dropdowns.forEach(dropdown => {
-            dropdown.classList.remove('active');
-        });
-    });
-});
-</body>
-</html>
 
