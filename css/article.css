@@ -27,18 +27,18 @@ body.menu-open {
   overflow: hidden; /* Prevents background scroll on mobile when menu is open */
 }
 
-/* ========================= HEADER & NAVIGATION ========================= */
+/* ========================= HEADER & NAVIGATION (CORRECTED) ========================= */
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; /* Ensures vertical centering of logo and nav/hamburger */
   background-color: var(--primary);
   padding: 15px 20px;
   color: white;
   position: sticky;
   top: 0;
   z-index: 100;
-  height: 53px;
+  height: 53px; /* Fixed header height */
 }
 
 .logo {
@@ -48,6 +48,9 @@ body.menu-open {
 
 .navbar {
   position: relative;
+  height: 100%; /* Ensures navbar takes full height to align content */
+  display: flex;
+  align-items: center;
 }
 
 /* Close button is hidden by default on desktop */
@@ -134,7 +137,6 @@ body.menu-open {
 
 /* ========================= ARTICLE MAIN CONTENT STYLES ========================= */
 .article-main-content {
-    /* Styles extracted from the inline style on <main> */
     max-width: 900px;
     margin: 30px auto;
     background: #fff;
@@ -144,27 +146,23 @@ body.menu-open {
 }
 
 .article-main-content h1 {
-    /* Styles extracted from the inline style on <h1> */
     color: var(--primary);
     margin-bottom: 10px;
 }
 
 .article-meta {
-    /* Styles extracted from the inline style on .article-meta */
     color: var(--muted);
     font-size: 0.9rem;
     margin-bottom: 20px;
 }
 
 .article-main-content img {
-    /* Styles extracted from the inline style on <img> */
     width: 100%;
     border-radius: 10px;
     margin-bottom: 25px;
 }
 
 .article-main-content blockquote {
-    /* Styles extracted from the inline style on <blockquote> */
     border-left: 4px solid var(--primary);
     padding-left: 15px;
     font-style: italic;
@@ -172,7 +170,7 @@ body.menu-open {
     background: #f9f9f9;
     border-radius: 6px;
     margin: 20px 0;
-    padding: 10px 15px; /* Added internal padding for blockquote text */
+    padding: 10px 15px;
 }
 
 /* ========================= FOOTER ========================= */
@@ -274,7 +272,7 @@ body.menu-open {
     }
     
     .dropdown.active .dropdown-menu {
-        display: block; /* Requires JS to toggle the 'active' class on .dropdown */
+        display: block;
     }
 
     /* Adjust article margins for better viewing on small screens */
@@ -295,4 +293,8 @@ body.menu-open {
         box-shadow: none;
         padding: 0;
     }
+    
+    .hamburger {
+        display: none; /* Ensure hamburger is hidden on desktop */
+    }
 }
