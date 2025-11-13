@@ -1,11 +1,9 @@
 /* ========================= RESET ========================= */
-/* Start of the universal reset to normalize browser styles */
 * {
   margin: 0; /* Removes default outer spacing (margin) from all elements */
   padding: 0; /* Removes default inner spacing (padding) from all elements */
   box-sizing: border-box; /* Sets box model to include padding and border within the element's width/height */
 }
-/* ------------------------------------------------------------- */
 
 /* Define CSS variables for easy color management */
 :root {
@@ -14,7 +12,6 @@
   --muted: #6b7280; /* Muted/grayed text color */
   --light: #f8f9fa; /* Light background color (off-white) */
 }
-/* ------------------------------------------------------------- */
 
 /* Base styles for the document body */
 body {
@@ -24,7 +21,6 @@ body {
   line-height: 1.5; /* Sets standard line height for readability */
   padding: 0 20px; /* Adds 20px padding to the left and right of the body content */
 }
-/* ------------------------------------------------------------- */
 
 /* ========================= HEADER ========================= */
 /* Styling for the main header element */
@@ -40,56 +36,47 @@ body {
   z-index: 100; /* Sets a high stacking order to keep the header above content */
 }
 
-/* Styling for the logo text */
 .logo {
   font-size: 1.4rem; /* Larger font size for the logo */
   font-weight: bold; /* Makes the logo text bold */
 }
 
-/* Styling for the navbar container */
 .navbar {
   position: relative; /* Sets up a reference point for absolute-positioned elements (like the mobile menu) */
 }
 
-/* Styling for the main list of navigation links */
 .nav-links {
   display: flex; /* Displays links horizontally using flexbox */
   list-style: none; /* Removes default bullet points from the list */
   gap: 20px; /* Adds consistent spacing between each link item */
 }
 
-/* Styling for the actual link text within the navbar */
 .nav-links a {
   color: white; /* Sets link text color to white */
   text-decoration: none; /* Removes the default underline */
   font-weight: 500; /* Sets medium font weight */
 }
 
-/* Hover effect for navigation links */
 .nav-links a:hover {
   color: #ffcc00; /* Changes link color to yellow/gold on hover */
 }
-/* ------------------------------------------------------------- */
 
 /* === Stable Dropdown Navigation (Desktop) === */
-/* Styling for the list item that contains a dropdown (parent item) */
 .dropdown {
   position: relative; /* Essential for positioning the dropdown menu absolutely relative to this item */
 }
 
-/* Styling for the main link inside the dropdown item */
 .dropdown > a {
   position: relative; /* Needed to establish a stacking context */
   z-index: 10; /* Ensures the main link is above the hidden submenu when transitioning */
 }
 
-/* Styling for the submenu list (the dropdown panel) */
 .dropdown-menu {
   visibility: hidden; /* Hides the submenu visually */
   opacity: 0; /* Makes the submenu transparent for a fade-in effect */
   transform: translateY(10px); /* Moves the submenu down slightly for a slide-in effect */
   position: absolute; /* Takes the submenu out of the normal document flow */
-  top: 80%; /* Positions the submenu directly below the parent link */
+  top: 100%; /* Positions the submenu directly below the parent link */
   left: 0; /* Aligns the submenu with the left edge of the parent item */
   background: white; /* Sets a white background for the menu panel */
   color: var(--dark); /* Sets the text color inside the submenu */
@@ -102,7 +89,6 @@ body {
   z-index: 99; /* Stacking order for the submenu */
 }
 
-/* State change: When hovering over the parent dropdown item */
 .dropdown:hover .dropdown-menu {
   visibility: visible; /* Makes the submenu visually appear */
   opacity: 1; /* Makes the submenu fully opaque (fades in) */
@@ -110,7 +96,6 @@ body {
   pointer-events: auto; /* Allows links inside the submenu to be clicked */
 }
 
-/* Styling for individual link items within the dropdown menu */
 .dropdown-menu li a {
   display: block; /* Makes the entire block of the list item clickable */
   padding: 10px 15px; /* Adds padding around the link text */
@@ -119,12 +104,10 @@ body {
   transition: background 0.2s; /* Smooth transition for the hover background */
 }
 
-/* Hover effect for submenu links */
 .dropdown-menu li a:hover {
   background: var(--primary); /* Changes background to primary dark blue */
   color: #fff; /* Changes text color to white */
 }
-/* ------------------------------------------------------------- */
 
 /* Hamburger Icon */
 .hamburger {
@@ -132,7 +115,7 @@ body {
   flex-direction: column; /* Stacks the spans (lines) vertically */
   gap: 5px; /* Spacing between the three lines */
   cursor: pointer; /* Changes cursor to a pointer on hover */
-  z-index: 103; /* FIX: Ensures this icon is clickable above all other elements in the header */
+  z-index: 103; /* FIX: Highest z-index for clickability */
 }
 
 /* Styling for the individual lines (spans) of the hamburger icon */
@@ -142,7 +125,6 @@ body {
   background: white; /* Color of the lines */
   border-radius: 3px; /* Slightly rounded ends */
 }
-/* ------------------------------------------------------------- */
 
 /* ========================= ANNOUNCEMENT ========================= */
 /* Styling for the announcement banner section */
@@ -159,13 +141,11 @@ body {
   gap: 10px; /* Spacing between wrapped items */
 }
 
-/* Container for the announcement text */
 .announcement-text {
   flex: 1; /* Allows the text to grow and take up available space */
   min-width: 200px; /* Minimum width before wrapping */
 }
 
-/* Styling for the heading inside the announcement */
 .announcement-text h2 {
   font-size: 1rem; /* Standard font size */
   font-weight: 600; /* Semi-bold font */
@@ -176,7 +156,6 @@ body {
   margin: 0; /* Removes default margin */
 }
 
-/* Styling for the blinking article name */
 .latest-blink {
   color: var(--primary); /* Primary blue color */
   cursor: pointer; /* Pointer cursor on hover */
@@ -184,28 +163,23 @@ body {
   animation: blinkText 1.2s infinite; /* Applies the blinking animation */
 }
 
-/* Keyframes definition for the blinking animation */
 @keyframes blinkText {
   0%, 50%, 100% { opacity: 1; } /* Fully opaque at start, middle, and end */
   25%, 75% { opacity: 0.3; } /* Partially transparent in between */
 }
 
-/* Hover effect for the blinking article name */
 .latest-blink:hover {
   color: #ff6600; /* Changes color to orange on hover */
   text-decoration: underline; /* Adds an underline */
 }
-/* ------------------------------------------------------------- */
 
 /* ========================= SEARCH ========================= */
-/* Container for the search input and results dropdown */
 .search-box {
   position: relative; /* Reference point for the absolute-positioned results dropdown */
   width: 100%; /* Default width */
   max-width: 300px; /* Maximum width limit */
 }
 
-/* Styling for the text input field */
 #searchInput {
   width: 100%; /* Takes full width of the container */
   padding: 8px 12px; /* Inner padding */
@@ -215,7 +189,6 @@ body {
   transition: all 0.3s ease; /* Smooth transition for focus effect */
 }
 
-/* Focus effect for the text input field */
 #searchInput:focus {
   border-color: var(--primary); /* Changes border color to primary blue on focus */
   box-shadow: 0 0 3px rgba(0, 64, 128, 0.3); /* Adds a subtle blue shadow */
@@ -237,23 +210,19 @@ body {
   z-index: 20; /* Stacking order */
 }
 
-/* Styling for each search result item */
 .search-item {
   padding: 8px 12px; /* Inner padding */
   cursor: pointer; /* Changes cursor to pointer */
 }
 
-/* Hover effect for search result items */
 .search-item:hover {
   background: #e9f3ff; /* Light blue background on hover */
 }
 
-/* Styling for the "No results found" message */
 .no-result {
   padding: 8px 12px; /* Inner padding */
   color: var(--muted); /* Muted gray text color */
 }
-/* ------------------------------------------------------------- */
 
 /* ========================= CONTENT ========================= */
 /* Styling for the main content wrapper (articles + YouTube sidebar) */
@@ -264,7 +233,6 @@ body {
   flex-wrap: wrap; /* Allows columns to stack on mobile */
 }
 
-/* Styling for the articles grid container */
 .articles {
   flex: 3; /* Allows the articles container to take 3 times the space of the sidebar */
   display: grid; /* Enables CSS Grid layout */
@@ -272,7 +240,6 @@ body {
   gap: 20px; /* Spacing between grid items (article cards) */
 }
 
-/* Styling for individual article cards (links) */
 .article-card {
   background: white; /* White background for the card */
   border-radius: 10px; /* Rounded corners */
@@ -284,67 +251,63 @@ body {
   transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover transition */
 }
 
-/* Hover effect for article cards */
 .article-card:hover {
   transform: translateY(-5px); /* Lifts the card slightly */
   box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Enhances the shadow */
 }
 
-/* Styling for the image inside the article card */
 .article-card img {
   width: 100%; /* Image takes full width of the card */
   height: 160px; /* Fixed height */
   object-fit: cover; /* Ensures the image covers the area without distortion */
 }
 
-/* Padding for the text content area of the card */
 .article-card-content {
-  padding: 15px;
+  padding: 15px; /* Padding for the text content area of the card */
 }
 
-/* Styling for the article title */
 .article-card-content h3 {
   color: var(--primary); /* Primary blue title color */
   font-size: 1.1rem; /* Slightly larger title font */
 }
 
-/* Styling for the article description paragraph */
 .article-card-content p {
   color: var(--muted); /* Muted gray text color */
   margin-top: 8px; /* Top margin for spacing */
   font-size: 0.95rem; /* Slightly smaller text */
 }
 
-/* Styling for the small date text */
 .article-card-content small {
   display: block; /* Ensures the date takes its own line */
   margin-top: 8px; /* Top margin for spacing */
   color: #777; /* Dark gray color */
 }
-/* ------------------------------------------------------------- */
 
 /* ========================= YOUTUBE SECTION ========================= */
-/* Styling for the YouTube sidebar section */
 .youtube-section {
-  flex: 1; /* Allows the sidebar to take 1 unit of space (relative to 3 units for articles) */
+  flex: 1; /* Allows the sidebar to take 1 unit of space */
   background: white; /* White background */
   border-radius: 10px; /* Rounded corners */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   padding: 15px; /* Inner padding */
   min-width: 280px; /* Ensures the sidebar doesn't shrink too much */
 }
-/* ------------------------------------------------------------- */
 
 /* ========================= RESPONSIVE ========================= */
 /* Media query for screens 768px wide or less (mobile/tablet view) */
 @media (max-width: 768px) {
+  /* FIX: Remove body padding for edge-to-edge layout */
+  body {
+    padding: 0; 
+  }
+
   /* Hides the desktop navigation links by default on mobile */
   .nav-links {
     display: none; /* Hides the menu */
     flex-direction: column; /* Stacks links vertically */
     background: var(--primary); /* Uses primary color for the menu background */
     position: absolute; /* Positions the menu relative to the header */
-    top: 55px; /* Positions it just below the header bar */
+    top: 54px; /* ADJUSTED: Ensures the menu aligns perfectly to the bottom of the header */
     right: 0; /* Aligns the menu to the right edge */
     width: 200px; /* Sets a fixed width for the mobile menu */
     border-radius: 0 0 10px 10px; /* Rounds the bottom corners */
@@ -366,13 +329,18 @@ body {
   .announcement {
     flex-direction: column; /* Stacks text and search box vertically */
     align-items: flex-start; /* Aligns content to the left */
+    padding-left: 15px; /* Adds back padding lost from body reset */
+    padding-right: 15px; /* Adds back padding lost from body reset */
+    margin-left: 10px; /* Adds spacing from the left edge */
+    margin-right: 10px; /* Adds spacing from the right edge */
   }
-
-  /* Adjusts main content layout for mobile */
+  
+  /* Adjusts content padding */
   .content {
     flex-direction: column; /* Stacks articles and YouTube sidebar vertically */
+    padding: 0 10px; /* Add slight padding for content inside the body */
   }
-
+  
   /* Ensures YouTube section takes full mobile width */
   .youtube-section {
     width: 100%;
@@ -386,49 +354,45 @@ body {
   /* Sets the navbar context */
   .navbar {
     position: relative;
-    z-index: 102; /* FIX: Added z-index to navigation container for better stacking */
+    z-index: 102; /* FIX: Added z-index to navigation container */
   }
 
-  /* === Mobile Dropdown Menu Styling (Submenu Clickability Fix) === */
+  /* === Mobile Dropdown Menu Styling (Submenu Clickability) === */
 
-  /* Ensures the parent dropdown item takes full mobile width */
   .dropdown {
     width: 100%;
   }
     
   /* CRITICAL FIXES FOR SUBMENU CLICKABILITY */
   .dropdown-menu {
-    position: static; /* FIX: Submenu flows naturally within the vertical list, resolving click issue */
-    width: 100%; /* Takes full width of the parent item */
-    background: transparent; /* Blends with the parent menu background */
-    box-shadow: none; /* Removes shadow */
-    border-radius: 0; /* Removes border radius */
+    position: static; 
+    width: 100%;
+    background: transparent;
+    box-shadow: none; 
+    border-radius: 0; 
         
-    display: none; /* Hides the submenu by default (controlled by JS toggle) */
+    display: none; 
 
-    /* These desktop properties are now preserved, but display: none/block controls visibility */
     visibility: visible;
     opacity: 1;
     transform: none;
     pointer-events: auto;
-    padding: 0 0 5px 15px; /* Adds left indentation */
+    padding: 0 0 5px 15px;
   }
     
-  /* State: Show the submenu when the parent <li> has the 'active' class from JS */
+  /* Show the submenu when the parent <li> has the 'active' class from JS */
   .dropdown.active .dropdown-menu {
-    display: block; /* Makes the submenu visible */
+    display: block;
   }
 
   /* Submenu links style adjustment for stacking */
   .dropdown-menu li a {
-    color: white; /* White text on the primary background */
-    padding: 5px 15px 5px 15px; /* Adjusts padding */
+    color: white;
+    padding: 5px 15px 5px 15px;
   }
     
-  /* Hover effect for submenu links in mobile menu */
   .dropdown-menu li a:hover {
-    background: #ffcc00; /* Yellow background on hover */
-    color: var(--primary); /* Primary blue text on hover */
+    background: #ffcc00;
+    color: var(--primary);
   }
 }
-
