@@ -183,7 +183,7 @@ body {
 }
 
 .latest-blink:hover {
-  color: #ff6600; 
+  color: ##39FF14; 
   text-decoration: underline; 
 }
 
@@ -436,4 +436,5 @@ body {
     z-index: 102; 
   }
 }
+
 
