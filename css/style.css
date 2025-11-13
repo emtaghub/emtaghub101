@@ -1,5 +1,4 @@
 /* ========================= RESET ========================= */
-/* Start of the universal reset to normalize browser styles across different browsers. */
 * {
   margin: 0; /* Removes default outer spacing (margin) from all elements, ensuring a clean start. */
   padding: 0; /* Removes default inner spacing (padding) from all elements. */
@@ -37,32 +36,27 @@ body {
   z-index: 100; /* Sets a high stacking order to keep the header above all other page content. */
 }
 
-/* Styling for the logo text. */
 .logo {
   font-size: 1.4rem; /* Sets a slightly larger font size for the logo. */
   font-weight: bold; /* Makes the logo text bold. */
 }
 
-/* Styling for the navbar container. */
 .navbar {
   position: relative; /* Establishes a positioning context for any absolutely positioned children (like the mobile menu). */
 }
 
-/* Styling for the main list of navigation links (desktop view). */
 .nav-links {
   display: flex; /* Displays navigation items horizontally using flexbox. */
   list-style: none; /* Removes default bullet points from the list items. */
   gap: 20px; /* Adds consistent horizontal spacing between each navigation link. */
 }
 
-/* Styling for the actual link text within the navbar. */
 .nav-links a {
   color: white; /* Sets link text color to white. */
   text-decoration: none; /* Removes the default underline from links. */
   font-weight: 500; /* Sets a medium font weight. */
 }
 
-/* Hover effect for navigation links. */
 .nav-links a:hover {
   color: #ffcc00; /* Changes link color to yellow/gold on mouse hover. */
 }
@@ -73,7 +67,6 @@ body {
   position: relative; /* Essential for positioning the dropdown menu absolutely relative to this item. */
 }
 
-/* Styling for the main link inside the dropdown item. */
 .dropdown > a {
   position: relative; /* Establishes stacking context for proper layer ordering. */
   z-index: 10; /* Ensures the main link is above the hidden submenu when transitioning. */
@@ -153,13 +146,11 @@ body {
   gap: 10px; /* Spacing between wrapped items. */
 }
 
-/* Container for the announcement text. */
 .announcement-text {
   flex: 1; /* Allows the text to grow and take up available space. */
   min-width: 200px; /* Minimum width before wrapping. */
 }
 
-/* Styling for the heading inside the announcement. */
 .announcement-text h2 {
   font-size: 1rem; /* Standard font size. */
   font-weight: 600; /* Semi-bold font. */
@@ -170,7 +161,6 @@ body {
   margin: 0; /* Removes default margin. */
 }
 
-/* Styling for the blinking link/text. */
 .latest-blink {
   color: var(--primary); /* Primary blue color. */
   cursor: pointer; /* Pointer cursor on hover. */
@@ -178,13 +168,11 @@ body {
   animation: blinkText 1.2s infinite; /* Applies the CSS keyframe animation. */
 }
 
-/* Keyframes definition for the blinking animation. */
 @keyframes blinkText {
   0%, 50%, 100% { opacity: 1; } /* Fully opaque at start, middle, and end. */
   25%, 75% { opacity: 0.3; } /* Partially transparent in between. */
 }
 
-/* Hover effect for the blinking link. */
 .latest-blink:hover {
   color: #ff6600; /* Changes color to orange on hover. */
   text-decoration: underline; /* Adds an underline. */
@@ -198,7 +186,6 @@ body {
   max-width: 300px; /* Maximum width limit. */
 }
 
-/* Styling for the text input field. */
 #searchInput {
   width: 100%; /* Takes full width of the container. */
   padding: 8px 12px; /* Inner padding. */
@@ -208,7 +195,6 @@ body {
   transition: all 0.3s ease; /* Smooth transition for focus effect. */
 }
 
-/* Focus effect for the text input field. */
 #searchInput:focus {
   border-color: var(--primary); /* Changes border color to primary blue on focus. */
   box-shadow: 0 0 3px rgba(0, 64, 128, 0.3); /* Adds a subtle blue shadow. */
@@ -230,18 +216,15 @@ body {
   z-index: 20; /* Stacking order. */
 }
 
-/* Styling for each search result item. */
 .search-item {
   padding: 8px 12px; /* Inner padding. */
   cursor: pointer; /* Changes cursor to pointer. */
 }
 
-/* Hover effect for search result items. */
 .search-item:hover {
   background: #e9f3ff; /* Light blue background on hover. */
 }
 
-/* Styling for the "No results found" message. */
 .no-result {
   padding: 8px 12px; /* Inner padding. */
   color: var(--muted); /* Muted gray text color. */
@@ -256,7 +239,6 @@ body {
   flex-wrap: wrap; /* Allows columns to stack on mobile. */
 }
 
-/* Styling for the articles grid container. */
 .articles {
   flex: 3; /* Allows the articles container to take 3 times the space of the sidebar. */
   display: grid; /* Enables CSS Grid layout. */
@@ -264,7 +246,6 @@ body {
   gap: 20px; /* Spacing between grid items (article cards). */
 }
 
-/* Styling for individual article cards (links). */
 .article-card {
   background: white; /* White background for the card. */
   border-radius: 10px; /* Rounded corners. */
@@ -276,38 +257,32 @@ body {
   transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover transition. */
 }
 
-/* Hover effect for article cards. */
 .article-card:hover {
   transform: translateY(-5px); /* Lifts the card slightly. */
   box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Enhances the shadow. */
 }
 
-/* Styling for the image inside the article card. */
 .article-card img {
   width: 100%; /* Image takes full width of the card. */
   height: 160px; /* Fixed height. */
   object-fit: cover; /* Ensures the image covers the area without distortion. */
 }
 
-/* Padding for the text content area of the card. */
 .article-card-content {
-  padding: 15px; /* Inner padding for card content. */
+  padding: 15px; /* Padding for the text content area of the card. */
 }
 
-/* Styling for the article title. */
 .article-card-content h3 {
   color: var(--primary); /* Primary blue title color. */
   font-size: 1.1rem; /* Slightly larger title font. */
 }
 
-/* Styling for the article description paragraph. */
 .article-card-content p {
   color: var(--muted); /* Muted gray text color. */
   margin-top: 8px; /* Top margin for spacing. */
   font-size: 0.95rem; /* Slightly smaller text. */
 }
 
-/* Styling for the small date text. */
 .article-card-content small {
   display: block; /* Ensures the date takes its own line. */
   margin-top: 8px; /* Top margin for spacing. */
@@ -315,7 +290,6 @@ body {
 }
 
 /* ========================= YOUTUBE SECTION ========================= */
-/* Styling for the YouTube sidebar section. */
 .youtube-section {
   flex: 1; /* Allows the sidebar to take 1 unit of space (relative to 3 units for articles). */
   background: white; /* White background. */
@@ -379,11 +353,17 @@ body {
     flex-direction: column; /* Stacks articles and YouTube sidebar vertically. */
     padding: 0 10px; /* Adds slight padding for content inside the body. */
   }
-  
-  /* Ensures YouTube section takes full mobile width. */
+
+  /* REORDERING FIXES: Set the order of the main content blocks on mobile. */
   .youtube-section {
     width: 100%; /* Makes the section span the full width of the content area. */
+    order: 1; /* Sets the YouTube section to appear first after the elements outside the content wrapper. */
   }
+  
+  .articles {
+    order: 2; /* Sets the articles section to appear second, after the YouTube section. */
+  }
+  /* END REORDERING FIXES */
 
   /* Ensures search input takes full mobile width. */
   #searchInput {
@@ -398,7 +378,6 @@ body {
 
   /* === Mobile Dropdown Menu Styling (Submenu Clickability) === */
 
-  /* Ensures the parent dropdown item takes full mobile width. */
   .dropdown {
     width: 100%; /* Makes the dropdown list item full width. */
   }
