@@ -43,16 +43,9 @@ body.menu-open {
   height: 53px;
 }
 
-/* MODIFIED: Adjusted for logo image */
 .logo {
-  /* Removed font styles as it now holds an image */
-}
-
-/* NEW: Styles for the logo image itself */
-.header-logo {
-    height: 40px; /* Adjust height to fit nicely within the 53px header */
-    width: auto; /* Maintain aspect ratio */
-    display: block;
+  font-size: 1.4rem; /* Re-added font size since HTML uses text logo */
+  font-weight: bold;
 }
 
 .navbar {
@@ -62,7 +55,7 @@ body.menu-open {
 /* --- DEFAULT STATE: HIDDEN --- */
 .nav-links {
   list-style: none;
-  display: none; /* Crucial: Start hidden on all screen sizes until desktop media query takes effect */
+  display: none; 
   gap: 20px;
 }
 
@@ -79,8 +72,7 @@ body.menu-open {
 /* === Desktop Navigation Visibility (Only for screens > 768px) === */
 @media (min-width: 769px) {
     .nav-links {
-        display: flex; /* Show desktop links only on large screens */
-        /* Reset mobile properties */
+        display: flex; 
         position: static;
         height: auto;
         width: auto;
@@ -138,7 +130,7 @@ body.menu-open {
   color: #fff;
 }
 
-/* Hamburger Icon (Hidden on desktop, requires transition) */
+/* Hamburger Icon */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -156,89 +148,30 @@ body.menu-open {
   transition: all 0.3s ease-in-out;
 }
 
-/* ========================= CONTENT (Home Page Layout) ========================= */
+/* ========================= CONTENT (Home Page Layout - Removed) ========================= */
+/* Note: Since you provided an article page HTML, .content and .articles styles are ignored 
+   for this specific page, but retained below for completeness if used elsewhere. */
 
-/* Desktop Layout: YouTube/Quick Links on the right */
-.content { /* Used for the main/home article grid */
-  display: flex;
-  /* FIX: Reverse order to place .youtube-section (second element in HTML) on the right */
-  flex-direction: row-reverse; 
-  gap: 20px;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  max-width: 1270px;
-  margin: 20px auto; /* Added margin-top for desktop content spacing */
+.content { /* Home Page Grid wrapper */
+  display: flex;
+  flex-direction: row-reverse; 
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1270px;
+  margin: 20px auto; 
 }
 
 .articles {
-  flex: 3;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.article-card {
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.article-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-}
-
-.article-card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-}
-
-.article-card-content {
-  padding: 15px;
-}
-
-.article-card-content h3 {
-  color: var(--primary);
-  font-size: 1.1rem;
-}
-
-.article-card-content p {
-  color: var(--muted);
-  margin-top: 8px;
-  font-size: 0.95rem;
-}
-
-.article-card-content small {
-  display: block;
-  margin-top: 8px;
-  color: #777;
-}
-
-.youtube-section { /* This is the combined sidebar content for the home page */
-  flex: 1; /* Takes up approx. 1/4th of the space */
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  min-width: 280px;
-  /* Setup for internal display of links and video */
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  order: 1; /* Retains internal ordering if .youtube-section children use order */
+  flex: 3;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
 }
 
 /* ========================= ARTICLE LAYOUT CONTAINER (Individual Article Page) ========================= */
 .container {
   display: flex;
-  /* Places sidebar (.sidebar) on the right */
-  flex-direction: row-reverse; 
   justify-content: space-between;
   gap: 20px;
   padding: 0;
@@ -246,6 +179,8 @@ body.menu-open {
   max-width: 1310px;
   margin: 20px auto;
   box-sizing: border-box;
+  /* FIX: Reverses order so .sidebar (second in HTML) appears on the RIGHT of .article-main */
+  flex-direction: row-reverse; 
 }
 
 /* ===================== ARTICLE MAIN SECTION (Individual Article Page) ===================== */
@@ -258,6 +193,8 @@ body.menu-open {
   margin-bottom: 20px;
   width: 100%;
   min-height: 500px;
+  /* Ensure the article body is placed at the bottom on mobile */
+  order: 2; 
 }
 
 /* ===================== SIDEBAR SECTION (Individual Article Page) ===================== */
@@ -270,10 +207,13 @@ body.menu-open {
   margin-bottom: 20px;
   width: 100%;
   
-  /* Allows reordering of quick links and video inside sidebar if needed */
+  /* Enables reordering of content *inside* the sidebar */
   display: flex;
   flex-direction: column;
   gap: 20px; 
+
+  /* FIX: Moves the sidebar to the TOP on mobile (after the article title) */
+  order: 1; 
 }
 
 /* ===================== QUICK LINKS SECTION ===================== */
@@ -284,7 +224,7 @@ body.menu-open {
 }
 
 .quick-links {
-    /* Order 2 to appear after YouTube section *inside* the sidebar/youtube-section parent */
+    /* Position in Sidebar: second item */
     order: 2; 
 }
 
@@ -308,7 +248,6 @@ body.menu-open {
 }
 
 /* ===================== YOUTUBE SECTION (Iframe) ===================== */
-/* Note: This block targets the YouTube section whether it's standalone or inside .sidebar */
 .youtube-section {
   width: 100%;
   background: white;
@@ -319,7 +258,7 @@ body.menu-open {
   flex-direction: column;
   align-items: center;
   
-  /* Order 1 to appear before Quick Links *inside* the sidebar/youtube-section parent */
+  /* Position in Sidebar: first item */
   order: 1; 
 }
 
@@ -328,6 +267,7 @@ body.menu-open {
   width: 100%;
   height: 200px;
   border-radius: 8px;
+  border: none; /* Recommended for iframes */
 }
 
 /* ===================== BACK TO TOP BUTTON ===================== */
@@ -373,10 +313,10 @@ body.menu-open {
   body {
     padding: 0;
     overflow-x: hidden;
-    background-color: var(--article-bg); /* Use the slightly darker article BG on mobile */
+    background-color: var(--article-bg); 
   }
   
-  /* Makes the hamburger icon visible and position fixed for alignment with the drawer */
+  /* Makes the hamburger icon visible and position fixed */
   .hamburger {
     display: flex;
     position: fixed; 
@@ -386,34 +326,23 @@ body.menu-open {
   }
 
   /* --- HAMBURGER TO CLOSE (X) TRANSFORMATION --- */
-  .hamburger.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger.active span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-
-  .hamburger.active span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
   /* --- DRAWER MENU STYLES --- */
   .nav-links {
     display: flex; 
     flex-direction: column;
-    
     position: fixed;
     top: 0;
     right: 0;
     height: 100%;
     width: 280px;
     max-width: 80%;
-    
     background-color: var(--primary);
     box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
     padding: 70px 20px 20px; 
-    
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
     z-index: 105;
@@ -421,7 +350,6 @@ body.menu-open {
     overflow-y: auto;
   }
 
-  /* State when 'active' class is added (menu opened) */
   .nav-links.active {
     transform: translateX(0);
   }
@@ -446,10 +374,7 @@ body.menu-open {
   }
 
   /* Mobile Dropdown Styling for the Drawer */
-  .dropdown {
-    width: 100%;
-    padding: 0;
-  }
+  .dropdown { width: 100%; padding: 0; }
   
   .dropdown-menu {
     position: static;
@@ -459,32 +384,21 @@ body.menu-open {
     border-radius: 0;
     display: none;
     padding: 5px 0 5px 15px;
-    
     visibility: visible;
     opacity: 1;
     transform: none;
     pointer-events: auto;
   }
     
-  .dropdown.active .dropdown-menu {
-    display: block;
-  }
+  .dropdown.active .dropdown-menu { display: block; }
 
-  .dropdown-menu li a {
-    color: white;
-    text-align: left;
-    padding: 5px 0;
-  }
+  .dropdown-menu li a { color: white; text-align: left; padding: 5px 0; }
     
-  .dropdown-menu li a:hover {
-    background: transparent;
-    color: #ffcc00;
-  }
+  .dropdown-menu li a:hover { background: transparent; color: #ffcc00; }
 
-  /* --- ARTICLE LAYOUT MOBILE FIXES (Applied to both .container and .content) --- */
+  /* --- ARTICLE LAYOUT MOBILE FIXES --- */
   .container, .content {
-    /* Set to column for mobile */
-    flex-direction: column; 
+    flex-direction: column;  /* Stack vertically on mobile */
     padding: 15px; 
     margin: 0 auto; 
     gap: 15px;
@@ -495,14 +409,8 @@ body.menu-open {
     margin-bottom: 15px; 
     padding: 15px;
   }
-  
-  /* Home Page (.content) Mobile Reordering: Sidebar content first (after title/header) */
-  .youtube-section {
-    margin-top: 10px; 
-    order: 1; /* Moves YouTube/Quick Links section to the top */
-  }
-  
-  .articles {
-    order: 2; /* Moves the main article grid below the YouTube/Quick Links section */
-  }
+ 
+  /* Since .sidebar has order: 1 and .article-main has order: 2, 
+     the sidebar will correctly appear after the title on mobile. */
+
 }
