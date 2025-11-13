@@ -302,119 +302,116 @@ body {
 /* ========================= RESPONSIVE ========================= */
 /* Media query for screens 768px wide or less (mobile/tablet view). */
 @media (max-width: 768px) {
-  /* FIX: Remove body padding for edge-to-edge layout, necessary for full-width header/menu. */
+  /* FIX 1: Remove body padding and prevent horizontal overflow/scrolling. */
   body {
-    padding: 0; /* Removes the 20px padding applied in the base body style. */
+    padding: 0; 
+    overflow-x: hidden; /* CRITICAL: Prevents content like the nav menu from causing horizontal scroll. */
   }
 
   /* Hides the desktop navigation links by default on mobile. */
   .nav-links {
-    display: none; /* Hides the menu. */
-    flex-direction: column; /* Stacks links vertically. */
-    background: var(--primary); /* Uses primary color for the menu background. */
-    position: absolute; /* Positions the menu relative to the navbar container. */
+    display: none; 
+    flex-direction: column; 
+    background: var(--primary); 
+    position: absolute; 
     
-    /* FIX: Adjusted for zero vertical gap to the header. */
-    top: 53px; /* Sets the menu's top edge to be 53px below the parent (adjust as needed for zero gap). */
+    /* FIX 2: Zero vertical gap to the header (retaining 53px, which is likely the header height). */
+    top: 53px; 
     
-    /* FIX: Force alignment to the right edge of the viewport. */
-    right: 0 !important; /* Overrides any inherited right positioning, aligning it to the right edge. */
+    /* FIX 3: Set 10px margin from the right edge and calculate width for a 10px left margin. */
+    right: 10px; /* Insets the menu 10px from the right edge. */
+    width: calc(100% - 20px); /* Sets width to 100% minus 20px (10px right inset + 10px left gap). */
     
-    /* Optional: Ensures menu spans full width to the edge, minus body padding (0px here). */
-    width: calc(100vw - 0px); /* Calculates the width based on viewport width for edge-to-edge spanning. */
-    
-    border-radius: 0 0 10px 10px; /* Rounds the bottom corners. */
-    transition: transform 0.3s ease-in-out; /* Smooth transition for opening/closing. */
-    z-index: 90; /* Stacking order for the open menu (below the header). */
+    border-radius: 0 0 10px 10px; 
+    transition: transform 0.3s ease-in-out; 
+    z-index: 90; 
   }
 
   /* State: When the 'active' class is added by JavaScript (menu opened). */
   .nav-links.active {
-    display: flex; /* Makes the menu visible. */
+    display: flex; 
   }
 
   /* Makes the hamburger icon visible on mobile. */
   .hamburger {
-    display: flex; /* Shows the hamburger icon. */
+    display: flex; 
   }
 
   /* Adjusts announcement section layout for mobile. */
   .announcement {
-    flex-direction: column; /* Stacks text and search box vertically. */
-    align-items: flex-start; /* Aligns content to the left. */
-    padding-left: 15px; /* Re-adds horizontal padding lost from body reset. */
-    padding-right: 15px; /* Re-adds horizontal padding lost from body reset. */
-    margin-left: 10px; /* Adds spacing from the left edge of the screen. */
-    margin-right: 10px; /* Adds spacing from the right edge of the screen. */
+    flex-direction: column; 
+    align-items: flex-start; 
+    padding-left: 15px; 
+    padding-right: 15px; 
+    margin-left: 10px; 
+    margin-right: 10px; 
   }
   
   /* Adjusts content padding. */
   .content {
-    flex-direction: column; /* Stacks articles and YouTube sidebar vertically. */
-    padding: 0 10px; /* Adds slight padding for content inside the body. */
+    flex-direction: column; 
+    padding: 0 10px; 
   }
 
   /* REORDERING FIXES: Set the order of the main content blocks on mobile. */
   .youtube-section {
-    width: 100%; /* Makes the section span the full width of the content area. */
-    order: 1; /* Sets the YouTube section to appear first after the elements outside the content wrapper. */
+    width: 100%; 
+    order: 1; /* Sets the YouTube section to appear first. */
   }
   
   .articles {
-    order: 2; /* Sets the articles section to appear second, after the YouTube section. */
+    order: 2; /* Sets the articles section to appear second. */
   }
   /* END REORDERING FIXES */
 
   /* Ensures search input takes full mobile width. */
   #searchInput {
-    width: 100%; /* Makes the search input span the full width of its container. */
+    width: 100%; 
   }
 
   /* Sets the navbar context. */
   .navbar {
-    position: relative; /* Maintains relative positioning. */
-    z-index: 102; /* FIX: Keeps the navbar container stacked high. */
+    position: relative; 
+    z-index: 102; 
   }
 
   /* === Mobile Dropdown Menu Styling (Submenu Clickability) === */
 
   .dropdown {
-    width: 100%; /* Makes the dropdown list item full width. */
+    width: 100%; 
   }
     
   /* CRITICAL FIXES FOR SUBMENU CLICKABILITY */
   .dropdown-menu {
-    position: static; /* FIX: Submenu flows naturally, allowing it to be clicked properly on mobile. */
-    width: 100%; /* Takes full width of the parent item. */
-    background: transparent; /* Blends with the parent menu background. */
-    box-shadow: none; /* Removes shadow. */
-    border-radius: 0; /* Removes border radius. */
+    position: static; 
+    width: 100%; 
+    background: transparent; 
+    box-shadow: none; 
+    border-radius: 0; 
         
-    display: none; /* Hides the submenu by default (controlled by JS toggle). */
+    display: none; 
 
-    /* The following properties maintain appearance but are overridden by display: none/block for function */
     visibility: visible;
     opacity: 1;
     transform: none;
     pointer-events: auto;
-    padding: 0 0 5px 15px; /* Adds left indentation. */
+    padding: 0 0 5px 15px; 
   }
     
   /* Show the submenu when the parent <li> has the 'active' class from JS. */
   .dropdown.active .dropdown-menu {
-    display: block; /* Makes the submenu visible for the user. */
+    display: block; 
   }
 
   /* Submenu links style adjustment for stacking. */
   .dropdown-menu li a {
-    color: white; /* White text color. */
-    padding: 5px 15px 5px 15px; /* Adjusted padding. */
+    color: white; 
+    padding: 5px 15px 5px 15px; 
   }
     
   /* Hover effect for submenu links in mobile menu. */
   .dropdown-menu li a:hover {
-    background: #ffcc00; /* Yellow background on hover. */
-    color: var(--primary); /* Primary blue text on hover. */
+    background: #ffcc00; 
+    color: var(--primary); 
   }
 }
-
