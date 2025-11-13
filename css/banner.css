@@ -48,17 +48,18 @@
     }
     .banner-area h1 {
         /* ORIGINAL MOBILE SETTINGS KEPT */
-        font-size: .8em; 
+        font-size: .6em; 
         max-width: 100%; /* Revert width constraint */
         /* MOBILE FIX: Override desktop margin to ensure centering works */
         margin-right: 0; 
     }
     .banner-area p {
         /* ORIGINAL MOBILE SETTINGS KEPT */
-        font-size: 0.6em;
+        font-size: 0.4em;
         max-width: 100%; /* Revert width constraint */
         /* MOBILE FIX: Override desktop margin to ensure centering works */
         margin-right: 0;
     }
 }
+
 
