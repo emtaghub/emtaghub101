@@ -50,9 +50,9 @@ body.menu-open {
 
 /* NEW: Styles for the logo image itself */
 .header-logo {
-    height: 40px; /* Adjust height to fit nicely within the 53px header */
-    width: auto; /* Maintain aspect ratio */
-    display: block;
+    height: 40px; /* Adjust height to fit nicely within the 53px header */
+    width: auto; /* Maintain aspect ratio */
+    display: block;
 }
 
 .navbar {
@@ -156,15 +156,13 @@ body.menu-open {
   transition: all 0.3s ease-in-out;
 }
 
-/* ========================= CONTENT (Main Page/Home) ========================= */
-
-/* Removed all .announcement and search styles */
+/* ========================= CONTENT (Home Page Layout) ========================= */
 
 /* Desktop Layout: YouTube/Quick Links on the right */
 .content { /* Used for the main/home article grid */
   display: flex;
-  /* FIX: Reverse order to place .youtube-section (second element) on the right */
-  flex-direction: row-reverse; 
+  /* FIX: Reverse order to place .youtube-section (second element in HTML) on the right */
+  flex-direction: row-reverse; 
   gap: 20px;
   align-items: flex-start;
   flex-wrap: wrap;
@@ -222,26 +220,25 @@ body.menu-open {
   color: #777;
 }
 
-.youtube-section {
-  flex: 1; /* Takes up its 1/4th of the space */
+.youtube-section { /* This is the combined sidebar content for the home page */
+  flex: 1; /* Takes up approx. 1/4th of the space */
   background: white;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 15px;
   min-width: 280px;
-  /* Retain mobile-specific internal sidebar ordering from previous steps */
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  order: 1; 
+  /* Setup for internal display of links and video */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  order: 1; /* Retains internal ordering if .youtube-section children use order */
 }
 
-/* ========================= ARTICLE LAYOUT CONTAINER (for individual article page) ========================= */
-/* This section handles the layout for a single article page */
+/* ========================= ARTICLE LAYOUT CONTAINER (Individual Article Page) ========================= */
 .container {
   display: flex;
-  /* Places sidebar (if using .sidebar and .article-main) on the right */
-  flex-direction: row-reverse; 
+  /* Places sidebar (.sidebar) on the right */
+  flex-direction: row-reverse; 
   justify-content: space-between;
   gap: 20px;
   padding: 0;
@@ -251,7 +248,7 @@ body.menu-open {
   box-sizing: border-box;
 }
 
-/* ===================== ARTICLE MAIN SECTION (for individual article page) ===================== */
+/* ===================== ARTICLE MAIN SECTION (Individual Article Page) ===================== */
 .article-main {
   flex: 0 0 70%;
   background: white;
@@ -263,7 +260,7 @@ body.menu-open {
   min-height: 500px;
 }
 
-/* ===================== SIDEBAR SECTION (for individual article page) ===================== */
+/* ===================== SIDEBAR SECTION (Individual Article Page) ===================== */
 .sidebar {
   flex: 0 0 30%;
   background: white;
@@ -273,10 +270,10 @@ body.menu-open {
   margin-bottom: 20px;
   width: 100%;
   
-  /* --- NEW: ENABLE FLEXBOX FOR SIDEBAR REORDERING --- */
+  /* Allows reordering of quick links and video inside sidebar if needed */
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Space between sidebar elements */
+  gap: 20px; 
 }
 
 /* ===================== QUICK LINKS SECTION ===================== */
@@ -287,7 +284,7 @@ body.menu-open {
 }
 
 .quick-links {
-    /* NEW: Order 2 to appear after YouTube section */
+    /* Order 2 to appear after YouTube section *inside* the sidebar/youtube-section parent */
     order: 2; 
 }
 
@@ -311,6 +308,7 @@ body.menu-open {
 }
 
 /* ===================== YOUTUBE SECTION (Iframe) ===================== */
+/* Note: This block targets the YouTube section whether it's standalone or inside .sidebar */
 .youtube-section {
   width: 100%;
   background: white;
@@ -321,7 +319,7 @@ body.menu-open {
   flex-direction: column;
   align-items: center;
   
-  /* NEW: Order 1 to appear before Quick Links */
+  /* Order 1 to appear before Quick Links *inside* the sidebar/youtube-section parent */
   order: 1; 
 }
 
@@ -485,31 +483,26 @@ body.menu-open {
 
   /* --- ARTICLE LAYOUT MOBILE FIXES (Applied to both .container and .content) --- */
   .container, .content {
-    /* Set to column for mobile */
+    /* Set to column for mobile */
     flex-direction: column; 
     padding: 15px; 
     margin: 0 auto; 
     gap: 15px;
   }
   
-  /* Removed .announcement styles for mobile */
-  
   .article-main, .sidebar {
     width: 100%; 
     margin-bottom: 15px; 
     padding: 15px;
   }
-  
-  /* FIX: Ensure YouTube/Quick Links (.youtube-section) appears first (order: 1) 
-     in the HOME/CONTENT layout, which is what "after the title of my article" means 
-     in a vertically stacked view (above the article list). The default order of 
-     .articles and .youtube-section is used in the .content section. */
+  
+  /* Home Page (.content) Mobile Reordering: Sidebar content first (after title/header) */
   .youtube-section {
     margin-top: 10px; 
-    order: 1; /* This will make it appear at the top, after the main body/header */
+    order: 1; /* Moves YouTube/Quick Links section to the top */
   }
   
   .articles {
-    order: 2; /* This makes the main article grid appear below the YouTube/Quick Links section */
+    order: 2; /* Moves the main article grid below the YouTube/Quick Links section */
   }
 }
