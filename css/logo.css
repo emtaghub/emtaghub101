@@ -11,7 +11,7 @@
 
 .header-logo {
     /* REDUCED SIZE FOR STANDARD DESKTOP LOGO */
-    max-width: 80px; 
+    max-width: 90px; 
     height: auto;
     display: block;
     filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
@@ -34,10 +34,11 @@
     }
     .header-logo {
         /* REDUCED SIZE FOR MOBILE LOGO */
-        max-width: 60px; 
+        max-width: 65px; 
     }
 
 }
+
 
 
 
