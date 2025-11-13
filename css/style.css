@@ -20,13 +20,12 @@ body {
   color: var(--dark);
   line-height: 1.5;
   padding: 0 20px;
-  /* Add class hook for disabling body scroll when menu is open */
   transition: padding 0.3s ease; /* Ensure smooth transition on body padding */
 }
 
+/* Class added by JS to prevent background scrolling on mobile when menu is open */
 body.menu-open {
-    /* Prevent body from scrolling when menu is open on mobile */
-    overflow: hidden;
+  overflow: hidden;
 }
 
 /* ========================= HEADER (Desktop & Mobile) ========================= */
@@ -73,14 +72,14 @@ body.menu-open {
 /* === Desktop Navigation Visibility (Only for screens > 768px) === */
 @media (min-width: 769px) {
     .nav-links {
-      display: flex; /* Show desktop links only on large screens */
-      /* Reset mobile properties */
-      position: static;
-      height: auto;
-      width: auto;
-      transform: none;
-      box-shadow: none;
-      padding: 0;
+        display: flex; /* Show desktop links only on large screens */
+        /* Reset mobile properties */
+        position: static;
+        height: auto;
+        width: auto;
+        transform: none;
+        box-shadow: none;
+        padding: 0;
     }
 }
 
@@ -132,14 +131,14 @@ body.menu-open {
   color: #fff;
 }
 
-/* Hamburger Icon (Hidden on desktop) */
+/* Hamburger Icon (Hidden on desktop, requires transition) */
 .hamburger {
   display: none;
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
   z-index: 103;
-  transition: all 0.3s ease-in-out; /* Add transition for animation */
+  transition: all 0.3s ease-in-out; /* Added transition */
 }
 
 .hamburger span {
@@ -147,7 +146,7 @@ body.menu-open {
   height: 3px;
   background: white;
   border-radius: 3px;
-  transition: all 0.3s ease-in-out; /* Add transition for animation */
+  transition: all 0.3s ease-in-out; /* Added transition */
 }
 
 /* ========================= ANNOUNCEMENT/CONTENT/SEARCH (No changes) ========================= */
@@ -319,9 +318,13 @@ body.menu-open {
     overflow-x: hidden;
   }
   
-  /* Makes the hamburger icon visible on mobile. */
+  /* Makes the hamburger icon visible and position fixed for alignment with the drawer */
   .hamburger {
     display: flex;
+    position: fixed; /* Pin to the viewport */
+    top: 15px;
+    right: 20px;
+    z-index: 110; /* Ensures it's above the nav-links */
   }
 
   /* --- HAMBURGER TO CLOSE (X) TRANSFORMATION --- */
@@ -356,7 +359,8 @@ body.menu-open {
     
     background-color: var(--primary);
     box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
-    padding: 60px 20px 20px;
+    /* Adjusted padding to leave space for the fixed hamburger/close icon */
+    padding: 70px 20px 20px; 
     
     /* START HIDDEN: Slide 100% of its width to the right */
     transform: translateX(100%);
