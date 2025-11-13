@@ -301,7 +301,6 @@ body {
 
   .nav-links.active {
     display: flex;
-    transform: translateX(0);
   }
 
   .hamburger {
@@ -327,5 +326,26 @@ body {
 
   .navbar {
     position: relative;
+  }
+
+  /* Mobile Dropdown Menu */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--light);
+    border-radius: 6px;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.25s ease;
+    pointer-events: none;
+  }
+
+  .dropdown.active .dropdown-menu {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
   }
 }
