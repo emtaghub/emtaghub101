@@ -105,190 +105,11 @@ body {
   color: #fff;
 }
 
-/* Hamburger */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-}
-
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background: white;
-  border-radius: 3px;
-}
-
-/* ========================= ANNOUNCEMENT ========================= */
-.announcement {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #e9f3ff;
-  border-left: 5px solid var(--primary);
-  border-radius: 8px;
-  padding: 10px 15px;
-  margin: 20px 0;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.announcement-text {
-  flex: 1;
-  min-width: 200px;
-}
-
-.announcement-text h2 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--dark);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin: 0;
-}
-
-.latest-blink {
-  color: var(--primary);
-  cursor: pointer;
-  font-weight: bold;
-  animation: blinkText 1.2s infinite;
-}
-
-@keyframes blinkText {
-  0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0.3; }
-}
-
-.latest-blink:hover {
-  color: #ff6600;
-  text-decoration: underline;
-}
-
-/* ========================= SEARCH ========================= */
-.search-box {
-  position: relative;
-  width: 100%;
-  max-width: 300px;
-}
-
-#searchInput {
-  width: 100%;
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  outline: none;
-  transition: all 0.3s ease;
-}
-
-#searchInput:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 3px rgba(0, 64, 128, 0.3);
-}
-
-/* Search Results Dropdown */
-#searchResults {
-  display: none;
-  position: absolute;
-  top: 105%;
-  left: 0;
-  width: 100%;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  max-height: 200px;
-  overflow-y: auto;
-  z-index: 20;
-}
-
-.search-item {
-  padding: 8px 12px;
-  cursor: pointer;
-}
-
-.search-item:hover {
-  background: #e9f3ff;
-}
-
-.no-result {
-  padding: 8px 12px;
-  color: var(--muted);
-}
-
-/* ========================= CONTENT ========================= */
-.content {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-
-.articles {
-  flex: 3;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.article-card {
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.article-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-}
-
-.article-card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-}
-
-.article-card-content {
-  padding: 15px;
-}
-
-.article-card-content h3 {
-  color: var(--primary);
-  font-size: 1.1rem;
-}
-
-.article-card-content p {
-  color: var(--muted);
-  margin-top: 8px;
-  font-size: 0.95rem;
-}
-
-.article-card-content small {
-  display: block;
-  margin-top: 8px;
-  color: #777;
-}
-
-/* ========================= YOUTUBE SECTION ========================= */
-.youtube-section {
-  flex: 1;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  min-width: 280px;
-}
-
 /* ========================= RESPONSIVE ========================= */
 @media (max-width: 768px) {
+  /* ========================= Mobile Navigation ========================= */
   .nav-links {
-    display: none;
+    display: none; /* Hide on mobile */
     flex-direction: column;
     background: var(--primary);
     position: absolute;
@@ -300,21 +121,55 @@ body {
   }
 
   .nav-links.active {
-    display: flex;
+    display: flex; /* Show when active */
     transform: translateX(0);
   }
 
   .hamburger {
     display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
   }
 
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 3px;
+  }
+
+  /* Show dropdown on mobile when clicked */
+  .nav-links .dropdown .dropdown-menu {
+    display: none; /* Hide by default */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #444;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1001;
+    width: 100%;
+  }
+
+  .nav-links .dropdown.active .dropdown-menu {
+    display: block; /* Show when active */
+  }
+
+  .nav-links .dropdown > a {
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  /* ========================= Mobile View Layout ========================= */
   .announcement {
     flex-direction: column;
     align-items: flex-start;
   }
 
   .content {
-    flex-direction: column; /* Stacks content vertically on mobile */
+    flex-direction: column;
     gap: 20px;
   }
 
@@ -323,8 +178,8 @@ body {
   }
 
   .youtube-section {
-    width: 100%; /* YouTube section takes full width on mobile */
-    margin-top: 20px; /* Adds space between articles and YouTube section */
+    width: 100%;
+    margin-top: 20px;
   }
 
   #searchInput {
