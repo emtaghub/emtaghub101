@@ -6,7 +6,7 @@
     text-align: center;
     margin-top: 40px;
     font-size: 0.9em;
-    width: auto;
+   width: 100%; /* Ensures full width */
 }
 
 .footer-links a {
@@ -18,3 +18,4 @@
     color: white;
 
 }
+
