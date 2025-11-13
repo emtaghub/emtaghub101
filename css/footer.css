@@ -6,6 +6,7 @@
     text-align: center;
     margin-top: 40px;
     font-size: 0.9em;
+    width: auto;
 }
 
 .footer-links a {
@@ -15,4 +16,5 @@
 
 .footer-links a:hover {
     color: white;
+
 }
