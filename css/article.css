@@ -16,7 +16,7 @@
 
 /* ========================= BASE & ARTICLE BODY STYLES (Combined) ========================= */
 body {
-  font-family: "Segoe UI", Arial, sans-serif; /* Main site font */
+  font-family: "Segoe UI", Arial, sans-serif;
   line-height: 1.5;
   padding: 0 20px;
   background-color: var(--light);
@@ -24,7 +24,6 @@ body {
   transition: padding 0.3s ease;
 }
 
-/* Class added by JS to prevent background scrolling on mobile when menu is open */
 body.menu-open {
   overflow: hidden;
 }
@@ -44,7 +43,7 @@ body.menu-open {
 }
 
 .logo {
-  font-size: 1.4rem; /* Re-added font size since HTML uses text logo */
+  font-size: 1.4rem; 
   font-weight: bold;
 }
 
@@ -82,16 +81,9 @@ body.menu-open {
     }
 }
 
-/* === Desktop Dropdown Navigation === */
-.dropdown {
-  position: relative;
-}
-
-.dropdown > a {
-  position: relative;
-  z-index: 10;
-}
-
+/* === Dropdown Styling (unchanged) === */
+.dropdown { position: relative; }
+.dropdown > a { position: relative; z-index: 10; }
 .dropdown-menu {
   visibility: hidden;
   opacity: 0;
@@ -109,14 +101,12 @@ body.menu-open {
   pointer-events: none;
   z-index: 99;
 }
-
 .dropdown:hover .dropdown-menu {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
-
 .dropdown-menu li a {
   display: block;
   padding: 10px 15px;
@@ -124,49 +114,35 @@ body.menu-open {
   text-decoration: none;
   transition: background 0.2s;
 }
-
 .dropdown-menu li a:hover {
   background: var(--primary);
   color: #fff;
 }
 
-/* Hamburger Icon */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  z-index: 103;
-  transition: all 0.3s ease-in-out;
-}
+/* Hamburger Icon (unchanged) */
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 103; transition: all 0.3s ease-in-out; }
+.hamburger span { width: 25px; height: 3px; background: white; border-radius: 3px; transition: all 0.3s ease-in-out; }
 
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background: white;
-  border-radius: 3px;
-  transition: all 0.3s ease-in-out;
-}
 
-/* ========================= CONTENT (Home Page Layout - Removed) ========================= */
-/* Note: Since you provided an article page HTML, .content and .articles styles are ignored 
-   for this specific page, but retained below for completeness if used elsewhere. */
-
-.content { /* Home Page Grid wrapper */
+/* ========================= CONTENT (Home Page Layout - if used) ========================= */
+.content { 
   display: flex;
-  flex-direction: row-reverse; 
+  flex-direction: row-reverse; /* Puts the second element (sidebar) on the right */
   gap: 20px;
   align-items: flex-start;
   flex-wrap: wrap;
   max-width: 1270px;
   margin: 20px auto; 
 }
-
 .articles {
   flex: 3;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
+}
+.youtube-section.home-sidebar { /* Example if you have a separate sidebar class for home page */
+  flex: 1; 
+  min-width: 280px;
 }
 
 /* ========================= ARTICLE LAYOUT CONTAINER (Individual Article Page) ========================= */
@@ -179,53 +155,54 @@ body.menu-open {
   max-width: 1310px;
   margin: 20px auto;
   box-sizing: border-box;
-  /* FIX: Reverses order so .sidebar (second in HTML) appears on the RIGHT of .article-main */
+  /* FIX: Reverses order so .sidebar (second element in HTML) appears on the RIGHT of .article-main */
   flex-direction: row-reverse; 
 }
 
-/* ===================== ARTICLE MAIN SECTION (Individual Article Page) ===================== */
+/* ===================== ARTICLE MAIN SECTION ===================== */
 .article-main {
-  flex: 0 0 70%;
+  flex: 0 0 70%; /* Takes exactly 70% width on desktop */
   background: white;
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   margin-bottom: 20px;
-  width: 100%;
   min-height: 500px;
-  /* Ensure the article body is placed at the bottom on mobile */
-  order: 2; 
+  order: 2; /* Default order, but ensures it's below sidebar on mobile */
 }
 
-/* ===================== SIDEBAR SECTION (Individual Article Page) ===================== */
+.article-title {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    color: var(--dark);
+}
+
+/* ===================== SIDEBAR SECTION ===================== */
 .sidebar {
-  flex: 0 0 30%;
+  flex: 0 0 30%; /* Takes exactly 30% width on desktop */
   background: white;
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   margin-bottom: 20px;
-  width: 100%;
   
-  /* Enables reordering of content *inside* the sidebar */
+  /* Allows reordering of content *inside* the sidebar */
   display: flex;
   flex-direction: column;
   gap: 20px; 
 
-  /* FIX: Moves the sidebar to the TOP on mobile (after the article title) */
-  order: 1; 
+  order: 1; /* Moves the sidebar to the TOP on mobile */
 }
 
 /* ===================== QUICK LINKS SECTION ===================== */
 .quick-links h3, .youtube-section h3 {
-  font-size: 1.5rem;
+  font-size: 1.2rem; /* Adjusted slightly smaller for sidebar headers */
   color: var(--primary);
   margin-bottom: 15px;
 }
 
 .quick-links {
-    /* Position in Sidebar: second item */
-    order: 2; 
+    order: 2;  /* Position: second item inside the sidebar */
 }
 
 .quick-links ul {
@@ -250,16 +227,15 @@ body.menu-open {
 /* ===================== YOUTUBE SECTION (Iframe) ===================== */
 .youtube-section {
   width: 100%;
-  background: white;
+  background: var(--article-bg); /* Slight distinction */
   padding: 10px;
-  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
   
-  /* Position in Sidebar: first item */
-  order: 1; 
+  order: 1;  /* Position: first item inside the sidebar */
 }
 
 /* Adjust the YouTube iframe size */
@@ -267,150 +243,41 @@ body.menu-open {
   width: 100%;
   height: 200px;
   border-radius: 8px;
-  border: none; /* Recommended for iframes */
+  border: none;
 }
-
-/* ===================== BACK TO TOP BUTTON ===================== */
-.back-to-top {
-  display: inline-block;
-  margin-top: 20px;
-  color: #004080;
-  text-decoration: underline;
-}
-
-/* ========================= FOOTER ========================= */
-.footer {
-  background-color: #f1f1f1;
-  padding: 20px;
-  text-align: center;
-  font-size: 14px;
-  color: #333;
-  width: 100%;
-  position: relative;
-  bottom: 0;
-  left: 0;
-  margin-top: 20px;
-}
-
-/* Footer Text Styles */
-.footer p {
-  margin: 10px 0;
-}
-
-.footer a {
-  color: var(--primary);
-  text-decoration: none;
-}
-
-.footer a:hover {
-  text-decoration: underline;
-}
-
 
 /* ========================= RESPONSIVE DRAWER NAVIGATION (<= 768px) ========================= */
 @media (max-width: 768px) {
-  /* Hides body padding on mobile and ensures full width */
-  body {
-    padding: 0;
-    overflow-x: hidden;
-    background-color: var(--article-bg); 
-  }
-  
-  /* Makes the hamburger icon visible and position fixed */
-  .hamburger {
-    display: flex;
-    position: fixed; 
-    top: 15px;
-    right: 20px;
-    z-index: 110; 
-  }
-
-  /* --- HAMBURGER TO CLOSE (X) TRANSFORMATION --- */
-  .hamburger.active span:nth-child(2) { opacity: 0; }
-  .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-  .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-  /* --- DRAWER MENU STYLES --- */
-  .nav-links {
-    display: flex; 
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 280px;
-    max-width: 80%;
-    background-color: var(--primary);
-    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
-    padding: 70px 20px 20px; 
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-    z-index: 105;
-    list-style: none;
-    overflow-y: auto;
-  }
-
-  .nav-links.active {
-    transform: translateX(0);
-  }
-
-  .nav-links li {
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  
-  .nav-links li:last-child {
-    border-bottom: none;
-  }
-
-  .nav-links a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.1rem;
-    display: block;
-    padding: 8px 0;
-    transition: color 0.2s;
-    text-align: left;
-  }
-
-  /* Mobile Dropdown Styling for the Drawer */
-  .dropdown { width: 100%; padding: 0; }
-  
-  .dropdown-menu {
-    position: static;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.1);
-    box-shadow: none;
-    border-radius: 0;
-    display: none;
-    padding: 5px 0 5px 15px;
-    visibility: visible;
-    opacity: 1;
-    transform: none;
-    pointer-events: auto;
-  }
-    
-  .dropdown.active .dropdown-menu { display: block; }
-
-  .dropdown-menu li a { color: white; text-align: left; padding: 5px 0; }
-    
-  .dropdown-menu li a:hover { background: transparent; color: #ffcc00; }
-
-  /* --- ARTICLE LAYOUT MOBILE FIXES --- */
+  
+  /* --- Mobile Container Reset --- */
   .container, .content {
-    flex-direction: column;  /* Stack vertically on mobile */
+    flex-direction: column;  /* Stack vertically */
     padding: 15px; 
     margin: 0 auto; 
     gap: 15px;
   }
   
   .article-main, .sidebar {
-    width: 100%; 
+    width: 100%;  /* Takes full width on mobile */
     margin-bottom: 15px; 
     padding: 15px;
   }
  
-  /* Since .sidebar has order: 1 and .article-main has order: 2, 
-     the sidebar will correctly appear after the title on mobile. */
-
+  /* Body and Nav (unchanged) */
+  body { padding: 0; overflow-x: hidden; background-color: var(--article-bg); }
+  .hamburger { display: flex; position: fixed; top: 15px; right: 20px; z-index: 110; }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+  .nav-links { /* Mobile Drawer styles */
+    display: flex; flex-direction: column; position: fixed; top: 0; right: 0; height: 100%; width: 280px; max-width: 80%; background-color: var(--primary); box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2); padding: 70px 20px 20px; transform: translateX(100%); transition: transform 0.3s ease-in-out; z-index: 105; list-style: none; overflow-y: auto; }
+  .nav-links.active { transform: translateX(0); }
+  .nav-links li { padding: 10px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+  .nav-links li:last-child { border-bottom: none; }
+  .nav-links a { color: #fff; text-decoration: none; font-size: 1.1rem; display: block; padding: 8px 0; transition: color 0.2s; text-align: left; }
+  .dropdown { width: 100%; padding: 0; }
+  .dropdown-menu { position: static; width: 100%; background: rgba(0, 0, 0, 0.1); box-shadow: none; border-radius: 0; display: none; padding: 5px 0 5px 15px; visibility: visible; opacity: 1; transform: none; pointer-events: auto; }
+  .dropdown.active .dropdown-menu { display: block; }
+  .dropdown-menu li a { color: white; text-align: left; padding: 5px 0; }
+  .dropdown-menu li a:hover { background: transparent; color: #ffcc00; }
 }
