@@ -32,7 +32,7 @@
     
     /* Margin adjusted to push text away from the image on the LEFT */
     /* Margin: [Top] [Right] [Bottom] [Left] */
-    margin: 0 0 15px 25px; 
+    margin: 0 25px 15px 0; 
     
     width: 300px; /* Default desktop width */
     height: auto;
@@ -104,4 +104,5 @@
         position: fixed;
     }
 }
+
 
