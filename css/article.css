@@ -25,7 +25,7 @@
         /* Keep float: right (inherited from global style) */
         
         /* FULFILLS REQUIREMENT: 1/4 size of the mobile screen */
-        width: 25vw; 
+        width: 40vw; 
         
         /* Reset display/margin to maintain float functionality */
         display: inline;
@@ -33,3 +33,4 @@
     }
     /* ... other mobile styles ... */
 }
+
