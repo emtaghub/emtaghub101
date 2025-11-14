@@ -131,7 +131,7 @@
 @media (max-width: 768px) {
     /* Ensure padding looks good on small screens */
     .full-article {
-        padding: 20px 15px; 
+        padding: 20px 20px; 
     }
 
     /* ⭐ FIX: Re-enables FLOAT RIGHT and uses wrapping margins ⭐ */
@@ -158,6 +158,7 @@
         position: fixed;
     }
 }
+
 
 
 
