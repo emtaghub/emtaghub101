@@ -20,7 +20,7 @@ body {
 }
 
 .article-container {
-    max-width: 900px;
+    max-width: 1000;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -43,3 +43,4 @@ a:hover {
         padding: 0 10px;
     }
 }
+
