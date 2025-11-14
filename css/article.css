@@ -1,8 +1,8 @@
 /* --- 1. Article Container and General Layout (Desktop/General) --- */
 
 .article-container {
-    max-width: 1000px; /* Max width for the entire article content */
-    margin: 40px auto;
+    max-width: 600px; /* Max width for the entire article content */
+    margin: 20px auto;
     padding: 0 20px;
     line-height: 1.6;
 }
@@ -158,4 +158,5 @@
         position: fixed;
     }
 }
+
 
