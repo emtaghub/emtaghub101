@@ -56,7 +56,13 @@
                 <p class="article-meta">Published on <time datetime="2025-11-13">November 13, 2025</time> by The Safety Team</p>
             </header>
             
-            <img src="images/article/osh/emtaghub101-duties-empoyer-osh-standard.jpg" alt="Diagram showing the interaction of Unsafe Act and Unsafe Condition" class="article-feature-image">
+            <a href="images/article/osh/emtaghub101-duties-empoyer-osh-standard-full.jpg" 
+               onclick="openLightbox(event, this.href)" 
+               title="Click to enlarge image">
+                <img src="images/article/osh/emtaghub101-duties-empoyer-osh-standard.jpg" 
+                     alt="Diagram showing the interaction of Unsafe Act and Unsafe Condition" 
+                     class="article-feature-image">
+            </a>
 
             <section id="introduction">
                 <p>In the field of Occupational Health and Safety (OHS), accident 
@@ -123,6 +129,10 @@
     </footer>
 
     <script src="js/menu-toggle.js"></script> 
-    </body>
-</html>
 
+    <div id="lightbox-overlay" onclick="closeLightbox()">
+        <img id="lightbox-image" src="" alt="Enlarged Diagram">
+    </div>
+    
+</body>
+</html>
