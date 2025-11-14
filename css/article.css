@@ -81,7 +81,7 @@
         /* Reset float and margin for small screens */
         float: none; 
         display: block; 
-        margin: 15px right; /* Centers the image */
+        margin: 0 right; /* Centers the image */
         
         width: 40vw; /* FULFILLS REQUIREMENT: 40vw size on mobile */
     }
@@ -93,7 +93,7 @@
         /* Reset float and margin for small screens */
         float: none; 
         display: block; 
-        margin: 15px left; /* Centers the image */
+        margin: 0 left; /* Centers the image */
         
         width: 40vw; /* FULFILLS REQUIREMENT: 40vw size on mobile */
     }
@@ -102,4 +102,5 @@
         position: fixed;
     }
 }
+
 
