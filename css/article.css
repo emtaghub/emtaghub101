@@ -1,82 +1,63 @@
 /* --- 4. Image Floating (Crucial for Layout) --- */
 
+/* --- IMAGE FLOATING RIGHT (Text wraps on the left) --- */
 .article-image-right {
-    /* STYLING FOR BOTH DESKTOP AND MOBILE */
-    
-    /* Apply float right globally to wrap text on the left */
     float: right; 
     
-    /* Margin adjusted to push text away from the image on the LEFT */
-    /* Margin: [Top] [Right] [Bottom] [Left] */
+    /* Margin adjusted: 0 Top, 0 Right (against edge), 15px Bottom, 25px Left (pushes text away) */
     margin: 0 0 15px 25px; 
     
     width: 300px; /* Default desktop width */
     height: auto;
     border: 1px solid #ccc;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    
-    /* Added: Styling to make the image look clickable */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     cursor: pointer; 
-    transition: transform 0.2s ease; /* Smooth hover feedback */
+    transition: transform 0.2s ease;
 }
 
 .article-image-right:hover {
-    transform: scale(1.02); /* Slight zoom on hover */
+    transform: scale(1.02);
 }
 
+/* --- IMAGE FLOATING LEFT (Text wraps on the right) --- */
 .article-image-left {
-    /* STYLING FOR BOTH DESKTOP AND MOBILE */
+    /* ⭐ CORRECTION 1: Must be float: left for text to wrap on the right ⭐ */
+    float: left; 
     
-    /* Apply float right globally to wrap text on the left */
-    float: right; 
+    /* Margin adjusted: 0 Top, 25px Right (pushes text away), 15px Bottom, 0 Left */
+    margin: 0 25px 15px 0; 
     
-    /* Margin adjusted to push text away from the image on the LEFT */
-    /* Margin: [Top] [Right] [Bottom] [Left] */
-    margin: 15px 25px 0 0; 
-    
-    width: 300px; /* Default desktop width */
+    width: 300px; 
     height: auto;
     border: 1px solid #ccc;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    
-    /* Added: Styling to make the image look clickable */
-    cursor: pointer; 
-    transition: transform 0.2s ease; /* Smooth hover feedback */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease;
 }
 
 .article-image-left:hover {
-    transform: scale(1.02); /* Slight zoom on hover */
+    transform: scale(1.02);
 }
 
 
 /* --- Lightbox / Modal Styling (To display image on click) --- */
 
 #lightbox-overlay {
-    /* Hides the lightbox by default */
     display: none; 
-    
-    /* Position over everything */
     position: fixed;
     z-index: 1000; 
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    
-    /* Dark, semi-transparent background */
     background-color: rgba(0, 0, 0, 0.9); 
-    
-    /* Centers content (the enlarged image) */
     justify-content: center;
     align-items: center;
 }
 
 #lightbox-image {
-    /* Max size of the enlarged image */
     max-width: 90%;
     max-height: 90%;
-    
-    /* Animation for smooth appearance */
     transition: transform 0.3s ease-in-out;
     border: 3px solid white;
     cursor: pointer;
@@ -87,23 +68,22 @@
 /* MOBILE OPTIMIZATION (Up to 768px) */
 /* ------------------------------------- */
 @media (max-width: 768px) {
-    /* We only need to adjust the width and reset display/margin properties */
-    .article-feature-image {
-        /* Keep float: right (inherited from global style) */
+    /* ⚠️ Correction: Using a common selector for all article images on mobile */
+    .article-image-right, .article-image-left {
+        /* Reset float and margin for small screens */
+        float: none; /* ⭐ Added: Disables floating on mobile for better flow ⭐ */
+        display: block; /* Makes the image take its own line */
+        margin: 15px auto; /* Centers the image */
         
         /* FULFILLS REQUIREMENT: 40vw size on mobile */
         width: 40vw; 
-        
-        /* Reset display/margin to maintain float functionality */
-        display: inline;
-        margin-top: 5px; /* Small top margin for spacing */
     }
     
-    /* Ensure the overlay covers the screen on mobile as well */
+    /* Note: If you absolutely need the image to float on mobile, remove 
+       float: none; and display: block; above, but floating tiny images 
+       on mobile usually results in messy wrapping. */
+       
     #lightbox-overlay {
         position: fixed;
     }
 }
-
-
-
