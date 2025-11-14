@@ -1,10 +1,70 @@
+/* --- 1. Article Container and General Layout (Desktop/General) --- */
+
+.article-container {
+    max-width: 900px; /* Max width for the entire article content */
+    margin: 40px auto;
+    padding: 0 20px;
+    line-height: 1.6;
+}
+
+.full-article {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* --- 2. Article Header and Metadata --- */
+
+.full-article header h2 {
+    color: #2c3e50;
+    font-size: 2.2em;
+    margin-top: 0;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.article-meta {
+    color: #7f8c8d;
+    font-size: 0.9em;
+    margin-bottom: 30px;
+}
+
+/* --- 3. Section Styling and Typography --- */
+
+.full-article section h3 {
+    color: #3498db;
+    font-size: 1.6em;
+    margin-top: 30px;
+    border-left: 5px solid #3498db;
+    padding-left: 15px;
+}
+
+.full-article section h4 {
+    color: #2c3e50;
+    font-size: 1.2em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.full-article section ul, 
+.full-article section ol {
+    margin: 15px 0 15px 20px;
+    padding-left: 10px;
+}
+
+.full-article section li {
+    margin-bottom: 8px;
+}
+
 /* --- 4. Image Floating (Crucial for Layout) --- */
 
 /* --- IMAGE FLOATING RIGHT (Text wraps on the left) --- */
 .article-image-right {
     float: right; 
     
-    /* Margin adjusted: 0 Top, 0 Right (against edge), 15px Bottom, 25px Left (pushes text away) */
+    /* Desktop margins: pushes text away from the image's left side */
     margin: 0 0 15px 25px; 
     
     width: 300px; /* Default desktop width */
@@ -12,6 +72,7 @@
     border: 1px solid #ccc;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     cursor: pointer; 
+    border-radius: 8px;
     transition: transform 0.2s ease;
 }
 
@@ -21,10 +82,9 @@
 
 /* --- IMAGE FLOATING LEFT (Text wraps on the right) --- */
 .article-image-left {
-    /* ⭐ CORRECTION 1: Must be float: left for text to wrap on the right ⭐ */
     float: left; 
     
-    /* Margin adjusted: 0 Top, 25px Right (pushes text away), 15px Bottom, 0 Left */
+    /* Desktop margins: pushes text away from the image's right side */
     margin: 0 25px 15px 0; 
     
     width: 300px; 
@@ -32,6 +92,7 @@
     border: 1px solid #ccc;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+    border-radius: 8px;
     transition: transform 0.2s ease;
 }
 
@@ -40,7 +101,7 @@
 }
 
 
-/* --- Lightbox / Modal Styling (To display image on click) --- */
+/* --- Lightbox / Modal Styling --- */
 
 #lightbox-overlay {
     display: none; 
@@ -68,31 +129,32 @@
 /* MOBILE OPTIMIZATION (Up to 768px) */
 /* ------------------------------------- */
 @media (max-width: 768px) {
-    /* ⚠️ Correction: Using a common selector for all article images on mobile */
-    .article-image-right{
-        /* Reset float and margin for small screens */
-        float: right; /* ⭐ Added: Disables floating on mobile for better flow ⭐ */
-        display: block; /* Makes the image take its own line */
-        margin: 15px auto; /* Centers the image */
-        
-        /* FULFILLS REQUIREMENT: 40vw size on mobile */
-        width: 40vw; 
+    /* Ensure padding looks good on small screens */
+    .full-article {
+        padding: 20px 15px; 
     }
+
+    /* ⭐ FIX: Re-enables FLOAT RIGHT and uses wrapping margins ⭐ */
+    .article-image-right {
+        float: right; 
+        /* Use specific margins to push text away and prevent centering */
+        margin: 10px 0 10px 10px; 
+        
+        width: 40vw; /* Sets responsive size */
+        /* Removed 'display: block' and 'margin: auto' */
+    }
+    
+    /* ⭐ FIX: Re-enables FLOAT LEFT and uses wrapping margins ⭐ */
     .article-image-left {
-    /* Reset float and margin for small screens */
-        float: left; /* ⭐ Added: Disables floating on mobile for better flow ⭐ */
-        display: block; /* Makes the image take its own line */
-        margin: 15px auto; /* Centers the image */
+        float: left; 
+        /* Use specific margins to push text away and prevent centering */
+        margin: 10px 10px 10px 0; 
         
-        /* FULFILLS REQUIREMENT: 40vw size on mobile */
-        width: 40vw; 
+        width: 40vw; /* Sets responsive size */
+        /* Removed 'display: block' and 'margin: auto' */
     }
-        /* Note: If you absolutely need the image to float on mobile, remove 
-       float: none; and display: block; above, but floating tiny images 
-       on mobile usually results in messy wrapping. */
-       
+    
     #lightbox-overlay {
         position: fixed;
     }
 }
-
