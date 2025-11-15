@@ -6,8 +6,10 @@
 .footer { 
     background: #0a1a33;              /* Dark elegant blue */
     color: #e5e7eb;                   /* Soft gray text color */
-    padding: 7px 3px;                 /* Reduced padding for smaller height */
-    margin-top: 100px;                /* Reduced space above footer */
+    /* ADJUSTED: Set internal vertical padding to 10px */
+    padding: 10px 3px;                 
+    /* ADJUSTED: Reduced space above footer for desktop */
+    margin-top: 50px;                
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.25); /* Soft top shadow */
     font-family: Arial, sans-serif; /* Ensure font is defined */
 }
@@ -127,15 +129,16 @@
    ===================================== */
 @media (max-width: 600px) {
     .footer { 
-        /* TIGHTER PADDING: Reduced from 20px to 10px top/bottom */
+        /* PADDING: Kept at 10px top/bottom as requested */
         padding: 10px 15px; 
-        margin-top: 50px; 
+        /* ADJUSTED: Reduced space above footer for mobile */
+        margin-top: 30px; 
     }
     
     .footer-container {
         flex-direction: column;
         align-items: flex-start; 
-        /* TIGHTER GAP: Reduced from 30px to 20px between sections */
+        /* TIGHTER GAP: Reduced gap between sections */
         gap: 20px; 
         text-align: left; 
     }
