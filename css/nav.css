@@ -1,13 +1,12 @@
 /* =====================================================
-   NEW: Navigation Menu Positioning and Styling
+   NEW: Navigation Menu Positioning and Styling (Further Reduced Size)
    ===================================================== */
 
 /* 1. Positioning the Nav */
 .main-nav {
-  /* Positions the nav in the top right corner relative to .site-banner */
   position: absolute;
-  top: 5px; /* Reduced vertical distance */
-  right: 5px; /* Reduced horizontal distance */
+  top: 5px; 
+  right: 5px; 
   z-index: 20;
 }
 
@@ -20,22 +19,23 @@
   flex-wrap: wrap;
   justify-content: flex-end;
   /* Reduced font size for a smaller overall look */
-  font-size: 0.9rem; 
+  font-size: 0.8rem; 
 }
 .main-nav li {
   position: relative;
 }
 .main-nav a {
   display: block;
-  /* Reduced padding for smaller boxes */
-  padding: 4px 7px; 
+  /* Further reduced padding for tighter boxes */
+  padding: 3px 6px; 
   text-decoration: none;
   color: #333;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 3px; /* Slightly smaller radius */
-  margin-left: 3px; /* Reduced margin between links */
+  background-color: rgba(255, 255, 255, 0.85); /* Slightly less transparent */
+  border-radius: 3px; 
+  margin-left: 2px; /* Tighter spacing between links */
   white-space: nowrap;
-  font-family: Arial, sans-serif; /* Explicitly set font */
+  font-family: Arial, sans-serif; 
+  font-weight: bold; /* Make text bolder to ensure readability at a small size */
 }
 .main-nav a:hover {
   background-color: #ddd;
@@ -49,20 +49,20 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: rgba(255, 255, 255, 0.98); /* Less transparent */
-  min-width: 180px; /* Reduced minimum width */
+  background-color: rgba(255, 255, 255, 0.98); 
+  min-width: 150px; /* Further reduced minimum width */
   z-index: 30;
   border: 1px solid #ccc;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 5px rgba(0,0,0,0.1); /* Reduced shadow */
   display: none;
-  font-size: 0.9rem; /* Match top-level font size */
+  font-size: 0.8rem; /* Match top-level font size */
 }
 
 /* Sub-sub-menu positioning (flyout to the right) */
 .main-nav ul ul ul {
   top: 0;
   left: 100%;
-  min-width: 160px; /* Reduced minimum width */
+  min-width: 130px;
 }
 
 /* Show sub-menus on hover */
@@ -76,36 +76,35 @@
     background-color: transparent;
     border-radius: 0;
     margin: 0;
-    /* Reduced padding for tighter vertical spacing */
-    padding: 6px 12px;
+    /* Reduced padding inside dropdowns */
+    padding: 5px 10px;
+    font-weight: normal; 
 }
 
 /* =====================================================
    MOBILE OPTIMIZATION (<= 768px)
    ===================================================== */
 @media (max-width: 768px) {
-    /* Drastically reduce size and positioning for small screens */
+    /* Extreme reduction for small screens */
     .main-nav {
         top: 2px;
         right: 2px;
     }
     .main-nav > ul {
-        font-size: 0.75rem; /* Smaller font for top-level links */
+        font-size: 0.65rem; /* Smallest practical font size for readability */
     }
     .main-nav a {
-        padding: 2px 4px; /* Very small boxes */
-        margin-left: 2px;
+        padding: 1px 3px; /* Minimal padding */
+        margin-left: 1px;
     }
     .main-nav ul ul {
-        min-width: 120px; /* Very narrow dropdowns */
-        font-size: 0.75rem; /* Smaller font for dropdowns */
+        min-width: 100px; /* Very narrow dropdowns */
+        font-size: 0.7rem; 
     }
     .main-nav ul ul ul {
-        min-width: 100px;
+        min-width: 90px;
     }
     .main-nav ul ul a {
-        padding: 4px 8px; /* Small padding inside dropdowns */
+        padding: 3px 6px; /* Minimal padding inside dropdowns */
     }
-    /* Hide the entire complex menu on small mobile screens if you plan to use a Hamburger menu */
-    /* .main-nav { display: none; } */ 
 }
