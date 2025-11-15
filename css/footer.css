@@ -81,34 +81,40 @@
   color: #9ca3af;                   /* Soft gray */
 }
 
-/* =====================================
-   📱 Mobile — Keep Horizontal, Scale Content
-   ===================================== */
 @media (max-width: 600px) {
   .footer {
-    padding: 15px 10px;
+    padding: 10px 5px;
   }
 
   .footer-container {
-    flex-wrap: wrap;                /* Allow slight wrap if very narrow */
-    justify-content: center;        /* Center columns horizontally */
-    gap: 15px;
+    flex-wrap: wrap;                
+    justify-content: center;        
+    gap: 10px;
   }
 
   .footer-about {
-    flex: 0 0 80%;                  /* Scaled width for mobile */
+    flex: 0 0 90%;                  
     text-align: center;
+    font-size: 0.75rem;            /* Smaller text */
+    line-height: 1.2;
   }
 
   .footer-contact,
   .footer-links {
-    flex: 0 0 40%;                  /* Scale columns proportionally */
+    flex: 0 0 45%;                  
     text-align: center;
+    font-size: 0.75rem;            /* Smaller text */
+    line-height: 1.2;
   }
 
   .footer-links a,
   .footer-contact a {
-    font-size: 0.85rem;             /* Slightly smaller text */
-    margin-bottom: 3px;
+    margin-bottom: 2px;
+  }
+
+  .footer-bottom {
+    font-size: 0.7rem;             /* Fit mobile screen */
+    margin-top: 8px;
+    padding-top: 5px;
   }
 }
