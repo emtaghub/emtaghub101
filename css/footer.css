@@ -94,8 +94,8 @@
 
   .footer-links a,
   .footer-contact a {
-   gap: 20px;
    text-align: left;
+   margin-left: 20px;
    margin-bottom: 2px;
      
   }
@@ -106,6 +106,7 @@
     padding-top: 5px;
   }
 }
+
 
 
 
