@@ -62,41 +62,35 @@
   opacity: 0.92; /* Soft faded text */
   margin-bottom: 6px; /* Space below title before tagline starts */
 }
-
 /* =====================================
-   📱 Mobile Responsive Banner
+   📱 Mobile Responsiveness — Keep Horizontal
    ===================================== */
 @media (max-width: 600px) {
-
   .site-banner {
-    flex-direction: column;           /* Stack logo + text vertically */
-    justify-content: center;
-    align-items: center;
-    padding: 10px 15px;
-    gap: 10px;                        /* Space between stacked elements */
+    justify-content: center;           /* Center content horizontally */
+    gap: 10px;
   }
 
   .banner-inner {
-    flex-direction: column;           /* Logo above text */
+    flex-direction: row;               /* Keep horizontal layout */
     align-items: center;
-    text-align: center;
     gap: 8px;
+    flex-wrap: wrap;                   /* Allow wrapping if very narrow */
   }
 
   .banner-logo {
-    height: 55px;                     /* Smaller logo for mobile */
+    height: 55px;                      /* Smaller logo to fit screen */
   }
 
   .banner-title {
-    font-size: 1.7rem;                /* Slightly smaller title */
-    line-height: 1.2;
+    font-size: 1.5rem;                 /* Scale down text */
   }
 
   .tagline-main {
-    font-size: 1rem;
+    font-size: 0.85rem;
   }
 
   .tagline-sub {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
   }
 }
