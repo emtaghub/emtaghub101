@@ -129,6 +129,7 @@
     .footer { 
         padding: 10px 15px;             /* Sets tight vertical padding (10px) and better side margins (15px) */
         margin-top: 30px;               /* Reduces the space *above* the footer to 30px on mobile */
+         max-width: auto;  
     }
     
     .footer-container {
@@ -189,6 +190,7 @@
         font-size: 0.8rem;              /* Sets a small font size for quick links text */
     }
 }
+
 
 
 
