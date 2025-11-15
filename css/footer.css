@@ -82,27 +82,33 @@
 }
 
 /* =====================================
-   📱 Mobile Responsive Footer
+   📱 Mobile — Keep Horizontal, Scale Content
    ===================================== */
 @media (max-width: 600px) {
   .footer {
-    padding: 20px 15px;             /* Even smaller padding on mobile */
+    padding: 15px 10px;
   }
 
   .footer-container {
-    text-align: center;             /* Center-align all text on mobile */
-    flex-direction: column;         /* Stack columns vertically */
-    align-items: center;            /* Center items */
-    gap: 15px;                      /* Smaller spacing between sections */
+    flex-wrap: wrap;                /* Allow slight wrap if very narrow */
+    justify-content: center;        /* Center columns horizontally */
+    gap: 15px;
   }
 
-  .footer-links,
-  .footer-contact,
   .footer-about {
-    max-width: 100%;                /* Make all sections full-width on mobile */
+    flex: 0 0 80%;                  /* Scaled width for mobile */
+    text-align: center;
   }
 
-  .footer-links a {
-    margin-bottom: 3px;             /* Tighten link spacing on small screens */
+  .footer-contact,
+  .footer-links {
+    flex: 0 0 40%;                  /* Scale columns proportionally */
+    text-align: center;
+  }
+
+  .footer-links a,
+  .footer-contact a {
+    font-size: 0.85rem;             /* Slightly smaller text */
+    margin-bottom: 3px;
   }
 }
