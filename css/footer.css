@@ -82,6 +82,12 @@
     text-align: left;
 }
 
+/* NEW FIX: Explicitly controls the vertical spacing between quick links on desktop */
+.footer-links a {
+    margin-bottom: 8px; /* Adds consistent spacing below each link */
+}
+
+
 .footer-bottom {
     text-align: center;
     padding: 10px 20px 0;
