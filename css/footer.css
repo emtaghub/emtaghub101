@@ -82,40 +82,52 @@
 }
 
 /* =====================================
-   📱 Mobile Responsive Footer
-   ===================================== */
+    📱 Mobile Responsive Footer (Fixed)
+    ===================================== */
 @media (max-width: 600px) {
-  .footer {
-    padding: 20px 15px;             /* Even smaller padding on mobile */
-  }
+    .main-footer {
+        padding: 20px 15px; /* Even smaller padding on mobile */
+    }
 
-  .footer-container {
-    text-align: left;             /* Center-align all text on mobile */
-    flex-direction: column;         /* Stack columns vertically */
-    align-items: center;            /* Center items */
+    .footer-container {
+        /* On mobile, stack all top-level sections vertically */
+        flex-direction: column;
+        align-items: center; /* Center items */
+        gap: 25px; /* Spacing between stacked sections */
+        text-align: center; /* Center all content */
+    }
 
-     gap: 15px;                      /* Smaller spacing between sections */
-  }
-  .footer-contact {
-    text-align: left;             /* Center-align all text on mobile */
-    flex-direction: flex;         /* Stack columns vertically */
-    align-items: left;            /* Center items */
-    font-size: 0.7rem;
-  }
-  .footer-links,
-  .footer-contact,
-  .footer-about {
-     font-size: 0.95rem;
-   text-align: left;
-    max-width: 100%;                /* Make all sections full-width on mobile */
-  }
+    /* FIX: This new wrapper forces the links and contact to be horizontal */
+    .footer-horizontal-group {
+        display: flex; 
+        flex-direction: row; /* FIX: Force horizontal alignment */
+        width: 100%; /* Take up full width of the footer container */
+        justify-content: space-around; /* Distribute space evenly */
+        align-items: flex-start;
+    }
 
-  .footer-links a {
-    margin-bottom: 3px;             /* Tighten link spacing on small screens */
-  }
+    .footer-links,
+    .footer-contact {
+        /* FIX: Ensure they split the horizontal space evenly (50% each) */
+        flex-basis: 50%; 
+        max-width: 50%;
+        text-align: left; /* Keep text aligned left within their 50% column */
+        font-size: 0.95rem;
+    }
+
+    .footer-about {
+        /* This section remains full-width and stacked */
+        font-size: 0.95rem;
+        text-align: center;
+        max-width: 100%;
+    }
+    
+    .footer-contact {
+        /* Cleanup of invalid properties */
+        font-size: 0.7rem; 
+    }
+    
+    .footer-links a {
+        margin-bottom: 3px;
+    }
 }
-
-
-
-
-
