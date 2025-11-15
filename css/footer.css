@@ -46,10 +46,19 @@
     min-width: 150px;
 }
 
+/* FIX 1: Use Flexbox on the <p> tag to ensure the icon and text are aligned horizontally */
+.footer-contact p {
+    display: flex;
+    align-items: center; /* Vertically center icon and text */
+    gap: 8px; /* Space between icon and text */
+    margin-bottom: 8px;
+}
+
+/* FIX 2: Remove display: block from the link (a) so it can sit inline with the icon */
 .footer-contact a {
     color: #38bdf8;                   /* Light cyan for links */
     text-decoration: none;            /* Remove underline */
-    display: block; /* Make sure links break lines */
+    /* Removed display: block; which was forcing the text to drop below the icon */
 }
 
 .footer-contact a:hover {
@@ -64,11 +73,17 @@
     min-width: 150px;
 }
 
+/* FIX 3: Also apply Flexbox to the quick links to ensure icon and text are aligned */
 .footer-links a {
     color: #9ca3af;                   /* Muted gray text */
     margin-bottom: 5px;               /* Reduced spacing between links */
     text-decoration: none;            /* Clean links */
     font-size: 0.95rem;               /* Slightly smaller text */
+    
+    /* Apply Flexbox to align icon and link text */
+    display: flex; 
+    align-items: center;
+    gap: 8px;
 }
 
 .footer-links a:hover {
@@ -100,7 +115,7 @@
    ===================================== */
 @media (max-width: 600px) {
     .footer { 
-        padding: 10px 15px; /* Adjust wrapper padding */
+        padding: 20px 15px; /* Adjust wrapper padding */
         margin-top: 50px; /* Less space above footer on mobile */
     }
     
@@ -137,7 +152,7 @@
         /* Each takes about half the space */
         flex-basis: 48%; 
         max-width: 48%; 
-        font-size: 0.7rem;
+        font-size: 0.95rem;
         /* Ensure the titles and content are aligned left within their column */
         text-align: left;
     }
@@ -145,17 +160,15 @@
     .footer-contact h3,
     .footer-links h3 {
         /* Adjust title size for mobile readability if necessary */
-        font-size: .9rem;
+        font-size: 1.1rem;
     }
     
     .footer-contact {
         /* Adjust to standard font size */
-        font-size: 0.7rem; 
+        font-size: 0.95rem; 
     }
     
     .footer-links a {
         margin-bottom: 3px;
     }
 }
-
-
