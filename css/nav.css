@@ -124,7 +124,7 @@
     transition: transform 0.3s ease-in-out;
     box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
     overflow-y: auto;
-    padding-top: 15px;
+    /* padding-top: 15px; <-- REMOVED THIS LINE for zero gap */
 }
 .mobile-menu-container.open {
     transform: translateX(0);
@@ -206,7 +206,7 @@
         display: block;
         position: absolute;
         top: 50%; /* Center vertically */
-        left: 5%; /* Center horizontally */
+        left: 50%; /* Center horizontally */
         transform: translate(-50%, -50%); /* Shift back by half its own size */
         font-size: 1.8rem;
         color: white;
@@ -216,7 +216,7 @@
     
     /* Position mobile menu below the header (Assuming header height ~80px) */
     .mobile-menu-container {
-        top: 80px; /* <--- Sets the top of the menu */
+        top: 80px; /* <--- Sets the top of the menu, matching banner min-height */
         height: calc(100% - 80px); /* <--- Fills the rest of the screen */
     }
 }
