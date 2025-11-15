@@ -55,7 +55,7 @@
         width: 100%;                    /* Ensures the group takes full container width */
         justify-content: space-between; /* Pushes contact and links apart */
         align-items: flex-start;        /* Aligns items to the top */
-        padding: 0 8px;                 /* Adjusted horizontal padding to 8px for buffer */
+        padding: 0 5px;                 /* ADJUSTED: Reduced horizontal padding to 5px for extra safety margin */
         box-sizing: border-box;         /* CRITICAL FIX: Ensures padding is included *within* the 100% width, eliminating horizontal scroll */
     }
 
