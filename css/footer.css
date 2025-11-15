@@ -2,83 +2,83 @@
    🌐 EMTAGHub101 — Footer Styles (Optimized)
    ===================================================== */
 
-/* ----- Footer Wrapper (Changed from .main-footer to .footer) ----- */
+/* ----- Footer Wrapper (.footer) ----- */
 .footer { 
-    background: #0a1a33;              /* Dark elegant blue */
-    color: #e5e7eb;                   /* Soft gray text color */
-    /* ADJUSTED: Set internal vertical padding to 10px */
+    background: #0a1a33;              /* Background color: Dark elegant blue */
+    color: #e5e7eb;                   /* Default text color: Soft gray */
+    /* ADJUSTED: Tight top/bottom internal padding to 10px, as requested */
     padding: 10px 3px;                 
-    /* ADJUSTED: Reduced space above footer for desktop */
+    /* Controls space *above* the blue footer container (desktop) */
     margin-top: 50px;                
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.25); /* Soft top shadow */
-    font-family: Arial, sans-serif; /* Ensure font is defined */
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.25); /* Soft shadow at the top edge */
+    font-family: Arial, sans-serif;   /* Set a clear default font */
 }
 
-/* ----- Flex Container ----- */
+/* ----- Flex Container (.footer-container) ----- */
 .footer-container {
-    display: flex;                    /* Use flex layout */
-    justify-content: space-between;   /* Spread columns horizontally */
-    flex-wrap: wrap;                  /* Allow columns to wrap on small screens */
-    gap: 40px;                        /* Reduced gap between footer sections */
-    max-width: 1200px;                /* Center content with fixed width limit */
-    margin: 0 auto;                   /* Center the whole footer */
-    padding: 20px; /* Add some desktop padding for content */
+    display: flex;                    /* Enable Flexbox for horizontal layout */
+    justify-content: space-between;   /* Spread columns horizontally across space */
+    flex-wrap: wrap;                  /* Allow columns to stack on smaller screens */
+    gap: 40px;                        /* Horizontal gap between footer sections */
+    max-width: 1200px;                /* Limit max width and center on large screens */
+    margin: 0 auto;                   /* Center the container horizontally */
+    /* ADJUSTED: Reduced top/bottom padding to 10px to tighten space inside */
+    padding: 10px 20px; 
 }
 
 /* Helper for the mobile fix - allows flex children to flow normally on desktop */
 .footer-horizontal-group {
-    display: contents; 
+    display: contents; /* Makes the element transparent to the layout on desktop */
 }
 
 
-/* ----- Column Titles (About/Contact/Links) ----- */
+/* ----- Column Titles (h3/h4) ----- */
 .footer h3,
 .footer h4 {
     color: #ffffff;                  /* White color for titles */
-    margin-bottom: 10px;              /* Reduced spacing under titles */
+    margin-bottom: 10px;              /* Spacing under the titles */
     font-weight: 700;                 /* Make titles bold */
-    font-size: 1rem;                  /* Slightly smaller titles */
+    font-size: 1rem;                  /* Standard title size */
 }
 
 
-/* ----- Contact Section ----- */
+/* ----- Contact Section (.footer-contact) ----- */
 .footer-contact {
-    flex: 1 1 200px;                  /* Flexible width, slightly larger minimum for content */
-    font-size: 0.95rem;               /* Compact text */
-    min-width: 150px;
+    flex: 1 1 200px;                  /* Flexible width, min-width 200px before wrapping */
+    font-size: 0.95rem;               /* Default text size */
+    min-width: 150px;                 /* Ensure minimum width on desktop */
 }
 
-/* FIX 1: Use Flexbox on the <p> tag, reduce gap, and ensure icon alignment */
+/* FIX 1: Use Flexbox on the <p> tag to align icons and text */
 .footer-contact p {
-    display: flex;
-    align-items: center; /* Vertically center icon and text */
-    gap: 6px; /* Reduced space between icon and text */
-    margin-bottom: 8px;
+    display: flex;                    /* Enable Flexbox on the paragraph */
+    align-items: center;              /* Vertically center icon and text */
+    gap: 6px;                         /* Small gap between icon and text */
+    margin-bottom: 8px;               /* Spacing between contact lines */
 }
 
-/* Ensure the icon doesn't shrink */
+/* Ensure the icon itself doesn't shrink on mobile */
 .footer-contact p i {
     flex-shrink: 0;
 }
 
-/* FIX 2: Updated: Removed white-space: nowrap to allow the link text to wrap if needed */
+/* Styling for contact links (e.g., email) */
 .footer-contact a {
     color: #38bdf8;                   /* Light cyan for links */
     text-decoration: none;            /* Remove underline */
-    /* Removed white-space: nowrap to prevent horizontal overflow */
-    overflow: hidden; 
-    text-overflow: ellipsis; 
+    overflow: hidden;                 /* Hide overflowing content (long emails) */
+    text-overflow: ellipsis;          /* Show ... for hidden overflow */
 }
 
 .footer-contact a:hover {
     text-decoration: underline;       /* Add underline on hover */
 }
 
-/* ----- Quick Links Section ----- */
+/* ----- Quick Links Section (.footer-links) ----- */
 .footer-links {
-    flex: 1 1 200px;                  /* Flexible width */
-    display: flex;                    /* Vertical list */
-    flex-direction: column;
+    flex: 1 1 200px;                  /* Flexible width, min-width 200px */
+    display: flex;                    /* Enable Flexbox for links container */
+    flex-direction: column;           /* Stack links vertically */
     min-width: 150px;
 }
 
@@ -87,12 +87,11 @@
     color: #9ca3af;                   /* Muted gray text */
     margin-bottom: 5px;               /* Reduced spacing between links */
     text-decoration: none;            /* Clean links */
-    font-size: 0.95rem;               /* Slightly smaller text */
+    font-size: 0.95rem;               /* Standard link text size */
     
-    /* Apply Flexbox to align icon and link text */
-    display: flex; 
-    align-items: center;
-    gap: 6px; /* Reduced space between icon and text */
+    display: flex;                    /* Enable Flexbox for icon/text alignment */
+    align-items: center;              /* Vertically center icon and text */
+    gap: 6px;                         /* Small gap between icon and text */
 }
 
 /* Ensure the icon doesn't shrink */
@@ -104,9 +103,9 @@
     color: #ffffff;                   /* White on hover */
 }
 
-/* Assuming there's also a .footer-about section */
+/* Placeholder for .footer-about (if it were present in HTML) */
 .footer-about {
-    flex: 2 1 300px; /* Takes up more space on desktop */
+    flex: 2 1 300px; 
     min-width: 300px;
 }
 .footer-about p {
@@ -114,14 +113,14 @@
 }
 
 
-/* ----- Footer Bottom Line ----- */
+/* ----- Footer Bottom Line (.footer-bottom) ----- */
 .footer-bottom {
-    text-align: center;               /* Center align bottom text */
-    margin-top: 15px;                 /* Small gap above bottom line */
-    padding-top: 10px;                /* Padding above separator line */
-    border-top: 1px solid rgba(255, 255, 255, 0.15); /* Soft separator line (corrected color code) */
-    font-size: 0.85rem;               /* Smaller footer bottom text */
-    color: #9ca3af;                   /* Soft gray */
+    text-align: center;               /* Center align copyright text */
+    margin-top: 15px;                 /* Space above the separator line */
+    padding-top: 10px;                /* Padding below the separator line */
+    border-top: 1px solid rgba(255, 255, 255, 0.15); /* Soft separator line */
+    font-size: 0.85rem;               /* Smaller copyright text */
+    color: #9ca3af;                   /* Soft gray color */
 }
 
 /* =====================================
@@ -129,21 +128,18 @@
    ===================================== */
 @media (max-width: 600px) {
     .footer { 
-        /* PADDING: Kept at 10px top/bottom as requested */
-        padding: 10px 15px; 
-        /* ADJUSTED: Reduced space above footer for mobile */
-        margin-top: 30px; 
+        padding: 10px 15px;             /* Keeps tight padding and better side margins on mobile */
+        margin-top: 30px;               /* Reduces space above the footer on mobile */
     }
     
     .footer-container {
-        flex-direction: column;
-        align-items: flex-start; 
-        /* TIGHTER GAP: Reduced gap between sections */
-        gap: 20px; 
+        flex-direction: column;         /* Stack items vertically on mobile */
+        align-items: flex-start;        /* Align content to the left */
+        gap: 20px;                      /* Vertical gap between stacked sections */
         text-align: left; 
     }
 
-    /* Target all top-level sections for full width and left alignment */
+    /* Reset flex behavior for sections that should take full width */
     .footer-contact,
     .footer-links,
     .footer-about {
@@ -152,26 +148,26 @@
         flex: none; 
     }
     
-    /* FIX: This new wrapper forces the links and contact to be horizontal */
+    /* FIX: This wrapper forces contact and links back to horizontal alignment */
     .footer-horizontal-group {
-        display: flex;
-        flex-direction: row; 
+        display: flex;                  /* Enable Flexbox */
+        flex-direction: row;            /* Force side-by-side alignment */
         width: 100%; 
-        justify-content: space-between; 
+        justify-content: space-between; /* Space out the two horizontal elements */
         align-items: flex-start;
         padding: 0 5px; 
     }
 
     .footer-links,
     .footer-contact {
-        flex-basis: 49%; 
+        flex-basis: 49%;                /* Each takes roughly half the width */
         max-width: 49%; 
         text-align: left;
     }
     
+    /* TIGHTER FONT: Title font size on mobile */
     .footer-contact h3,
     .footer-links h3 {
-        /* TIGHTER FONT: Reduced title font size */
         font-size: 1rem;
     }
     
@@ -180,9 +176,9 @@
         font-size: 0.75rem; 
     }
     
+    /* TIGHTER FONT: Reduced content font size for quick links */
     .footer-links a {
         margin-bottom: 3px;
-        /* TIGHTER FONT: Reduced content font size for quick links */
         font-size: 0.8rem;
     }
 }
