@@ -59,13 +59,13 @@
     flex-shrink: 0;
 }
 
-/* FIX 2: Prevent the contact link text (email/url) from wrapping */
+/* FIX 2: Updated: Removed white-space: nowrap to allow the link text to wrap if needed */
 .footer-contact a {
     color: #38bdf8;                   /* Light cyan for links */
     text-decoration: none;            /* Remove underline */
-    white-space: nowrap; /* Prevents the text from wrapping onto a new line */
-    overflow: hidden; /* Ensures no horizontal scroll if it still overflows */
-    text-overflow: ellipsis; /* Optional: adds '...' if content is too long */
+    /* Removed white-space: nowrap to prevent horizontal overflow */
+    overflow: hidden; 
+    text-overflow: ellipsis; 
 }
 
 .footer-contact a:hover {
@@ -161,10 +161,9 @@
 
     .footer-links,
     .footer-contact {
-        /* Each takes about half the space */
-        flex-basis: 48%; 
-        max-width: 48%; 
-        font-size: 0.95rem;
+        /* Each takes up slightly more space to reduce the gap and maximize available width */
+        flex-basis: 49%; 
+        max-width: 49%; 
         /* Ensure the titles and content are aligned left within their column */
         text-align: left;
     }
@@ -175,9 +174,9 @@
         font-size: 1.1rem;
     }
     
+    /* FIX: Reduced font size further to 0.8em to prevent overlap */
     .footer-contact {
-        /* Adjust to standard font size */
-        font-size: 0.95rem; 
+        font-size: 0.8em; 
     }
     
     .footer-links a {
