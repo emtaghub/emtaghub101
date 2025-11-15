@@ -137,7 +137,7 @@
         /* Each takes about half the space */
         flex-basis: 48%; 
         max-width: 48%; 
-        font-size: 0.95rem;
+        font-size: 0.7rem;
         /* Ensure the titles and content are aligned left within their column */
         text-align: left;
     }
@@ -145,15 +145,16 @@
     .footer-contact h3,
     .footer-links h3 {
         /* Adjust title size for mobile readability if necessary */
-        font-size: 1.1rem;
+        font-size: .9rem;
     }
     
     .footer-contact {
         /* Adjust to standard font size */
-        font-size: 0.95rem; 
+        font-size: 0.7rem; 
     }
     
     .footer-links a {
         margin-bottom: 3px;
     }
 }
+
