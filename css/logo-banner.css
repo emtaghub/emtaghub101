@@ -89,15 +89,16 @@
   }
 
   .banner-title {
-    font-size: .6rem; /* Smaller text to fit screen */
+    font-size: .8rem; /* Smaller text to fit screen */
     margin-bottom: 2px;
   }
 
-  .tagline-main {
-    font-size: 0.1rem;
+  .banner-main {
+    font-size: 0.6rem;
     margin-bottom: 1px;
   }
 }
+
 
 
 
