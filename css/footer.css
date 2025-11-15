@@ -114,7 +114,7 @@
 
     /* FIX: Contact section gets 58% for long text (e.g., email) to prevent messy wrapping */
     .footer-contact {
-        flex-basis: 58%;                /* Set to 58% to allow space for content */
+        flex-basis: 50%;                /* Set to 58% to allow space for content */
         max-width: none;                /* Ensure max-width is removed for mobile */
         text-align: left;
         font-size: 0.75rem;             /* Final reduction of font size for compactness */
@@ -166,6 +166,7 @@
         flex-shrink: 0; 
     }
 }
+
 
 
 
