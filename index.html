@@ -5,15 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EMTAGHub101 — Home</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- Assuming these files contain the necessary CSS for the banner, footer, and navigation/mobile menu -->
   <link rel="stylesheet" href="css/logo-banner.css" />
   <link rel="stylesheet" href="css/footer.css" />
   <link rel="stylesheet" href="css/nav.css" />
 </head>
 <body>
 
+<!-- Mobile Off-Canvas Menu (CRITICAL: Added the element that the JS targets) -->
+<div id="mobileMenu" class="mobile-menu-container">
+    <i class="fa-solid fa-xmark mobile-close-btn" id="closeMenuBtn"></i>
+    
+    <!-- The actual Navigation Structure is repeated here for the mobile off-canvas menu -->
+    <nav>
+      <ul>
+        <li><a href="#">HOME</a></li>
+        <li>
+          <!-- Note: Mobile links need the 'toggle-btn' class to trigger the JS accordion logic -->
+          <a href="#" class="toggle-btn">SAFETY & SECURITY</a>
+          <ul>
+            <li>
+              <a href="#" class="toggle-btn">Safety</a>
+              <ul>
+                <li><a href="#">OSH General Awareness</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="toggle-btn">Security</a>
+              <ul>
+                <li><a href="#">Physical Security</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="toggle-btn">INFORMATION TECHNOLOGY</a>
+          <ul>
+            <li><a href="#">Troubleshooting</a></li>
+            <li><a href="#">Networking</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="toggle-btn">DIY & Practical Living</a>
+          <ul>
+            <li><a href="#">DIY Solar Setup</a></li>
+          </ul>
+        </li>
+        <li><a href="#">ABOUT US</a></li>
+        <li><a href="#">CONTACT US</a></li>
+      </ul>
+    </nav>
+</div>
+<!-- End Mobile Off-Canvas Menu -->
+
+<!-- Scrim/Overlay (CRITICAL: Added the element that the JS targets) -->
+<div id="mobileOverlay" class="mobile-overlay"></div>
+
+
 <header class="site-banner">
   <div class="banner-inner">
     
+    <!-- Hamburger Icon (CRITICAL: Added the element that the JS targets) -->
+    <i class="fa-solid fa-bars hamburger-icon" id="openMenuBtn"></i>
+    
+    <!-- DESKTOP Navigation (Hidden on Mobile) -->
     <nav class="main-nav">
       <ul>
         <li><a href="#">HOME</a></li>
@@ -51,8 +107,11 @@
         <li><a href="#">CONTACT US</a></li>
       </ul>
     </nav>
+
+    <!-- Logo (Left) -->
     <img src="images/logo/EmtagHubLogo.png" alt="EMTAGHub Logo" class="banner-logo" />
 
+    <!-- Title + Tagline (Right) -->
     <div class="banner-text">
       <h1 class="banner-title">The Hub for Knowledge & Innovation</h1>
       <div class="banner-main">Empowering individuals to connect, learn, and create in the world of emerging technologies</div>
@@ -60,6 +119,31 @@
 
   </div>
 </header>
+
+<main>
+    <!-- Re-added sample main content -->
+    <section style="padding: 20px;">
+        <h2>Welcome to EMTAGHub101</h2>
+        <p>This is where your main content will reside. Try resizing your browser window to see the responsive navigation changes!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, ab?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, ab?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, ab?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, ab?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, ab?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, ab?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, ab?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, ab?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, ab?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, ab?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, ab?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, ab?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, ab?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, ab?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, ab?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, ab?</p>
+    </section>
+</main>
+
 
 <footer class="footer">
   <div class="footer-container">
@@ -95,13 +179,7 @@
   </div>
 </footer>
 
-<!-- Link the external JS file instead of having the code inline -->
+<!-- Updated script path to match your snippet: js/nav.js -->
 <script src="js/nav.js"></script>
 </body>
 </html>
-
-
-
-
-
-
