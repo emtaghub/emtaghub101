@@ -43,7 +43,7 @@
     display: flex;                  /* Use flex to align contact and links horizontally */
     width: auto;                    /* Allow group to size based on content/children */
     justify-content: space-between; /* Space out the two inner columns */
-    gap: 40px;                      /* Gap between contact and links columns */
+    gap: 60px;                      /* Gap between contact and links columns */
 }
 
 /* Set balanced desktop sizing for sections (60% / 40% split for balance) */
@@ -166,6 +166,7 @@
         flex-shrink: 0; 
     }
 }
+
 
 
 
