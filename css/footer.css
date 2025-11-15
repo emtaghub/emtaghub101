@@ -127,15 +127,16 @@
    ===================================== */
 @media (max-width: 600px) {
     .footer { 
-        padding: 20px 15px; /* Adjust wrapper padding */
-        margin-top: 50px; /* Less space above footer on mobile */
+        /* TIGHTER PADDING: Reduced from 20px to 10px top/bottom */
+        padding: 10px 15px; 
+        margin-top: 50px; 
     }
     
     .footer-container {
-        /* On mobile, stack all top-level sections vertically */
         flex-direction: column;
-        align-items: flex-start; /* Align sections to the left for better readability */
-        gap: 30px; 
+        align-items: flex-start; 
+        /* TIGHTER GAP: Reduced from 30px to 20px between sections */
+        gap: 20px; 
         text-align: left; 
     }
 
@@ -145,43 +146,40 @@
     .footer-about {
         width: 100%;
         max-width: none;
-        /* Reset flex behavior from desktop */
         flex: none; 
     }
     
     /* FIX: This new wrapper forces the links and contact to be horizontal */
     .footer-horizontal-group {
         display: flex;
-        flex-direction: row; /* FIX: Force horizontal alignment */
+        flex-direction: row; 
         width: 100%; 
-        justify-content: space-between; /* Space out the two horizontal elements */
+        justify-content: space-between; 
         align-items: flex-start;
-        padding: 0 5px; /* Small padding to pull it off the very edge */
+        padding: 0 5px; 
     }
 
     .footer-links,
     .footer-contact {
-        /* Each takes up slightly more space to reduce the gap and maximize available width */
         flex-basis: 49%; 
         max-width: 49%; 
-        /* Ensure the titles and content are aligned left within their column */
         text-align: left;
     }
     
     .footer-contact h3,
     .footer-links h3 {
-        /* Adjust title size for mobile readability if necessary */
-        font-size: 1.1rem;
+        /* TIGHTER FONT: Reduced title font size */
+        font-size: 1rem;
     }
     
-    /* FIX: Reduced font size to 0.8rem for better fit and reduced overlap risk */
+    /* TIGHTER FONT: Reduced content font size for contact details */
     .footer-contact {
-        font-size: 0.8rem; 
+        font-size: 0.75rem; 
     }
     
     .footer-links a {
         margin-bottom: 3px;
-        /* Reduce font size for quick links too for consistency */
-        font-size: 0.85rem;
+        /* TIGHTER FONT: Reduced content font size for quick links */
+        font-size: 0.8rem;
     }
 }
