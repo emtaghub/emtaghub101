@@ -29,7 +29,7 @@
   justify-content: space-between;/* Spread columns horizontally */
   flex-wrap: wrap;               /* Allow columns to wrap on small screens */
   gap: 40px;                     /* Reduced gap between footer sections */
-  max-width: 1200px;             /* Center content with fixed width limit */
+  max-width: autopx;             /* Center content with fixed width limit */
   margin: auto;                  /* Center the whole footer */
   padding: 0 20px;               /* Added horizontal padding for desktop view */
 }
@@ -43,7 +43,7 @@
     display: flex;                  /* Use flex to align contact and links horizontally */
     width: auto;                    /* Allow group to size based on content/children */
     justify-content: space-between; /* Space out the two inner columns */
-    gap: 60px;                      /* Gap between contact and links columns */
+    gap: 200px;                      /* Gap between contact and links columns */
 }
 
 /* Set balanced desktop sizing for sections (60% / 40% split for balance) */
@@ -166,6 +166,7 @@
         flex-shrink: 0; 
     }
 }
+
 
 
 
