@@ -135,7 +135,7 @@
     .footer-container {
         flex-direction: column;         /* Stack items vertically on mobile */
         align-items: flex-start;        /* Align content to the left */
-        gap: 20px;                      /* Vertical gap between stacked sections */
+        gap: 15px;                      /* Vertical gap between stacked sections */
         text-align: left; 
     }
 
@@ -185,6 +185,7 @@
         font-size: 0.8rem;
     }
 }
+
 
 
 
