@@ -27,7 +27,7 @@
   color: #ffffff;                   /* White color for titles */
   margin-bottom: 10px;              /* Reduced spacing under titles */
   font-weight: 700;                 /* Make titles bold */
-  font-size: 1rem;                  /* Slightly smaller titles */
+  font-size: .7rem;                  /* Slightly smaller titles */
 }
 
 /* ----- Contact Section ----- */
@@ -105,6 +105,7 @@
     padding-top: 5px;
   }
 }
+
 
 
 
