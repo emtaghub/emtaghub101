@@ -28,7 +28,7 @@
   display: flex;                 /* Use flex layout */
   justify-content: space-between;/* Spread columns horizontally */
   flex-wrap: wrap;               /* Allow columns to wrap on small screens */
-  gap: 40px;                     /* Reduced gap between footer sections */
+  gap: 200px;                     /* Reduced gap between footer sections */
   max-width: autopx;             /* Center content with fixed width limit */
   margin: auto;                  /* Center the whole footer */
   padding: 0 20px;               /* Added horizontal padding for desktop view */
@@ -166,6 +166,7 @@
         flex-shrink: 0; 
     }
 }
+
 
 
 
