@@ -313,7 +313,7 @@
     }
 
     .banner-logo {
-        height: 60px;
+        height: 30px;
         width: auto;
         /* 🛑 FIX: Replaced fixed padding with flexible margin and proper padding */
         padding: 10px 0;
@@ -347,3 +347,4 @@
         width: 90%;
     }
 }
+
