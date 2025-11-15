@@ -69,6 +69,7 @@
 @media (max-width: 600px) {
 
   .site-banner {
+      max-width: auto;
     padding: 0 0 0 0; /* Reduce padding */
   }
 
@@ -100,6 +101,7 @@
     margin-bottom: 1px;
   }
 }
+
 
 
 
