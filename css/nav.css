@@ -1,5 +1,5 @@
 /* =====================================================
-   NEW: Navigation Menu Positioning and Styling (Further Reduced Size)
+   NEW: Navigation Menu Positioning and Styling (Further Reduced Size, Non-Bold)
    ===================================================== */
 
 /* 1. Positioning the Nav */
@@ -18,7 +18,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  /* Reduced font size for a smaller overall look */
   font-size: 0.8rem; 
 }
 .main-nav li {
@@ -26,16 +25,16 @@
 }
 .main-nav a {
   display: block;
-  /* Further reduced padding for tighter boxes */
   padding: 3px 6px; 
   text-decoration: none;
   color: #333;
-  background-color: rgba(255, 255, 255, 0.85); /* Slightly less transparent */
+  background-color: rgba(255, 255, 255, 0.85);
   border-radius: 3px; 
-  margin-left: 2px; /* Tighter spacing between links */
+  margin-left: 2px;
   white-space: nowrap;
   font-family: Arial, sans-serif; 
-  font-weight: bold; /* Make text bolder to ensure readability at a small size */
+  /* 🛑 CHANGED: Set font-weight to normal/400 (not bold) */
+  font-weight: normal; 
 }
 .main-nav a:hover {
   background-color: #ddd;
@@ -50,12 +49,12 @@
   top: 100%;
   left: 0;
   background-color: rgba(255, 255, 255, 0.98); 
-  min-width: 150px; /* Further reduced minimum width */
+  min-width: 150px;
   z-index: 30;
   border: 1px solid #ccc;
-  box-shadow: 0 3px 5px rgba(0,0,0,0.1); /* Reduced shadow */
+  box-shadow: 0 3px 5px rgba(0,0,0,0.1);
   display: none;
-  font-size: 0.8rem; /* Match top-level font size */
+  font-size: 0.8rem;
 }
 
 /* Sub-sub-menu positioning (flyout to the right) */
@@ -76,9 +75,8 @@
     background-color: transparent;
     border-radius: 0;
     margin: 0;
-    /* Reduced padding inside dropdowns */
     padding: 5px 10px;
-    font-weight: normal; 
+    font-weight: normal; /* Ensured sub-menus are also not bold */
 }
 
 /* =====================================================
@@ -91,20 +89,21 @@
         right: 2px;
     }
     .main-nav > ul {
-        font-size: 0.65rem; /* Smallest practical font size for readability */
+        font-size: 0.65rem;
     }
     .main-nav a {
-        padding: 1px 3px; /* Minimal padding */
+        padding: 1px 3px;
         margin-left: 1px;
+        font-weight: normal; /* Ensured mobile view is not bold */
     }
     .main-nav ul ul {
-        min-width: 100px; /* Very narrow dropdowns */
-        font-size: 0.7rem; 
+        min-width: 100px;
+        font-size: 0.7rem;
     }
     .main-nav ul ul ul {
         min-width: 90px;
     }
     .main-nav ul ul a {
-        padding: 3px 6px; /* Minimal padding inside dropdowns */
+        padding: 3px 6px;
     }
 }
