@@ -195,7 +195,7 @@
    ========================================================================= */
 
 /* Breakpoint for Tablets/Small Desktops: Hide desktop nav and show hamburger */
-@media (max-width: 1400px) {
+@media (max-width: 1200px) { /* <--- FIXED: Now allows desktop nav on typical laptops */
     /* Hide the Desktop Nav */
     .main-nav {
         display: none;
