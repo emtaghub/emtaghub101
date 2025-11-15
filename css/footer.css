@@ -127,7 +127,7 @@
    ===================================== */
 @media (max-width: 600px) {
     .footer { 
-        padding: 20px 10px; /* Adjust wrapper padding */
+        padding: 20px 15px; /* Adjust wrapper padding */
         margin-top: 50px; /* Less space above footer on mobile */
     }
     
@@ -135,7 +135,7 @@
         /* On mobile, stack all top-level sections vertically */
         flex-direction: column;
         align-items: flex-start; /* Align sections to the left for better readability */
-        gap: 50px; 
+        gap: 30px; 
         text-align: left; 
     }
 
@@ -162,8 +162,8 @@
     .footer-links,
     .footer-contact {
         /* Each takes up slightly more space to reduce the gap and maximize available width */
-        flex-basis: 45%; 
-        max-width: 45%; 
+        flex-basis: 49%; 
+        max-width: 49%; 
         /* Ensure the titles and content are aligned left within their column */
         text-align: left;
     }
@@ -171,21 +171,15 @@
     .footer-contact h3,
     .footer-links h3 {
         /* Adjust title size for mobile readability if necessary */
-        font-size: 9rem;
+        font-size: 1.1rem;
     }
     
     /* FIX: Reduced font size further to 0.8em to prevent overlap */
     .footer-contact {
-        font-size: 0.6em; 
+        font-size: 0.8em; 
     }
     
     .footer-links a {
         margin-bottom: 3px;
     }
 }
-
-
-
-
-
-
