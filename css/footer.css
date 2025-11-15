@@ -24,14 +24,14 @@
 
 /* ---------------------------------------------------------------------------------- */
 /* FIX: Desktop/Global Icon Alignment (Ensures icon and text stay on the same line) */
+/* This rule applies to both contact paragraphs (p) and quick links (a) globally. */
 /* ---------------------------------------------------------------------------------- */
 .footer-contact p,
 .footer-links a {
     display: flex;                  /* Enables Flexbox on the line item (p or a) */
     align-items: center;            /* Centers icon and text vertically */
     gap: 6px;                       /* Small space between icon and text */
-    /* Ensure the links section's text is allowed to wrap if needed */
-    white-space: normal;
+    white-space: normal;            /* Allows text to wrap if necessary */
 }
 
 .footer-contact i,
@@ -43,9 +43,9 @@
 /* ----- Flex Container ----- */
 .footer-container {
   display: flex;                 /* Use flex layout */
-  justify-content: space-between;/* Spread columns horizontally */
+  justify-content: space-between;/* Spread columns horizontally (for major sections like logo vs. links) */
   flex-wrap: wrap;               /* Allow columns to wrap on small screens */
-  gap: 40px;                     /* Reduced gap between footer sections */
+  gap: 40px;                     /* Gap between footer sections */
   max-width: 1200px;             /* Center content with fixed width limit */
   margin: auto;                  /* Center the whole footer */
   padding: 0 20px;               /* Added horizontal padding for desktop view */
@@ -55,26 +55,26 @@
 /* DESKTOP STYLES (Default) */
 /* ------------------------------------- */
 
-/* Enforce horizontal alignment on desktop using the horizontal group */
+/* FIX: Centers the Contact and Links group horizontally with a fixed gap */
 .footer-horizontal-group {
     display: flex;                  /* Use flex to align contact and links horizontally */
-    width: auto;                    /* Allow group to size based on content/children */
-    justify-content: space-between; /* Space out the two inner columns */
+    width: auto;                    /* Allows the group to fit its content */
+    justify-content: center;        /* CRITICAL FIX: Centers the gap between Contact and Links */
     gap: 40px;                      /* Gap between contact and links columns */
+    flex-grow: 1;                   /* Allows this group to take up available space */
 }
 
-/* Set balanced desktop sizing for sections (60% / 40% split for balance) */
+/* Set fluid desktop sizing for sections (Uses flex-grow for balanced, non-shrinking sizing) */
 .footer-contact {
-    flex-basis: 60%;               /* Give Contact section 60% of the space */
-    max-width: 60%;                /* Prevent Contact from taking more than 60% */
+    flex-grow: 1.5;                /* Gives Contact more room (~60% share) */
+    flex-basis: auto;              /* Allows content to dictate minimum size */
     text-align: left;
-    /* Large font size for contact details on desktop */
     font-size: 1em;
 }
 
 .footer-links {
-    flex-basis: 40%;               /* Give Quick Links section 40% of the space */
-    max-width: 40%;                /* Prevent Links from taking more than 40% */
+    flex-grow: 1;                  /* Gives Quick Links less room (~40% share) */
+    flex-basis: auto;              /* Allows content to dictate minimum size */
     /* Style for the link list container */
     display: flex;
     flex-direction: column;
