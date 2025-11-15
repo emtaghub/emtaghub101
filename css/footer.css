@@ -36,7 +36,7 @@
 .footer h3,
 .footer h4 {
     color: #ffffff;                  /* White color for titles */
-    margin-bottom: 10px;              /* Spacing under the titles */
+    margin-bottom: 10px;              /* Spacing under the titles (Desktop default) */
     font-weight: 700;                 /* Make titles bold */
     font-size: 1rem;                  /* Standard title size */
 }
@@ -128,14 +128,14 @@
    ===================================== */
 @media (max-width: 600px) {
     .footer { 
-        padding: 5px 15px;             /* Keeps tight padding and better side margins on mobile */
-        margin-top: 50px;               /* Reduces space above the footer on mobile */
+        padding: 10px 15px;             /* Keeps tight padding and better side margins on mobile */
+        margin-top: 30px;               /* Reduces space above the footer on mobile */
     }
     
     .footer-container {
         flex-direction: column;         /* Stack items vertically on mobile */
         align-items: flex-start;        /* Align content to the left */
-        gap: 15px;                      /* Vertical gap between stacked sections */
+        gap: 20px;                      /* Vertical gap between stacked sections */
         text-align: left; 
     }
 
@@ -160,10 +160,11 @@
 
     /* ADJUSTED: Contact section now takes 70% of the horizontal space */
     .footer-contact {
-        flex-basis: 65%;                /* Contact takes 70% width */
-        max-width: 65%; 
+        flex-basis: 70%;                /* Contact takes 70% width */
+        max-width: 70%; 
         text-align: left;
         font-size: 0.75rem;             /* Reduced content font size for contact details */
+        padding-top: 0;                 /* REDUCED SPACE: Eliminates padding *above* the h3 title */
     }
 
     /* ADJUSTED: Links section now takes 20% of the horizontal space */
@@ -171,12 +172,14 @@
         flex-basis: 20%;                /* Links take 20% width */
         max-width: 20%;
         text-align: left;
+        padding-top: 0;                 /* REDUCED SPACE: Eliminates padding *above* the h3 title */
     }
     
-    /* TIGHTER FONT: Title font size on mobile */
+    /* TIGHTER FONT & MARGINS: Title font size and margin below the title on mobile */
     .footer-contact h3,
     .footer-links h3 {
         font-size: 1rem;
+        margin-bottom: 5px;             /* REDUCED SPACE: Reduced margin below h3 (was 10px) */
     }
     
     /* TIGHTER FONT: Reduced content font size for quick links */
@@ -185,8 +188,3 @@
         font-size: 0.8rem;
     }
 }
-
-
-
-
-
