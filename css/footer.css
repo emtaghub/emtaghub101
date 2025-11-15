@@ -4,108 +4,105 @@
 
 /* ----- Footer Wrapper (.footer) ----- */
 .footer { 
-    background: #0a1a33;              /* Background color: Dark elegant blue */
-    color: #e5e7eb;                   /* Default text color: Soft gray */
-    /* ADJUSTED: Tight top/bottom internal padding to 10px, as requested */
-    padding: 10px 3px;                 
-    /* Controls space *above* the blue footer container (desktop) */
-    margin-top: 50px;                
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.25); /* Soft shadow at the top edge */
-    font-family: Arial, sans-serif;   /* Set a clear default font */
+    background: #0a1a33;              /* Sets the primary background color to a Dark elegant blue */
+    color: #e5e7eb;                   /* Sets the default text color to a Soft gray for all contained elements */
+    padding: 10px 3px;                 /* Sets 10px padding vertically (top/bottom) and 3px horizontally (left/right) */
+    margin-top: 50px;                 /* Controls the space *above* the blue footer container on desktop */
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.25); /* Adds a soft shadow at the top edge of the footer */
+    font-family: Arial, sans-serif;   /* Sets a clear default font for the footer content */
 }
 
 /* ----- Flex Container (.footer-container) ----- */
 .footer-container {
-    display: flex;                    /* Enable Flexbox for horizontal layout */
-    justify-content: space-between;   /* Spread columns horizontally across space */
-    flex-wrap: wrap;                  /* Allow columns to stack on smaller screens */
-    gap: 40px;                        /* Horizontal gap between footer sections */
-    max-width: 1200px;                /* Limit max width and center on large screens */
-    margin: 0 auto;                   /* Center the container horizontally */
-    /* ADJUSTED: Reduced top/bottom padding to 10px to tighten space inside */
-    padding: 10px 20px; 
+    display: flex;                    /* Enables Flexbox for arranging child elements (contact/links) horizontally */
+    justify-content: space-between;   /* Distributes space between the columns, pushing them to the edges */
+    flex-wrap: wrap;                  /* Allows columns to stack vertically on smaller screens when space runs out */
+    gap: 40px;                        /* Sets a horizontal gap of 40px between major footer sections */
+    max-width: 1200px;                /* Limits the maximum width of the content area */
+    margin: 0 auto;                   /* Centers the container horizontally on the page */
+    padding: 10px 20px;               /* Sets 10px padding vertically and 20px padding horizontally inside the container */
 }
 
 /* Helper for the mobile fix - allows flex children to flow normally on desktop */
 .footer-horizontal-group {
-    display: contents; /* Makes the element transparent to the layout on desktop */
+    display: contents;                /* Makes this wrapper element invisible to the Flexbox layout on desktop */
 }
 
 
 /* ----- Column Titles (h3/h4) ----- */
 .footer h3,
 .footer h4 {
-    color: #ffffff;                  /* White color for titles */
-    margin-bottom: 10px;              /* Spacing under the titles (Desktop default) */
-    font-weight: 700;                 /* Make titles bold */
-    font-size: 1rem;                  /* Standard title size */
+    color: #ffffff;                   /* Sets title color to White */
+    margin-bottom: 10px;              /* Sets 10px spacing beneath the titles (Desktop default) */
+    font-weight: 700;                 /* Makes titles bold */
+    font-size: 1rem;                  /* Sets the standard title size */
 }
 
 
 /* ----- Contact Section (.footer-contact) ----- */
 .footer-contact {
-    flex: 1 1 200px;                  /* Flexible width, min-width 200px before wrapping */
-    font-size: 0.95rem;               /* Default text size */
-    min-width: 150px;                 /* Ensure minimum width on desktop */
+    flex: 1 1 200px;                  /* Defines initial flexibility: grows/shrinks equally, starting minimum width 200px */
+    font-size: 0.95rem;               /* Sets the default text size for content in this section */
+    min-width: 150px;                 /* Ensures a minimum width of 150px on desktop */
 }
 
 /* FIX 1: Use Flexbox on the <p> tag to align icons and text */
 .footer-contact p {
-    display: flex;                    /* Enable Flexbox on the paragraph */
-    align-items: center;              /* Vertically center icon and text */
-    gap: 6px;                         /* Small gap between icon and text */
-    margin-bottom: 8px;               /* Spacing between contact lines */
+    display: flex;                    /* Enables Flexbox on the paragraph for horizontal icon/text alignment */
+    align-items: center;              /* Vertically centers the icon and the text within the paragraph */
+    gap: 6px;                         /* Sets a small 6px gap between the icon and the text */
+    margin-bottom: 8px;               /* Sets 8px vertical spacing between individual contact lines */
 }
 
 /* Ensure the icon itself doesn't shrink on mobile */
 .footer-contact p i {
-    flex-shrink: 0;
+    flex-shrink: 0;                   /* Prevents the icon from shrinking when horizontal space is tight */
 }
 
 /* Styling for contact links (e.g., email) */
 .footer-contact a {
-    color: #38bdf8;                   /* Light cyan for links */
-    text-decoration: none;            /* Remove underline */
-    overflow: hidden;                 /* Hide overflowing content (long emails) */
-    text-overflow: ellipsis;          /* Show ... for hidden overflow */
+    color: #38bdf8;                   /* Sets link color to Light cyan */
+    text-decoration: none;            /* Removes the default underline from links */
+    overflow: hidden;                 /* Hides any content that overflows the container box */
+    text-overflow: ellipsis;          /* Displays "..." for text that is cut off due to overflow */
 }
 
 .footer-contact a:hover {
-    text-decoration: underline;       /* Add underline on hover */
+    text-decoration: underline;       /* Adds an underline when the mouse hovers over the link */
 }
 
 /* ----- Quick Links Section (.footer-links) ----- */
 .footer-links {
-    flex: 1 1 200px;                  /* Flexible width, min-width 200px */
-    display: flex;                    /* Enable Flexbox for links container */
-    flex-direction: column;           /* Stack links vertically */
-    min-width: 150px;
+    flex: 1 1 200px;                  /* Defines initial flexibility: grows/shrinks equally, starting minimum width 200px */
+    display: flex;                    /* Enables Flexbox */
+    flex-direction: column;           /* Forces the links to stack vertically */
+    min-width: 150px;                 /* Ensures a minimum width of 150px on desktop */
 }
 
 /* FIX 3: Also apply Flexbox to the quick links and reduce gap */
 .footer-links a {
-    color: #9ca3af;                   /* Muted gray text */
-    margin-bottom: 5px;               /* Reduced spacing between links */
-    text-decoration: none;            /* Clean links */
-    font-size: 0.95rem;               /* Standard link text size */
+    color: #9ca3af;                   /* Sets link color to Muted gray */
+    margin-bottom: 5px;               /* Sets 5px vertical spacing between links (Desktop default) */
+    text-decoration: none;            /* Removes the default underline */
+    font-size: 0.95rem;               /* Sets the standard link text size */
     
-    display: flex;                    /* Enable Flexbox for icon/text alignment */
-    align-items: center;              /* Vertically center icon and text */
-    gap: 6px;                         /* Small gap between icon and text */
+    display: flex;                    /* Enables Flexbox for icon/text alignment */
+    align-items: center;              /* Vertically centers the icon and the text */
+    gap: 6px;                         /* Sets a small 6px gap between the icon and the text */
 }
 
 /* Ensure the icon doesn't shrink */
 .footer-links a i {
-    flex-shrink: 0;
+    flex-shrink: 0;                   /* Prevents the icon from shrinking when horizontal space is tight */
 }
 
 .footer-links a:hover {
-    color: #ffffff;                   /* White on hover */
+    color: #ffffff;                   /* Changes link color to White on hover */
 }
 
 /* Placeholder for .footer-about (if it were present in HTML) */
 .footer-about {
-    flex: 2 1 300px; 
+    flex: 2 1 300px;                  /* Defines a larger, flexible section for potential 'About' content */
     min-width: 300px;
 }
 .footer-about p {
@@ -115,76 +112,78 @@
 
 /* ----- Footer Bottom Line (.footer-bottom) ----- */
 .footer-bottom {
-    text-align: center;               /* Center align copyright text */
-    margin-top: 15px;                 /* Space above the separator line */
-    padding-top: 10px;                /* Padding below the separator line */
-    border-top: 1px solid rgba(255, 255, 255, 0.15); /* Soft separator line */
-    font-size: 0.85rem;               /* Smaller copyright text */
-    color: #9ca3af;                   /* Soft gray color */
+    text-align: center;               /* Centers the copyright text horizontally */
+    margin-top: 15px;                 /* Sets 15px space above the separator line */
+    padding-top: 10px;                /* Sets 10px padding below the separator line */
+    border-top: 1px solid rgba(255, 255, 255, 0.15); /* Adds a thin, semi-transparent white line as a separator */
+    font-size: 0.85rem;               /* Sets a smaller font size for the copyright text */
+    color: #9ca3af;                   /* Sets the copyright text color to Soft gray */
 }
 
 /* =====================================
    📱 Mobile Responsive Footer (Fixed)
    ===================================== */
+/* Styles applied when the screen width is 600px or less (mobile) */
 @media (max-width: 600px) {
     .footer { 
-        padding: 10px 15px;             /* Keeps tight padding and better side margins on mobile */
-        margin-top: 30px;               /* Reduces space above the footer on mobile */
+        padding: 10px 15px;             /* Sets tight vertical padding (10px) and better side margins (15px) */
+        margin-top: 30px;               /* Reduces the space *above* the footer to 30px on mobile */
     }
     
     .footer-container {
-        flex-direction: column;         /* Stack items vertically on mobile */
-        align-items: flex-start;        /* Align content to the left */
-        gap: 20px;                      /* Vertical gap between stacked sections */
-        text-align: left; 
+        flex-direction: column;         /* Overrides desktop rule: forces main items to stack vertically */
+        align-items: flex-start;        /* Aligns stacked content to the left edge */
+        gap: 15px;                      /* Sets vertical gap (20px) between stacked sections */
+        text-align: left;               /* Ensures all text inside is aligned left */
     }
 
     /* Reset flex behavior for sections that should take full width */
     .footer-contact,
     .footer-links,
     .footer-about {
-        width: 100%;
-        max-width: none;
-        flex: none; 
+       padding: 10px 0 10px 0; 
+       width: 100%;                    /* Forces the elements to take up the full width initially */
+        max-width: none;                /* Removes any maximum width constraints */
+        flex: none;                     /* Disables growth/shrinkage rules */
     }
     
     /* FIX: This wrapper forces contact and links back to horizontal alignment */
     .footer-horizontal-group {
-        display: flex;                  /* Enable Flexbox */
-        flex-direction: row;            /* Force side-by-side alignment */
-        width: 100%; 
-        justify-content: space-between; /* Space out the two horizontal elements */
-        align-items: flex-start;
-        padding: 0 5px; 
+        display: flex;                  /* Enables Flexbox to control the horizontal sections */
+        flex-direction: row;            /* Forces side-by-side alignment for contact and links */
+        width: 100%;                    /* Ensures the group takes full container width */
+        justify-content: space-between; /* Pushes contact and links apart */
+        align-items: flex-start;        /* Aligns items to the top */
+        padding: 0 5px;                 /* Small horizontal padding for spacing from the edges */
     }
 
     /* ADJUSTED: Contact section now takes 70% of the horizontal space */
     .footer-contact {
-        flex-basis: 70%;                /* Contact takes 70% width */
-        max-width: 70%; 
+        flex-basis: 65%;                /* Explicitly gives Contact 70% of the available horizontal space */
+        max-width: 65%; 
         text-align: left;
-        font-size: 0.75rem;             /* Reduced content font size for contact details */
-        padding-top: 0;                 /* REDUCED SPACE: Eliminates padding *above* the h3 title */
+        font-size: 0.75rem;             /* Reduced content font size for contact details for better fit */
+        padding-top: 0;                 /* REDUCED SPACE: Eliminates vertical padding *above* the h3 title */
     }
 
     /* ADJUSTED: Links section now takes 20% of the horizontal space */
     .footer-links {
-        flex-basis: 20%;                /* Links take 20% width */
+        flex-basis: 20%;                /* Explicitly gives Quick Links 20% of the available horizontal space */
         max-width: 20%;
         text-align: left;
-        padding-top: 0;                 /* REDUCED SPACE: Eliminates padding *above* the h3 title */
+        padding-top: 0;                 /* REDUCED SPACE: Eliminates vertical padding *above* the h3 title */
     }
     
     /* TIGHTER FONT & MARGINS: Title font size and margin below the title on mobile */
     .footer-contact h3,
     .footer-links h3 {
-        font-size: 1rem;
-        margin-bottom: 3px;             /* REDUCED SPACE: Reduced margin below h3 from 5px to 3px */
+        font-size: 1rem;                /* Sets the title size for mobile */
+        margin-bottom: 3px;             /* REDUCED SPACE: Minimized vertical space below h3 (title) from 5px to 3px */
     }
     
     /* TIGHTER FONT: Reduced content font size for quick links */
     .footer-links a {
-        margin-bottom: 3px;
-        font-size: 0.8rem;
+        margin-bottom: 3px;             /* Sets 3px vertical spacing between individual quick links */
+        font-size: 0.8rem;              /* Sets a small font size for quick links text */
     }
 }
