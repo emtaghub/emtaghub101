@@ -128,8 +128,8 @@
    ===================================== */
 @media (max-width: 600px) {
     .footer { 
-        padding: 10px 15px;             /* Keeps tight padding and better side margins on mobile */
-        margin-top: 30px;               /* Reduces space above the footer on mobile */
+        padding: 50px 15px;             /* Keeps tight padding and better side margins on mobile */
+        margin-top: 10px;               /* Reduces space above the footer on mobile */
     }
     
     .footer-container {
@@ -185,3 +185,4 @@
         font-size: 0.8rem;
     }
 }
+
