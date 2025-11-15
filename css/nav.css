@@ -206,7 +206,7 @@
         display: block;
         position: absolute;
         top: 50%; /* Center vertically */
-        left: 10px; /* Center horizontally */
+        left: 30px; /* Center horizontally */
         transform: translate(-50%, -50%); /* Shift back by half its own size */
         font-size: 1.8rem;
         color: white;
@@ -236,4 +236,5 @@
         width: 90%;
     }
 }
+
 
