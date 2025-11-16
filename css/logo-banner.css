@@ -74,7 +74,6 @@ html, body {
     margin-bottom: 6px;
 }
 
-
 /* =========================================================================
    DESKTOP NAVIGATION (Visible on large screens)
    ========================================================================= */
@@ -99,10 +98,10 @@ html, body {
     font-size: 0.8rem; 
 }
 
-/* ❌ FIXED — Removed pointer-events: none; */
+/* FIXED — Removed pointer-events: none; */
 .main-nav li { 
     position: relative; 
-    pointer-events: auto;  /* now clickable */
+    pointer-events: auto;  
 }
 
 .main-nav a { 
@@ -163,33 +162,49 @@ html, body {
     pointer-events: auto;
 }
 
-
-/* =================== DESKTOP NAVIGATION FIX =================== */
+/* =========================================================================
+   DESKTOP NAVIGATION FIX FOR PC/LAPTOP
+   ========================================================================= */
 @media (min-width: 1201px) {
-    /* Ensure nav is on top of everything */
-    .main-nav {
-        z-index: 9999; /* higher than site-banner */
-        pointer-events: auto;
-    }
-
-    /* Make sure site-banner doesn't block clicks */
     .site-banner {
-        z-index: 90; 
+        position: relative;
+        z-index: 10; 
     }
 
-    /* Prevent mobile overlays from blocking desktop nav */
+    .main-nav {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 9999 !important;
+        pointer-events: auto !important;
+        display: block;
+    }
+
+    .main-nav ul ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: rgba(255,255,255,0.98);
+        min-width: 150px;
+        z-index: 99999;
+    }
+
+    .main-nav li:hover > ul {
+        display: block;
+    }
+
+    .main-nav li,
+    .main-nav li > a {
+        pointer-events: auto !important;
+    }
+
     .mobile-overlay,
     .mobile-menu-container {
         pointer-events: none !important;
-    }
-
-    /* Ensure submenus are clickable */
-    .main-nav li,
-    .main-nav li > a {
-        pointer-events: auto;
+        display: none !important;
     }
 }
-
 
 /* =========================================================================
    MOBILE UI ELEMENTS (Shared)
@@ -221,7 +236,6 @@ html, body {
     z-index: 199; 
     pointer-events: auto;
 }
-
 
 /* =========================================================================
    MOBILE NAVIGATION (Off-Canvas Menu)
@@ -313,7 +327,6 @@ html, body {
     transform: rotate(180deg); 
 }
 
-
 /* =====================================================
    🌐 EMTAGHub101 — Footer Styles (Desktop Defaults)
    ===================================================== */
@@ -388,11 +401,9 @@ html, body {
     width: 100%; 
 }
 
-
 /* =========================================================================
    MEDIA QUERIES 
    ========================================================================= */
-
 @media (max-width: 1200px) {
 
     .main-nav {
