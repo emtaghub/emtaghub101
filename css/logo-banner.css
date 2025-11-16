@@ -12,13 +12,14 @@
     align-items: center;
     box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
     border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-    /* CRITICAL: Sets the banner as the anchor for absolute elements */
+    /* CRITICAL: Sets the banner as the anchor for absolute elements (.main-nav, mobile menu) */
     position: relative;
     z-index: 90;
-    height: 80px; /* Added fixed height for reliable mobile positioning */
+    /* Default height for PC/Desktop */
+    height: 80px; 
 }
 
-/* Inner container that holds logo + title + tagline */
+/* Inner container that holds hamburger, logo, title, and tagline */
 .banner-inner {
     width: 100%;
     max-width: none;
@@ -43,8 +44,7 @@
     flex-direction: column;
     justify-content: center;
     color: white;
-    /* Removed redundant 'height: Center;' */
-    margin-top: 0; /* Changed from 10px to 0 for better vertical centering */
+    margin-top: 0;
 }
 
 /* Main title */
@@ -53,11 +53,6 @@
     font-weight: 700;
     letter-spacing: 1px;
     margin-bottom: 6px;
-}
-
-/* Tagline container */
-.banner-tagline {
-    line-height: 1;
 }
 
 /* Second tagline line */
@@ -78,6 +73,7 @@
     top: 5px;
     right: 5px;
     z-index: 20;
+    display: block; /* Ensure it's visible by default */
 }
 
 /* 2. Top-Level Menu Styling */
@@ -126,20 +122,14 @@
     display: none;
     font-size: 0.8rem;
 }
-
-/* Sub-sub-menu positioning (flyout to the right) */
 .main-nav ul ul ul {
     top: 0;
     left: 100%;
     min-width: 130px;
 }
-
-/* Show sub-menus on hover */
 .main-nav li:hover > ul {
     display: block;
 }
-
-/* Sub-menu link appearance */
 .main-nav ul ul a {
     color: #333;
     background-color: transparent;
@@ -163,7 +153,7 @@
 .mobile-overlay {
     display: none;
     position: fixed;
-    top: 50px;
+    top: 50px; /* Default starting position */
     left: 0;
     width: 100%;
     height: 100%;
@@ -300,7 +290,7 @@
     flex-wrap: wrap;
     gap: 40px;
     max-width: 1200px;
-    margin: 40; /* This should be 'margin: 0 auto;' or 'margin: 40px auto;' for centering */
+    margin: 40;
     padding: 0 20px;
 }
 
@@ -344,45 +334,43 @@
 
 
 /* =========================================================================
-   MEDIA QUERIES (Switching from Desktop to Mobile) - MOVED TO END FOR SPECIFICITY
+   MEDIA QUERIES (Switching from Desktop to Mobile)
    ========================================================================= */
 
 /* Breakpoint for Tablets/Small Desktops (max-width: 1200px) */
 @media (max-width: 1200px) {
-    /* 1. Logo Size Fix for Laptop/MV Desktop Mode */
-    .banner-logo {
-        height: 55px; /* Adjusting logo size for smaller screens/tablets */
-    }
-    
-    /* 2. Navigation Control */
+
+    /* HIDE THE DESKTOP NAVIGATION */
     .main-nav {
         display: none;
     }
+
+    /* 🚨 FIX: Shows the hamburger, but keeps it INLINE with the logo/text */
     .hamburger-icon {
         display: block;
-        position: static;
-        top: auto;
-        left: auto;
-        transform: none;
-        margin: 10px auto;
-        width: fit-content;
+        position: static; /* Forces it into the normal horizontal flow */
         font-size: 1.8rem;
-        color: white;
+        margin-right: 15px; /* Space between hamburger and logo */
         cursor: pointer;
-        z-index: 50;
+        color: white;
     }
 
-    /* 3. Positioning mobile menu/overlay based on 80px fixed header + 10px margin */
+    /* 🚨 FIX: Reduce logo size for tablets/laptops */
+    .banner-logo {
+        height: 55px; 
+    }
+
+    /* Positioning mobile menu/overlay based on 80px fixed header */
     .mobile-overlay {
         top: 80px;
         height: calc(100% - 80px);
     }
     .mobile-menu-container {
-        top: 90px;
-        height: calc(100% - 90px);
+        top: 80px;
+        height: calc(100% - 80px);
     }
-    
-    /* 4. Footer Adjustment for Tablet View (Optional) */
+
+    /* Footer Adjustment for Tablet View */
     .footer-container {
         gap: 20px;
     }
@@ -390,54 +378,56 @@
 
 /* Mobile Phone Breakpoint (max-width: 600px) */
 @media (max-width: 600px) {
-    /* 1. CRITICAL Logo Size Fix for Phones */
-    .banner-logo {
-        height: 45px; /* Smallest size for narrow mobile view */
-        padding: 5px 0 5px 0; /* Reduced vertical padding */
+    /* 🚨 FIX: Reduce banner height for mobile compactness */
+    .site-banner {
+        height: 70px;
+        padding: 0 10px;
     }
 
-    /* 2. Header and Text Adjustments */
-    .site-banner {
-        padding: 0 10px;
-        height: 70px; /* Reduced banner height for mobile compactness */
+    /* 🚨 FIX: Smallest logo size, still horizontally aligned */
+    .banner-logo {
+        height: 45px;
+        padding: 5px 0 5px 0;
     }
+
+    /* 🚨 FIX: Smallest desired font sizes */
     .banner-title {
-        font-size: 0.6rem; /* Smallest desired font size */
+        font-size: 0.6rem;
         margin-bottom: 2px;
     }
     .banner-sub-title {
-        font-size: 0.3rem; /* Smallest desired font size */
+        font-size: 0.3rem;
         margin-bottom: 1px;
+    }
+    
+    /* Compact Hamburger */
+    .hamburger-icon {
+        font-size: 1.5rem;
+        margin-right: 10px;
     }
     .banner-text {
         margin-left: 5px;
         min-width: 100px;
     }
-    
-    /* 3. Mobile UI Adjustments */
-    .hamburger-icon {
-        font-size: 1.5rem;
-        margin: 5px auto;
-    }
 
-    /* 4. Positioning mobile menu/overlay based on 70px fixed header + 5px margin */
+    /* Positioning mobile menu/overlay based on 70px fixed header */
     .mobile-overlay {
         top: 70px;
         height: calc(100% - 70px);
     }
     .mobile-menu-container {
-        top: 75px;
-        height: calc(100% - 75px);
+        top: 70px;
+        height: calc(100% - 70px);
         width: 90%;
     }
-    
-    /* 5. Footer Optimization */
+
+    /* Footer Optimization */
     .footer {
         padding: 0;
         margin-top: 20px;
     }
     .footer-container {
-        padding: 10px 0; /* Added back minimal top/bottom padding */
+        padding: 10px 0;
         flex-direction: column;
         align-items: center;
         gap: 10px;
@@ -455,7 +445,7 @@
     }
     .footer-contact,
     .footer-links {
-        flex-basis: auto; /* Allow sizing based on content, not fixed percentages */
+        flex-basis: auto;
         max-width: none;
         text-align: left;
         font-size: 0.75rem;
