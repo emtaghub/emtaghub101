@@ -60,7 +60,7 @@
 }
 
 /* Second tagline line */
-.tagline-main {
+.banner-sub-title {
     font-size: 0.95rem; 
     opacity: 0.92; 
     margin-bottom: 6px; 
@@ -203,7 +203,7 @@
         margin-bottom: 2px;
     }
 
-    .tagline-main {
+    .banner-sub-title {
         /* REVERTED TO YOUR INTENDED FONT SIZE */
         font-size: 0.3rem; 
         margin-bottom: 1px;
@@ -228,3 +228,4 @@
         width: 90%; 
     }
 }
+
