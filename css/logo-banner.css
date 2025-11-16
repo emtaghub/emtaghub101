@@ -1,6 +1,21 @@
 /* =====================================================
    EMTAGHub101 — Modern Hero Banner (Desktop Defaults)
    ===================================================== */
+/* --- UNIVERSAL RESET FOR BROWSER DEFAULTS --- */
+html, body {
+    /* 🚨 FIX: Remove default browser margin/padding from the page */
+    margin: 0;
+    padding: 0;
+    /* 🚨 FIX: Prevent horizontal scrolling caused by content exceeding screen width */
+    overflow-x: hidden; 
+}
+
+/* --- BOX-MODEL FIX --- */
+* {
+    /* CRITICAL FIX: Ensures padding and borders are included INSIDE the element's defined width/height.
+       This prevents elements like your footer from unexpectedly making the page too wide. */
+    box-sizing: border-box; 
+}
 
 /* Wrapper for the entire banner/header area */
 .site-banner {
@@ -290,7 +305,7 @@
     flex-wrap: wrap;
     gap: 40px;
     max-width: 1200px;
-    margin: 40;
+    margin: 0 auto; /* Centers the max-width footer content horizontally */
     padding: 0 20px;
 }
 
@@ -466,3 +481,4 @@
         margin-bottom: 3px;
     }
 }
+
