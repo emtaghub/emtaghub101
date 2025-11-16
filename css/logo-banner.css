@@ -26,9 +26,9 @@
     gap: 15px; 
 }
 
-/* Logo styling */
+/* Logo styling (Desktop Default) */
 .banner-logo {
-    height: 60px; 
+    height: 60px;  /* <-- Desktop height */
     width: auto; 
     padding: 10px 10px 10px 10px;
     object-fit: contain; 
@@ -185,7 +185,8 @@
     }
 
     .banner-logo {
-        height: 60px; 
+        /* FIXED: Set height for mobile screens to override desktop 60px */
+        height: 50px; 
         width: auto;
         padding: 10px 0 10px 0; /* Logo left alignment fix retained */
         filter: drop-shadow(0 0 6px rgba(0, 255, 255, 0.4));
@@ -198,14 +199,14 @@
     }
 
     .banner-title {
-        /* REVERTED TO YOUR INTENDED FONT SIZE */
-        font-size: .6rem; 
+        /* YOUR INTENDED FONT SIZE */
+        font-size: .6rem; 
         margin-bottom: 2px;
     }
 
     .banner-sub-title {
-        /* REVERTED TO YOUR INTENDED FONT SIZE */
-        font-size: 0.3rem; 
+        /* YOUR INTENDED FONT SIZE (Note: changed from .tagline-main to .banner-sub-title based on your current code) */
+        font-size: 0.3rem; 
         margin-bottom: 1px;
     }
 
@@ -228,4 +229,3 @@
         width: 90%; 
     }
 }
-
