@@ -1,0 +1,244 @@
+/* ===================== BODY STYLES ===================== */
+body {
+  font-family: 'Georgia', serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* ===================== CONTAINER (Layout) ===================== */
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* Adjust this gap to control the space between the article and sidebar */
+  padding: 0 px !important; /* Adjust padding on the left and right edges here */
+  width: 100%;
+  max-width: 1310px !important; /* Adjust this to control the maximum width of the container */
+  margin: 0 auto !important; /* This centers the container */
+  box-sizing: border-box;
+}
+
+/* ===================== ARTICLE MAIN SECTION ===================== */
+.article-main {
+  flex: 0 0 70%; /* This controls the width of the article section */
+  background: white;
+  padding: 10px !important; /* Adjust this to change the padding inside the article */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-bottom: 10px !important; /* Space between article and other sections */
+  width: 100%; /* Ensure it takes the full width */
+}
+/* ===================== ARTICLE META (Author, Date, etc.) ===================== */
+.article-meta {
+  margin-left: 20px; /* Add left margin to indent the article meta */
+  font-style: italic; /* Optional: Make the meta text italic */
+  color: #777; /* Optional: Change the color of the meta information */
+  font-size: 1rem; /* Optional: Adjust the font size of the meta text */
+  margin-bottom: 10px; /* Optional: Space below the meta text */
+}
+
+/* ===================== ARTICLE CONTENT INDENTATION ===================== */
+.article-main p, 
+.article-main ul, 
+.article-main ol, 
+.article-main h3 { /* Add h3 to the selectors for indentation */
+  text-indent: 20px; /* Indentation for first line of paragraphs, list items, and h3 headers */
+  margin-left: 20px; /* Left margin for the entire paragraph or list */
+  margin-bottom: 10px; /* Optional: adds space between paragraphs and list items */
+}
+
+/* ===================== ARTICLE CONTENT: BULLET LISTS ===================== */
+.article-main ul, .article-main ol {
+  list-style-position: inside; /* Ensure bullets/numbers are inside the container */
+  padding-left: 0; /* Remove default padding for better alignment */
+}
+
+.article-main li {
+  margin-left: 20px; /* Additional indent for list items */
+  margin-bottom: 8px; /* Optional: space between list items */
+}
+
+/* ===================== ARTICLE TITLE ===================== */
+.article-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  margin-left: 20px; /* Add left margin for the article title */
+  color: #004080;
+}
+
+/* ===================== SECTION TITLE ===================== */
+.section-title {
+  font-size: 1.8rem;
+  color: #004080;
+  margin-top: 20px;
+  margin-left: 20px; /* Add left margin for section titles */
+  border-bottom: 2px solid #004080;
+  padding-bottom: 5px;
+}
+
+/* ===================== H3 HEADER STYLE ===================== */
+.article-main h3 {
+  margin-left: 20px; /* Indent the h3 headers */
+  color: #004080; /* Same color as section titles */
+  margin-bottom: 15px; /* Optional: space below h3 headers */
+}
+
+/* ===================== SIDEBAR SECTION ===================== */
+.sidebar {
+  flex: 0 0 30%; /* This controls the width of the sidebar */
+  background: white;
+  padding: 5px !important; /* Padding inside the sidebar */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-bottom: 20px !important; /* Space between sidebar and other sections */
+  width: 100%; /* Ensure the sidebar takes full width in smaller screens */
+}
+
+/* ===================== QUICK LINKS SECTION ===================== */
+.quick-links h3, .youtube-section h3 {
+  font-size: 1.5rem;
+  color: #004080;
+}
+
+.quick-links ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.quick-links ul li {
+  margin: 10px 0;
+}
+
+.quick-links a {
+  color: #004080;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.quick-links a:hover {
+  text-decoration: underline;
+}
+
+/* ===================== YOUTUBE SECTION (Iframe) ===================== */
+.youtube-section {
+  width: 100%;
+  margin-top: 10px; /* Adjust this to control space above the YouTube section */
+  background: white;
+  padding: 10px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Adjust the YouTube iframe size */
+.youtube-section iframe {
+  width: 100%;
+  height: 200px; /* Adjust the height of the YouTube video */
+  border-radius: 8px;
+}
+
+/* ===================== SEARCH BOX AND RESULTS ===================== */
+.search-box {
+  position: relative;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+#searchResults {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 100;
+  display: none;
+}
+
+.search-item {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  border-bottom: 1px solid #ddd;
+}
+
+.search-item:hover {
+  background-color: #f1f1f1;
+}
+
+/* ===================== ARTICLE STYLES ===================== */
+.article-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #004080;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  color: #004080;
+  margin-top: 40px;
+  border-bottom: 2px solid #004080;
+  padding-bottom: 5px;
+}
+
+/* Image styling */
+figure {
+  margin: 20px 0;
+  text-align: center;
+}
+
+figure img {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  border-radius: 8px;
+}
+
+figcaption {
+  font-size: 1rem;
+  color: #777;
+  margin-top: 10px;
+}
+
+/* ===================== BACK TO TOP BUTTON ===================== */
+.back-to-top {
+  display: inline-block;
+  margin-top: 20px;
+  color: #004080;
+  text-decoration: underline;
+}
+
+/* ===================== MOBILE RESPONSIVE DESIGN ===================== */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column !important; /* Stack vertically */
+    padding: 15px !important; /* Add padding for mobile devices */
+  }
+
+  .article-main, .sidebar {
+    width: 100% !important; /* Ensure both containers take full width on mobile */
+  }
+
+  /* Adjust margins and padding for mobile screens */
+  .article-main, .sidebar {
+    margin-bottom: 15px; /* Control space between sections */
+  }
+
+  .youtube-section {
+    margin-top: 10px !important; /* Adjust top margin for YouTube section */
+  }
+}
