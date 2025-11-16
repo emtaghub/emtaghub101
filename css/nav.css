@@ -93,7 +93,7 @@
 .mobile-overlay {
     display: none; /* Hides the overlay by default */
     position: fixed; /* Fixes the overlay to the viewport so it covers the entire screen */
-    top: 0; /* Aligns to the top of the viewport */
+    top: 50px; /* Aligns to the top of the viewport */
     left: 0; /* Aligns to the left of the viewport */
     width: 100%; /* Makes the overlay fill the entire width of the screen */
     height: 100%; /* Makes the overlay fill the entire height of the screen */
@@ -236,6 +236,7 @@
         width: 90%; /* Increases the width of the mobile menu to 90% of the screen for better use of space */
     }
 }
+
 
 
 
