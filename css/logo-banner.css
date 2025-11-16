@@ -3,7 +3,6 @@
    ===================================================== */
 
 /* --- UNIVERSAL RESET FOR BROWSER DEFAULTS --- */
-/* The dangerous global `* { pointer-events: none; }` is removed to fix mobile clicking. */
 * {
     box-sizing: border-box; 
 }
@@ -25,7 +24,7 @@ html, body {
     box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
     border-bottom: 1px solid rgba(255, 255, 255, 0.18);
     position: relative;
-    z-index: 90; /* Base Z-index */
+    z-index: 90; 
     height: 120px; 
 }
 
