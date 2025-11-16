@@ -99,9 +99,10 @@ html, body {
     font-size: 0.8rem; 
 }
 
+/* ❌ FIXED — Removed pointer-events: none; */
 .main-nav li { 
     position: relative; 
-    pointer-events: auto;
+    pointer-events: auto;  /* now clickable */
 }
 
 .main-nav a { 
@@ -160,6 +161,33 @@ html, body {
     padding: 5px 10px; 
     font-weight: normal; 
     pointer-events: auto;
+}
+
+
+/* =================== DESKTOP NAVIGATION FIX =================== */
+@media (min-width: 1201px) {
+    /* Ensure nav is on top of everything */
+    .main-nav {
+        z-index: 9999; /* higher than site-banner */
+        pointer-events: auto;
+    }
+
+    /* Make sure site-banner doesn't block clicks */
+    .site-banner {
+        z-index: 90; 
+    }
+
+    /* Prevent mobile overlays from blocking desktop nav */
+    .mobile-overlay,
+    .mobile-menu-container {
+        pointer-events: none !important;
+    }
+
+    /* Ensure submenus are clickable */
+    .main-nav li,
+    .main-nav li > a {
+        pointer-events: auto;
+    }
 }
 
 
@@ -496,16 +524,5 @@ html, body {
 
     .footer-links a {
         margin-bottom: 3px;
-    }
-}
-
-
-/* =====================================================
-   DESKTOP FIX — Prevent overlay from blocking clicks
-   ===================================================== */
-@media (min-width: 1201px) {
-    .mobile-overlay {
-        display: none !important;
-        pointer-events: none !important;
     }
 }
