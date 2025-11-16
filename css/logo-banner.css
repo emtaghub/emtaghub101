@@ -91,7 +91,7 @@ html, body {
     top: 5px;
     right: 5px;
     /* FIX: Higher than banner (105) for controls */
-    z-index: 106; 
+    z-index: 900; 
     display: block; 
 }
 
@@ -137,7 +137,7 @@ html, body {
     background-color: rgba(255, 255, 255, 0.98); 
     min-width: 150px; 
     /* FIX: Highest Z-index for clickable dropdowns */
-    z-index: 107; 
+    z-index: 901; 
     border: 1px solid #ccc; 
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); 
     display: none; 
@@ -532,3 +532,4 @@ html, body {
         margin-bottom: 3px;
     }
 }
+
