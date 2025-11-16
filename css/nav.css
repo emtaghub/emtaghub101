@@ -5,7 +5,7 @@
 /* You MUST apply position: relative to the element that wraps the entire
    header/banner content (e.g., .site-header, .header-wrapper)
    for the absolutely positioned .main-nav to work correctly. */
-.YOUR-HEADER-CONTAINER { /* <--- CHANGE THIS TO YOUR ACTUAL HEADER CLASS */
+.site-banner { /* <--- CHANGE THIS TO YOUR ACTUAL HEADER CLASS */
     position: relative; 
     /* Add background, height, etc., for your banner here */
     z-index: 90; /* Ensures the header is below the mobile menu (z-index 100) but above content */
@@ -268,3 +268,4 @@
         width: 90%; 
     }
 }
+
