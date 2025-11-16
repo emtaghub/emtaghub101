@@ -45,7 +45,7 @@ html, body {
 
 /* Logo styling (Desktop Default) */
 .banner-logo {
-    height: 60px; /* <-- DESKTOP/DEFAULT HEIGHT */
+    height: 80px; /* <-- DESKTOP/DEFAULT HEIGHT */
     width: auto;
     padding: 10px 10px 10px 10px;
     object-fit: contain;
@@ -481,5 +481,6 @@ html, body {
         margin-bottom: 3px;
     }
 }
+
 
 
