@@ -12,8 +12,7 @@ html, body {
 
 /* --- BOX-MODEL FIX --- */
 * {
-    /* CRITICAL FIX: Ensures padding and borders are included INSIDE the element's defined width/height.
-       This prevents elements like your footer from unexpectedly making the page too wide. */
+    /* CRITICAL FIX: Ensures padding and borders are included INSIDE the element's defined width/height. */
     box-sizing: border-box; 
 }
 
@@ -30,8 +29,8 @@ html, body {
     /* CRITICAL: Sets the banner as the anchor for absolute elements (.main-nav, mobile menu) */
     position: relative;
     z-index: 90;
-    /* 🚨 FIXED: Default height for PC/Desktop increased to fit larger logo */
-    height: 95px; 
+    /* 🚨 INCREASED: Default height for PC/Desktop */
+    height: 105px; 
 }
 
 /* Inner container that holds hamburger, logo, title, and tagline */
@@ -45,8 +44,8 @@ html, body {
 
 /* Logo styling (Desktop Default) */
 .banner-logo {
-    /* 🚨 FIXED: Increased height for PC view */
-    height: 80px; 
+    /* 🚨 INCREASED: New, larger height for PC view */
+    height: 90px; 
     width: auto;
     padding: 10px 10px 10px 10px;
     object-fit: contain;
@@ -169,8 +168,7 @@ html, body {
 .mobile-overlay {
     display: none;
     position: fixed;
-    /* Default starting position - will be overridden by media queries */
-    top: 50px; 
+    top: 50px; /* Default starting position - will be overridden by media queries */
     left: 0;
     width: 100%;
     height: 100%;
@@ -377,14 +375,14 @@ html, body {
         height: 55px; 
     }
 
-    /* 🚨 FIXED: Positioning mobile menu/overlay based on NEW 95px fixed header */
+    /* 🚨 ADJUSTED: Positioning mobile menu/overlay based on NEW 105px fixed header */
     .mobile-overlay {
-        top: 95px;
-        height: calc(100% - 95px);
+        top: 105px;
+        height: calc(100% - 105px);
     }
     .mobile-menu-container {
-        top: 95px;
-        height: calc(100% - 95px);
+        top: 105px;
+        height: calc(100% - 105px);
     }
 
     /* Footer Adjustment for Tablet View */
@@ -395,9 +393,9 @@ html, body {
 
 /* Mobile Phone Breakpoint (max-width: 600px) */
 @media (max-width: 600px) {
-    /* 🚨 FIX: Reduce banner height for mobile compactness */
+    /* 🚨 INCREASED: Reduce banner height for mobile compactness */
     .site-banner {
-        height: 70px;
+        height: 75px;
         padding: 0 10px;
     }
 
@@ -427,14 +425,14 @@ html, body {
         min-width: 100px;
     }
 
-    /* Positioning mobile menu/overlay based on 70px fixed header */
+    /* 🚨 ADJUSTED: Positioning mobile menu/overlay based on NEW 75px fixed header */
     .mobile-overlay {
-        top: 70px;
-        height: calc(100% - 70px);
+        top: 75px;
+        height: calc(100% - 75px);
     }
     .mobile-menu-container {
-        top: 70px;
-        height: calc(100% - 70px);
+        top: 75px;
+        height: calc(100% - 75px);
         width: 90%;
     }
 
