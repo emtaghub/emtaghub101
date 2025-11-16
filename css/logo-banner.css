@@ -24,7 +24,7 @@ html, body {
     box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
     border-bottom: 1px solid rgba(255, 255, 255, 0.18);
     position: relative;
-    z-index: 90; 
+    z-index: 1000; /* UPDATED: ensures banner is above page content */
     height: 120px; 
 }
 
@@ -76,16 +76,16 @@ html, body {
 
 
 /* =========================================================================
-   DESKTOP NAVIGATION FIX — CLICKABLE ON PC/LAPTOP
+   DESKTOP NAVIGATION (Visible on large screens)
    ========================================================================= */
+
 .main-nav {
-    position: fixed !important;  /* Floating above everything */
-    top: 0 !important;           
-    right: 0 !important;
-    z-index: 99999 !important;   /* Ensure always on top */
-    display: block !important;
-    pointer-events: auto !important;
-    background: transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2000;  /* UPDATED: above banner to be clickable */
+    display: block; 
+    pointer-events: auto; 
 }
 
 .main-nav > ul { 
@@ -100,7 +100,7 @@ html, body {
 
 .main-nav li { 
     position: relative; 
-    pointer-events: auto !important;  /* now clickable */
+    pointer-events: auto;  
 }
 
 .main-nav a { 
@@ -116,26 +116,29 @@ html, body {
     font-weight: normal; 
     transition: background-color 0.2s; 
     position: relative;
-    z-index: 100000 !important; 
-    pointer-events: auto !important; 
+    z-index: 2001; /* UPDATED: links above everything */
+    pointer-events: auto; 
 }
 
 .main-nav a:hover { 
     background-color: #ddd; 
 }
 
-.main-nav ul ul {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: rgba(255,255,255,0.98);
-    min-width: 150px;
-    z-index: 100000 !important;  /* Submenus on top */
-    border: 1px solid #ccc;
-    box-shadow: 0 3px 5px rgba(0,0,0,0.1);
-    font-size: 0.8rem;
-    pointer-events: auto !important;
+.main-nav ul ul { 
+    list-style-type: none; 
+    margin: 0; 
+    padding: 0; 
+    position: absolute; 
+    top: 100%; 
+    left: 0; 
+    background-color: rgba(255, 255, 255, 0.98); 
+    min-width: 150px; 
+    z-index: 2001; 
+    border: 1px solid #ccc; 
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); 
+    display: none; 
+    font-size: 0.8rem; 
+    pointer-events: auto;
 }
 
 .main-nav ul ul ul { 
@@ -155,7 +158,7 @@ html, body {
     margin: 0; 
     padding: 5px 10px; 
     font-weight: normal; 
-    pointer-events: auto !important;
+    pointer-events: auto;
 }
 
 
