@@ -24,9 +24,9 @@ html, body {
     box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
     border-bottom: 1px solid rgba(255, 255, 255, 0.18);
     position: relative;
-    z-index: 1000; /* UPDATED: ensures banner is above page content */
+    z-index: 1000; /* ensures banner is above page content */
     height: 120px; 
-    overflow: visible; /* ✅ Desktop submenu fix */
+    overflow: visible; /* Desktop submenu fix */
 }
 
 /* Inner container that holds hamburger, logo, title, and tagline */
@@ -83,7 +83,7 @@ html, body {
     position: absolute;
     top: 0;
     right: 0;
-    z-index: 9999;  /* ✅ Desktop submenu fix */
+    z-index: 9999;  /* Desktop submenu fix */
     display: block; 
     pointer-events: auto; 
 }
@@ -116,7 +116,7 @@ html, body {
     font-weight: normal; 
     transition: background-color 0.2s; 
     position: relative;
-    z-index: 2001; /* UPDATED: links above everything */
+    z-index: 2001; /* links above everything */
     pointer-events: auto; 
 }
 
@@ -133,7 +133,7 @@ html, body {
     left: 0; 
     background-color: rgba(255, 255, 255, 0.98); 
     min-width: 150px; 
-    z-index: 10000; /* ✅ Desktop submenu fix */
+    z-index: 10000; /* Desktop submenu fix */
     border: 1px solid #ccc; 
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); 
     display: none; 
@@ -161,5 +161,185 @@ html, body {
     pointer-events: auto;
 }
 
-/* ==================== MOBILE AND FOOTER STYLES ==================== */
-/* Your previous mobile & footer styles remain unchanged */
+/* =========================================================================
+   MOBILE NAVIGATION
+   ========================================================================= */
+
+.hamburger-icon {
+    display: none; /* hidden on desktop */
+    pointer-events: auto; 
+    z-index: 2147483647; 
+}
+
+@media (max-width: 1200px) {
+    .hamburger-icon {
+        display: block;
+        position: relative;
+        z-index: 2000;
+        font-size: 2.2rem;
+        cursor: pointer;
+        color: white;
+    }
+
+    .main-nav {
+        display: none; /* hide desktop nav on mobile */
+    }
+}
+
+.mobile-overlay { 
+    display: none; 
+    position: fixed; 
+    top: 90px; 
+    left: 0; 
+    width: 100%; 
+    height: calc(100% - 90px); 
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 199; 
+    pointer-events: none;
+    transition: opacity 0.3s ease; 
+    opacity: 0; 
+}
+
+.mobile-overlay.open { 
+    display: block; 
+    opacity: 1; 
+    pointer-events: auto;
+}
+
+.mobile-menu-container { 
+    position: fixed; 
+    left: 0; 
+    width: 75%; 
+    max-width: 300px; 
+    height: calc(100% - 90px); 
+    top: 90px; 
+    background-color: #0a1a33; 
+    color: white; 
+    z-index: 200; 
+    transform: translateX(-100%); 
+    transition: transform 0.3s ease-in-out; 
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5); 
+    overflow-y: auto; 
+    pointer-events: none; 
+}
+
+.mobile-menu-container.open { 
+    transform: translateX(0); 
+    pointer-events: auto;
+}
+
+.mobile-close-btn { 
+    position: absolute; 
+    top: 15px; 
+    right: 15px; 
+    font-size: 1.5rem; 
+    cursor: pointer; 
+    color: white; 
+    padding: 5px; 
+    pointer-events: auto; 
+}
+
+.mobile-menu-container ul { 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+}
+
+.mobile-menu-container li { 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+}
+
+.mobile-menu-container a { 
+    display: block; 
+    text-decoration: none; 
+    color: white; 
+    padding: 12px 15px; 
+    font-size: 1rem; 
+    cursor: pointer; 
+    transition: background-color 0.2s; 
+    pointer-events: auto;
+}
+
+.mobile-menu-container a:hover { 
+    background-color: rgba(255, 255, 255, 0.1); 
+}
+
+.mobile-menu-container ul ul { 
+    display: none; 
+    background-color: rgba(0, 0, 0, 0.15); 
+    border-top: 1px solid rgba(255, 255, 255, 0.05); 
+}
+
+.mobile-menu-container ul ul li a { 
+    padding-left: 35px; 
+    font-size: 0.95rem; 
+}
+
+.mobile-menu-container ul ul ul li a { 
+    padding-left: 55px; 
+    font-size: 0.9rem; 
+}
+
+.toggle-btn::after { 
+    content: "\f0d7"; 
+    font-family: "Font Awesome 6 Free"; 
+    font-weight: 900; 
+    float: right; 
+    transition: transform 0.3s; 
+    margin-left: 10px; 
+}
+
+.toggle-btn.open::after { 
+    transform: rotate(180deg); 
+}
+
+/* =========================================================================
+   MEDIA QUERIES FOR MOBILE BANNER AND FOOTER
+   ========================================================================= */
+
+@media (max-width: 600px) {
+    .site-banner {
+        height: 80px;
+        padding: 0 0 0 8px;
+    }
+
+    .banner-inner {
+        gap: 8px;
+    }
+
+    .banner-logo {
+        height: 60px;
+        padding: 5px 0;
+    }
+
+    .banner-title {
+        font-size: 0.6rem;
+        margin-bottom: 2px;
+    }
+
+    .banner-sub-title {
+        font-size: 0.3rem;
+        margin-bottom: 1px;
+    }
+    
+    .hamburger-icon {
+        font-size: 1.5rem;
+    }
+    
+    .banner-text {
+        margin-left: 5px; 
+        min-width: 100px;
+        margin-right: 40px; 
+    }
+
+    .mobile-overlay {
+        top: 80px;
+        height: calc(100% - 80px);
+    }
+
+    .mobile-menu-container {
+        top: 80px;
+        height: calc(100% - 80px);
+        width: 90%;
+    }
+}
