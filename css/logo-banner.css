@@ -24,9 +24,8 @@ html, body {
     box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
     border-bottom: 1px solid rgba(255, 255, 255, 0.18);
     position: relative;
-    z-index: 1000; /* ensures banner is above page content */
+    z-index: 1000;
     height: 120px; 
-    overflow: visible; /* Desktop submenu fix */
 }
 
 /* Inner container that holds hamburger, logo, title, and tagline */
@@ -83,7 +82,7 @@ html, body {
     position: absolute;
     top: 0;
     right: 0;
-    z-index: 9999;  /* Desktop submenu fix */
+    z-index: 2000;
     display: block; 
     pointer-events: auto; 
 }
@@ -116,7 +115,7 @@ html, body {
     font-weight: normal; 
     transition: background-color 0.2s; 
     position: relative;
-    z-index: 2001; /* links above everything */
+    z-index: 2001; 
     pointer-events: auto; 
 }
 
@@ -133,7 +132,7 @@ html, body {
     left: 0; 
     background-color: rgba(255, 255, 255, 0.98); 
     min-width: 150px; 
-    z-index: 10000; /* Desktop submenu fix */
+    z-index: 2001; 
     border: 1px solid #ccc; 
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); 
     display: none; 
@@ -162,39 +161,24 @@ html, body {
 }
 
 /* =========================================================================
-   MOBILE NAVIGATION
+   MOBILE UI ELEMENTS
    ========================================================================= */
 
 .hamburger-icon {
-    display: none; /* hidden on desktop */
+    display: none;
     pointer-events: auto; 
     z-index: 2147483647; 
-}
-
-@media (max-width: 1200px) {
-    .hamburger-icon {
-        display: block;
-        position: relative;
-        z-index: 2000;
-        font-size: 2.2rem;
-        cursor: pointer;
-        color: white;
-    }
-
-    .main-nav {
-        display: none; /* hide desktop nav on mobile */
-    }
 }
 
 .mobile-overlay { 
     display: none; 
     position: fixed; 
-    top: 90px; 
+    top: 50px; 
     left: 0; 
     width: 100%; 
-    height: calc(100% - 90px); 
+    height: 100%; 
     background: rgba(0, 0, 0, 0.5); 
-    z-index: 199; 
+    z-index: 0; 
     pointer-events: none;
     transition: opacity 0.3s ease; 
     opacity: 0; 
@@ -203,6 +187,7 @@ html, body {
 .mobile-overlay.open { 
     display: block; 
     opacity: 1; 
+    z-index: 199; 
     pointer-events: auto;
 }
 
@@ -211,8 +196,7 @@ html, body {
     left: 0; 
     width: 75%; 
     max-width: 300px; 
-    height: calc(100% - 90px); 
-    top: 90px; 
+    height: 100%; 
     background-color: #0a1a33; 
     color: white; 
     z-index: 200; 
@@ -293,11 +277,130 @@ html, body {
     transform: rotate(180deg); 
 }
 
+/* =====================================================
+   🌐 EMTAGHub101 — Footer Styles
+   ===================================================== */
+.footer { 
+    background: #0a1a33; 
+    color: #e5e7eb; 
+    padding: 10px 0; 
+    margin-top: 50px; 
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.25); 
+}
+
+.footer a { 
+    color: inherit; 
+    text-decoration: none; 
+    transition: color 0.2s ease; 
+}
+
+.footer a:hover { 
+    color: #3498db; 
+}
+
+.footer-contact p, 
+.footer-links a { 
+    display: flex; 
+    align-items: center; 
+    gap: 6px; 
+}
+
+.footer-container { 
+    display: flex; 
+    justify-content: space-between; 
+    flex-wrap: wrap; 
+    gap: 40px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
+}
+
+.footer-horizontal-group { 
+    display: flex; 
+    width: auto; 
+    justify-content: center; 
+    gap: 40px; 
+    flex-grow: 1; 
+}
+
+.footer-contact { 
+    flex-grow: 1.5; 
+    text-align: left; 
+    font-size: 1em; 
+}
+
+.footer-links { 
+    flex-grow: 1; 
+    display: flex; 
+    flex-direction: column; 
+    font-size: 1em; 
+    text-align: left; 
+}
+
+.footer-links a { 
+    margin-bottom: 8px; 
+}
+
+.footer-bottom { 
+    text-align: center; 
+    padding: 10px 20px 0; 
+    border-top: 1px solid rgba(255, 255, 255, 0.1); 
+    margin-top: 10px; 
+    font-size: 0.85em; 
+    color: #7f8c8d; 
+    width: 100%; 
+}
+
 /* =========================================================================
-   MEDIA QUERIES FOR MOBILE BANNER AND FOOTER
+   MEDIA QUERIES
    ========================================================================= */
 
+@media (max-width: 1200px) {
+
+    .main-nav {
+        display: none;
+    }
+
+    .site-banner {
+        height: 90px;
+        padding: 0 0 0 10px; 
+    }
+    
+    .banner-inner {
+        gap: 10px;
+    }
+
+    .hamburger-icon {
+        display: block;
+        position: static; 
+        font-size: 2.2rem; 
+        cursor: pointer;
+        color: white;
+    }
+
+    .banner-logo {
+        height: 70px; 
+        padding: 0;
+    }
+
+    .banner-text {
+        margin-left: 5px; 
+        margin-right: 40px; 
+    }
+
+    .mobile-overlay {
+        top: 90px;
+        height: calc(100% - 90px);
+    }
+
+    .mobile-menu-container {
+        top: 90px;
+        height: calc(100% - 90px);
+    }
+}
+
 @media (max-width: 600px) {
+
     .site-banner {
         height: 80px;
         padding: 0 0 0 8px;
@@ -341,5 +444,59 @@ html, body {
         top: 80px;
         height: calc(100% - 80px);
         width: 90%;
+    }
+
+    .footer {
+        padding: 0;
+        margin-top: 20px;
+    }
+
+    .footer-container {
+        padding: 10px 0;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .footer-horizontal-group {
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 0 10px;
+        gap: 0;
+    }
+
+    .footer-contact,
+    .footer-links {
+        font-size: 0.75rem;
+        padding-top: 10px;
+    }
+
+    .footer-contact h3,
+    .footer-links h3 {
+        font-size: 0.9rem;
+        margin-bottom: 3px;
+    }
+
+    .footer-contact p {
+        margin-bottom: 8px;
+    }
+
+    .footer-links a {
+        margin-bottom: 3px;
+    }
+}
+
+/* ==================== Desktop Navigation Clickable Fix ==================== */
+@media (min-width: 1201px) {
+    .main-nav,
+    .main-nav ul,
+    .main-nav li,
+    .main-nav a,
+    .main-nav ul ul {
+        pointer-events: auto !important;
+        z-index: 9999 !important;
     }
 }
